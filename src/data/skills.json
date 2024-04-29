@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Python",
+    "imageSrc": "skills/python.png"
+  },
+  {
+    "title": "Excel",
+    "imageSrc": "skills/excel.png"
+  },
+  {
+    "title": "MS Power",
+    "imageSrc": "skills/ms.png"
+  },
+  {
+    "title": "R",
+    "imageSrc": "skills/r.png"
+  },
+  {
+    "title": "MySQL",
+    "imageSrc": "skills/sql.png"
+  },
+  {
+    "title": "Illustrator",
+    "imageSrc": "skills/adobe.png"
+  },
+  {
+    "title": "React",
+    "imageSrc": "skills/react.png"
+  },
+  {
+    "title": "HTML",
+    "imageSrc": "skills/html.png"
+  },
+  {
+    "title": "CSS",
+    "imageSrc": "skills/css.png"
+  }
+]

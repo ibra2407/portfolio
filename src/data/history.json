@@ -1,0 +1,18 @@
+[
+  {
+    "role": "Junior Software Developer",
+    "organisation": "HelloHolo",
+    "startDate": "Jan, 2023",
+    "endDate": "April, 2023",
+    "experiences": ["Worked on AR/MR applications in Unreal Engine & Mixamo rigs", "Researched Computer Vision applications using OpenCV"],
+    "imageSrc": "history/helloholo-100.png"
+  },
+  {
+    "role": "Database/Web Intern",
+    "organisation": "Sengkang General Hospital",
+    "startDate": "Sep, 2023",
+    "endDate": "Dec, 2023",
+    "experiences": ["Cleaned and re-formatted various datasets in Excel", "Deployed a React game website for a staff campaign", "Conducted various analysis on internal data"],
+    "imageSrc": "history/skh-100.png"
+  }
+]

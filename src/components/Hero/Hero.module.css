@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 49px;
+  margin-top: 50px;
   z-index: 1;
   margin-left: 10%;
   margin-right: 10%;
@@ -33,6 +33,7 @@
   font-size: 30px;
   font-family: var(--font-roboto);
   margin-bottom: 52px;
+  padding-right: 10%;
 }
 
 .contactBtn {
@@ -68,6 +69,7 @@
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
+  padding-left: 3rem;
 }
 
 @keyframes floating {

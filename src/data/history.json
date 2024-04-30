@@ -1,10 +1,18 @@
 [
   {
+    "role": "Student Project Coordinator",
+    "organisation": "Yeo's Pte Ltd",
+    "startDate": "Jan, 2023",
+    "endDate": "April, 2023",
+    "experiences": ["Optimised vending operations nationwide using ML methods (clustering, scheduling)", "Visualised results using PowerBI and Excel, featuring accurate geographic data (ArcGIS)", "Enabled better use of 100+ large vehicles and saved on various company costs"],
+    "imageSrc": "history/yeos.png"
+  },
+  {
     "role": "Junior Software Developer",
     "organisation": "HelloHolo",
     "startDate": "Jan, 2023",
     "endDate": "April, 2023",
-    "experiences": ["Worked on AR/MR applications in Unreal Engine & Mixamo rigs", "Researched Computer Vision applications using OpenCV"],
+    "experiences": ["Worked on AR/MR applications in Unreal Engine & Mixamo rigs for an MNC's international virtual fair", "Researched Computer Vision applications using OpenCV for client companies"],
     "imageSrc": "history/helloholo-100.png"
   },
   {
@@ -12,7 +20,7 @@
     "organisation": "Sengkang General Hospital",
     "startDate": "Sep, 2023",
     "endDate": "Dec, 2023",
-    "experiences": ["Cleaned and re-formatted various datasets in Excel", "Deployed a React game website for a staff campaign", "Conducted various analysis on internal data"],
+    "experiences": ["Cleaned and re-formatted various datasets in Excel, streamlining operations", "Deployed a React game website for a staff campaign of over 4000 staff", "Conducted various analysis on internal data, enabling data-driven decisions"],
     "imageSrc": "history/skh-100.png"
   }
 ]

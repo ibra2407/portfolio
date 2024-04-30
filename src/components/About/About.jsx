@@ -17,16 +17,16 @@ export const About = () => {
         />
         <ul className={styles.aboutItems}>
           <li className={styles.aboutItem}>
-            <img src={getImageUrl("about/cursorIcon.png")} alt="Cursor icon" />
+            <img src={getImageUrl("about/data.png")} alt="Cursor icon" />
             <div className={styles.aboutItemText}>
               <h3>Data Analyst</h3>
               <p>
-                I'm a data analyst with experience performing detailed statistical analysis coupled with creating informative dashboards and reports. Naturally, I am comfortable working with large datasets.
+                I'm a data analyst with experience performing detailed statistical analysis coupled with creating informative dashboards and reports, and am comfortable working with large datasets.
               </p>
             </div>
           </li>
           <li className={styles.aboutItem}>
-            <img src={getImageUrl("about/serverIcon.png")} alt="Server icon" />
+            <img src={getImageUrl("about/code.png")} alt="Server icon" />
             <div className={styles.aboutItemText}>
               <h3>Web/App/Software Developer</h3>
               <p>
@@ -35,11 +35,11 @@ export const About = () => {
             </div>
           </li>
           <li className={styles.aboutItem}>
-            <img src={getImageUrl("about/cursorIcon.png")} alt="UI icon" />
+            <img src={getImageUrl("about/ai.png")} alt="UI icon" />
             <div className={styles.aboutItemText}>
               <h3>AI/ML Engineer</h3>
               <p>
-                I have experience creating Machine Learning and AI models and using them to solve industry problems.
+                I have experience creating Machine Learning and AI models and using them to solve real industry problems.
               </p>
             </div>
           </li>

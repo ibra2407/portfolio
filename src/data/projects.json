@@ -10,7 +10,7 @@
   {
     "title": "Bacteria Simulation",
     "imageSrc": "projects/bacteria.png",
-    "description": "In our core module \"Simulation & Modelling Analysis\", this simulation (made with PyGame and Matplotlib) aimed to identify invasive species based on its genetic traits. Selected for the yearly SUTD ESD industry showcase.",
+    "description": "In the core module \"Simulation & Modelling Analysis\", this simulation (made with PyGame and Matplotlib) aimed to identify invasive species based on its genetic traits. Selected for the yearly SUTD ESD industry showcase.",
     "skills": ["Python", "PyGame", "MatPlotLib", "OOP"],
 
     "source": "https://www.github.com/ibra2407/bacteria"
@@ -18,7 +18,7 @@
   {
     "title": "Maze Solver",
     "imageSrc": "projects/maze.png",
-    "description": "In our core module \"Statistical & Machine Learning\", this genetic algorithm demo demonstrates how genetic algorithms can solve mazes. Designed to teach a younger audience as an introduction to machine learning methods.",
+    "description": "In the core module \"Statistical & Machine Learning\", this genetic algorithm demo demonstrates how genetic algorithms can solve mazes. Designed to teach a younger audience as an introduction to machine learning methods.",
     "skills": ["Python", "PyAmaze", "Algorithms"],
 
     "source": "https://www.github.com/ibra2407/mazesolver"
@@ -32,9 +32,17 @@
     "source": "https://www.github.com/ibra2407/mazesolver"
   },
   {
+    "title": "Data Analysis on Hunger",
+    "imageSrc": "projects/analytics.png",
+    "description": "In the core module \"Data Driven World\", the team collected and analysed various datasets regarding hunger statistics in African countries. Using both ML and Humanities concepts, our analysis tackles both economical and cultural trends.",
+    "skills": ["ML", "Excel", "HTML"],
+    "demo": "https://jwiggs.github.io/GHPages/",
+    "source": "https://github.com/JWIGGS/GHPages"
+  },
+  {
     "title": "Sushi Restaurant Game",
     "imageSrc": "projects/sushi.png",
-    "description": "In our core module \"Manufacturing & Service Operations\", this game aimed to help restaurant managers manage customer queues. Graded based on how well it replicated real queueing behaviour, UI design and cleanliness of code.",
+    "description": "In the core module \"Manufacturing & Service Operations\", this game aimed to help restaurant managers manage customer queues. Graded based on how well it replicated real queueing behaviour, UI design and cleanliness of code.",
     "skills": ["R", "Javascript", "RShiny", "Illustrator"],
 
     "source": "https://www.github.com/ibra2407/sushi"

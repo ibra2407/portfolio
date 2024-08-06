@@ -90,7 +90,7 @@
 .historyItemDetails p {
   font-size: 16px;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(255, 255, 255);
 }
 
 .historyItemDetails ul {

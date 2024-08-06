@@ -6,3 +6,8 @@ Made in React, responsive to mobile devices as well.
 Deployment instructions:
 
 https://www.youtube.com/watch?v=4G6O0BIoq6M&t=83s&ab_channel=CodeCommerce
+
+in terminal, run:
+npm i gh-pages --save-dev
+npm run predeploy
+npm run deploy

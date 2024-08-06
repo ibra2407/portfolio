@@ -19,10 +19,10 @@ export const Hero = () => {
         </p>
         <div className={styles.buttonContainer}>
           <a href="mailto:mehloldex@gmail.com" className={styles.contactBtn}>
-            Contact Me
+            Email
           </a>
           <a href="https://docs.google.com/document/d/1t9ZvH4xpYiK55fCqSmDwELYqckL5Gn1m/edit?usp=sharing&ouid=100531114666453739687&rtpof=true&sd=true" className={styles.contactBtn}>
-            My Resume
+            Resume
           </a>
         </div>
       </div>

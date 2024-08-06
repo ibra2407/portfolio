@@ -1,11 +1,31 @@
 [
   {
+    "title": "AWS",
+    "imageSrc": "skills/aws.png"
+  },
+  {
     "title": "Python",
     "imageSrc": "skills/python.png"
   },
   {
     "title": "Excel",
     "imageSrc": "skills/excel.png"
+  },
+  {
+    "title": "React",
+    "imageSrc": "skills/react.png"
+  },
+  {
+    "title": "ExpressJS",
+    "imageSrc": "skills/express.png"
+  },
+  {
+    "title": "NodeJS",
+    "imageSrc": "skills/node.png"
+  },
+  {
+    "title": "Docker",
+    "imageSrc": "skills/docker.png"
   },
   {
     "title": "MS Power",
@@ -24,15 +44,7 @@
     "imageSrc": "skills/adobe.png"
   },
   {
-    "title": "React",
-    "imageSrc": "skills/react.png"
-  },
-  {
-    "title": "HTML",
-    "imageSrc": "skills/html.png"
-  },
-  {
-    "title": "CSS",
-    "imageSrc": "skills/css.png"
+    "title": "Figma",
+    "imageSrc": "skills/figma.png"
   }
 ]

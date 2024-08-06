@@ -4,8 +4,8 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  background: linear-gradient(180deg, #576cbc 0%, #132a53 100%);
-  box-shadow: 0 16px 14px 0 #04152d;
+  background: linear-gradient(180deg, #84a98c 0%, #355244 100%);
+  box-shadow: 0 16px 14px 0 #9a9a9a;
   padding: 18px 24px;
   max-width: 345px;
 }
@@ -28,11 +28,11 @@
 
 .skills {
   width: 100%;
-  margin-top: 14px;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 4px;
   list-style: none;
 }
 
@@ -53,7 +53,7 @@
 
 .link {
   text-decoration: none;
-  color: var(--color-text);
+  color: #fff;
   font-size: 30px;
   font-weight: 600;
   border-radius: 100px;

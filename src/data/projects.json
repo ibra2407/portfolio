@@ -8,22 +8,6 @@
     "source": "https://www.canva.com/design/DAGD35MUmcM/m6sKM0o2a9w8T5jNuybeag/edit?utm_content=DAGD35MUmcM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
   },
   {
-    "title": "Bacteria Simulation",
-    "imageSrc": "projects/bacteria.png",
-    "description": "In the core module \"Simulation & Modelling Analysis\", this simulation (made with PyGame and Matplotlib) aimed to identify invasive species based on its genetic traits. Selected for the yearly SUTD ESD industry showcase.",
-    "skills": ["Python", "PyGame", "MatPlotLib", "OOP"],
-
-    "source": "https://www.github.com/ibra2407/bacteria"
-  },
-  {
-    "title": "Maze Solver",
-    "imageSrc": "projects/maze.png",
-    "description": "In the core module \"Statistical & Machine Learning\", this genetic algorithm demo demonstrates how genetic algorithms can solve mazes. Designed to teach a younger audience as an introduction to machine learning methods.",
-    "skills": ["Python", "PyAmaze", "Algorithms"],
-
-    "source": "https://www.github.com/ibra2407/mazesolver"
-  },
-  {
     "title": "React Game Site",
     "imageSrc": "projects/skhgame.png",
     "description": "For SKH Pte Ltd, this website was used in a staff giving campaign. Worked closely with the donation team to design a quick, simple game that would spur staff-giving to those in need. Successfully deployed on internal network.",
@@ -32,9 +16,33 @@
     "source": "https://www.github.com/ibra2407/claw"
   },
   {
+    "title": "RAG LLM App",
+    "imageSrc": "projects/ollama.png",
+    "description": "This simple project aimed to create a private, fully local RAG agent that can read PDFs and allow users to ask questions about their own PDFs in natural language using the open-source Ollama platform.",
+    "skills": ["Python", "LLMs", "Database"],
+
+    "source": "https://www.github.com/ibra2407/rag-llm-ui"
+  },
+  {
+    "title": "Bacteria Simulation",
+    "imageSrc": "projects/bacteria.png",
+    "description": "This simulation (made with PyGame and Matplotlib) aimed to identify invasive species based on its genetic traits. The challenge is to code the simulation using Agent Based Modeling. Selected for the yearly SUTD ESD industry showcase.",
+    "skills": ["Python", "PyGame", "MatPlotLib", "OOP"],
+
+    "source": "https://www.github.com/ibra2407/bacteria"
+  },
+  {
+    "title": "Maze Solver",
+    "imageSrc": "projects/maze.png",
+    "description": "This genetic algorithm demo demonstrates how genetic algorithms can solve mazes. Designed to teach a younger audience as an introduction to machine learning methods.",
+    "skills": ["Python", "PyAmaze", "Algorithms"],
+
+    "source": "https://www.github.com/ibra2407/mazesolver"
+  },
+  {
     "title": "Data Analysis on Hunger",
     "imageSrc": "projects/analytics.png",
-    "description": "In the core module \"Data Driven World\", the team collected and analysed various datasets regarding hunger statistics in African countries. Using both ML and Humanities concepts, our analysis tackles both economical and cultural trends.",
+    "description": "Collected and analysed various datasets regarding hunger statistics in African countries. Using both ML and Humanities concepts, the analysis tackles both economical and cultural trends.",
     "skills": ["ML", "Excel", "HTML"],
     "demo": "https://jwiggs.github.io/GHPages/",
     "source": "https://github.com/JWIGGS/GHPages"
@@ -42,7 +50,7 @@
   {
     "title": "Sushi Restaurant Game",
     "imageSrc": "projects/sushi.png",
-    "description": "In the core module \"Manufacturing & Service Operations\", this game aimed to help restaurant managers manage customer queues. Graded based on how well it replicated real queueing behaviour, UI design and cleanliness of code.",
+    "description": "This game aims to help restaurant managers manage customer queues. Intended to replicate real queueing behaviour. Clean UI design and consistent code structure.",
     "skills": ["R", "Javascript", "RShiny", "Illustrator"],
 
     "source": "https://www.github.com/ibra2407/sushi"

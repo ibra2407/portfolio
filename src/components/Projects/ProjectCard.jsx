@@ -15,25 +15,26 @@ export const ProjectCard = ({
       />
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.description}>{description}</p>
-      <ul className={styles.skills}>
-        {skills.map((skill, id) => {
-          return (
+      <div className={styles.footer}>
+        <ul className={styles.skills}>
+          {skills.map((skill, id) => (
             <li key={id} className={styles.skill}>
               {skill}
             </li>
-          );
-        })}
-      </ul>
-      <div className={styles.links}>
-        {demo && (
-          <a href={demo} className={styles.link}>
-            Demo
+          ))}
+        </ul>
+        <div className={styles.links}>
+          {demo && (
+            <a href={demo} className={styles.link}>
+              Demo
+            </a>
+          )}
+          <a href={source} className={styles.link}>
+            Source
           </a>
-        )}
-        <a href={source} className={styles.link}>
-          Source
-        </a>
+        </div>
       </div>
     </div>
   );
 };
+

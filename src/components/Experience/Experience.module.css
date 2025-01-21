@@ -13,51 +13,11 @@
   font-weight: 700;
   letter-spacing: 1.75px;
   text-transform: uppercase;
-}
-
-.content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-top: 14px;
-}
-
-.skills {
-  width: 45%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 37px;
-}
-
-.skill {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.skillImageContainer {
-  background-color: var(--color-secondary);
-  border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 120px;
-  height: 120px;
-}
-
-.skillImageContainer img {
-  width: 75px;
-}
-
-.skill p {
-  font-size: 25px;
-  font-family: var(--font-roboto);
-  font-weight: 500;
+  text-align: center;
+  margin-bottom: 40px; /* Space below the title */
 }
 
 .history {
-  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -102,20 +62,16 @@
 }
 
 @media screen and (max-width: 830px) {
-  .content {
-    flex-direction: column;
-    align-items: center;
-    gap: 34px;
-  }
-
-  .skills {
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-  }
-
   .history {
-    width: 100%;
-    gap: 9px;
+    gap: 20px;
+  }
+
+  .historyItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .historyItem img {
+    margin-bottom: 10px;
   }
 }

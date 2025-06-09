@@ -125,13 +125,13 @@ export default function About() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
         {/* About Me */}
-        <div className="text-center">
-          <h1 className="text-5xl sm:text-4xl lg:text-6xl font-bold mb-4">
+        {/* <div className="text-center">
+          <h1 className="text-3xl sm:text-2xl lg:text-6xl font-bold mb-4">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500">
               About Me
             </span>
           </h1>
-        </div>
+        </div> */}
 
         {/* Key Competencies */}
         <motion.div variants={container} initial="hidden" animate="visible" id="competencies">
@@ -143,7 +143,7 @@ export default function About() {
             >
               <Sparkles className="w-6 h-6" />
             </motion.div>
-            <h2 className="text-3xl font-bold text-purple-600">Key Competencies</h2>
+            <h2 className="text-3xl font-bold text-purple-600">My Key Competencies</h2>
           </div>
           <p className="text-center text-gray-700 max-w-4xl mx-auto mb-8">
             I’m a data analyst with experience in web development and AI/ML applications. I'm fascinated by the power of data and technology to solve real-world problems.
@@ -189,7 +189,7 @@ export default function About() {
             >
               <TrendingUp className="w-6 h-6" />
             </motion.div>
-            <h2 className="text-3xl font-bold text-orange-500">Education & Specializations</h2>
+            <h2 className="text-3xl font-bold text-orange-500">My Education & Specializations</h2>
           </div>
           <p className="text-center text-gray-700 max-w-4xl mx-auto mb-8">
             I graduated with <strong>Honours with Distinction</strong> from the <strong>Engineering Systems & Design</strong> (B.Eng.) pillar from the <strong>Singapore University of Technology and Design</strong> (SUTD), from Sep 2021 to May 2025.
@@ -235,10 +235,10 @@ export default function About() {
             >
               <Award className="w-6 h-6" />
             </motion.div>
-            <h2 className="text-3xl font-bold text-yellow-500">Achievements</h2>
+            <h2 className="text-3xl font-bold text-yellow-500">My Achievements</h2>
           </div>
           <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8">
-            A few highlights from my experiences that I had the privilege of participating in.
+            A few highlights from experiences that I had the privilege of participating in.
           </p>
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {achievements.map((a, i) => {

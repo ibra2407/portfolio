@@ -1,0 +1,121 @@
+[
+  {
+    "title": "Vending Machines x ML",
+    "startDate": "Jan 2023",
+    "endDate": "Apr 2023",
+    "summary": "Optimized nationwide vending machine operations for Yeo’s Pte Ltd with clustering and route-scheduling ML.",
+    "bullets": [
+      "Built clustering & scheduling algorithms to minimize delivery distance and idle time",
+      "Developed a PowerBI + ArcGIS dashboard for real-time KPI tracking"
+    ],
+    "details": [
+      "Collaborated with Yeo’s operations team to integrate live vending-sales data.",
+      "Achieved a 20% reduction in fuel costs and 15% faster delivery times."
+    ],
+    "images": ["yeos.png"],
+    "demo": "",
+    "source": "https://www.canva.com/design/DAGD35MUmcM/m6sKM0o2a9w8T5jNuybeag"
+  },
+  {
+    "title": "React Game Site",
+    "startDate": "Sep 2023",
+    "endDate": "Dec 2023",
+    "summary": "Launched a React mini-game for Sengkang General Hospital’s staff-giving campaign (4,000+ users).",
+    "bullets": [
+      "Designed & deployed a browser game to boost staff engagement in internal network",
+      "Streamlined campaign tracking by integrating backend APIs with React"
+    ],
+    "details": [
+      "Coordinated UAT with communications & IT leads to meet tight campaign deadlines.",
+      "Drove a 30% increase in donation participation during the campaign period."
+    ],
+    "images": ["skhgame.png"],
+    "demo": "https://skhgh2024.vercel.app/?id=123",
+    "source": "https://github.com/ibra2407/claw"
+  },
+  {
+    "title": "RAG LLM App",
+    "startDate": "May 2024",
+    "endDate": "Aug 2024",
+    "summary": "Built a local RAG agent on Ollama to query PDFs in natural language, fully offline.",
+    "bullets": [
+      "Implemented vector store and retrieval pipeline in Python",
+      "Integrated front-end with custom PDF uploader and query interface"
+    ],
+    "details": [
+      "Designed for privacy: no data leaves the user’s machine.",
+      "Supported multi-page documents and semantic search across sections."
+    ],
+    "images": [],
+    "demo": "",
+    "source": "https://github.com/ibra2407/rag-llm-ui"
+  },
+  {
+    "title": "Bacteria Simulation",
+    "startDate": "Jan 2025",
+    "endDate": "",
+    "summary": "Agent-based PyGame/Matplotlib sim to study invasive species with genetic traits.",
+    "bullets": [
+      "Modeled bacterial behavior using rule-based agents and graphical output",
+      "Visualized population dynamics over varying simulation parameters"
+    ],
+    "details": [
+      "Selected for the 2024 SUTD ESD Industry Showcase.",
+      "Enabled users to tweak genetic mutation rates and observe long-term effects."
+    ],
+    "images": [],
+    "demo": "",
+    "source": "https://github.com/ibra2407/bacteria"
+  },
+  {
+    "title": "Maze Solver",
+    "startDate": "Jan 2025",
+    "endDate": "",
+    "summary": "Genetic-algorithm demo solving mazes, aimed as an educational ML introduction.",
+    "bullets": [
+      "Evolved populations of candidate solutions to navigate grid mazes",
+      "Visualized fitness improvements across generations"
+    ],
+    "details": [
+      "Designed simplified interface for younger audiences to learn evolutionary methods.",
+      "Supported custom maze uploads and fitness function tuning."
+    ],
+    "images": [],
+    "demo": "",
+    "source": "https://github.com/ibra2407/mazesolver"
+  },
+  {
+    "title": "Data Analysis on Hunger",
+    "startDate": "2024",
+    "endDate": "",
+    "summary": "Investigated African hunger trends by combining ML and humanities data approaches.",
+    "bullets": [
+      "Cleaned multi-source datasets and engineered features for economic factors",
+      "Built interactive dashboards in Excel & HTML for cultural insights"
+    ],
+    "details": [
+      "Presented findings at a student-led research symposium.",
+      "Highlighted correlations between GDP, education, and food insecurity."
+    ],
+    "images": [],
+    "demo": "https://jwiggs.github.io/GHPages/",
+    "source": "https://github.com/JWIGGS/GHPages"
+  },
+  {
+    "title": "Sushi Restaurant Game",
+    "startDate": "2024",
+    "endDate": "",
+    "summary": "RShiny queue-management game simulating customer flow in sushi restaurants.",
+    "bullets": [
+      "Modeled real-world arrival rates and service times",
+      "Implemented dynamic UI updates in RShiny"
+    ],
+    "details": [
+      "Designed to help managers improve throughput without additional staff.",
+      "Won praise for intuitive controls and clear visual feedback."
+    ],
+    "images": [],
+    "demo": "",
+    "source": "https://github.com/ibra2407/sushi"
+  }
+]

@@ -1,6 +1,7 @@
 // src/components/About.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import Tilt from "react-parallax-tilt";
 import { Sparkles, Database, Code, Brain } from "lucide-react";
 
 export default function About() {
@@ -8,20 +9,20 @@ export default function About() {
     {
       icon: Database,
       title: "Data Analysis",
-      desc: "Turning raw data into actionable insights",
+      desc: "Turning raw data into actionable insights.",
       gradient: "bg-gradient-to-r from-cyan-500 to-blue-500"
     },
     {
       icon: Code,
       title: "Web Dev",
-      desc: "Building scalable, user-first applications",
-      gradient: "bg-gradient-to-r from-purple-600 to-pink-500"
+      desc: "Building scalable, user-first applications.",
+      gradient: "bg-gradient-to-r from-purple-500 to-pink-500"
     },
     {
       icon: Brain,
       title: "AI/ML",
-      desc: "Leveraging ML for smart solutions",
-      gradient: "bg-gradient-to-r from-emerald-500 to-teal-400"
+      desc: "Leveraging AI/ML for smart solutions.",
+      gradient: "bg-gradient-to-r from-emerald-400 to-teal-600"
     }
   ];
 
@@ -45,13 +46,23 @@ export default function About() {
           className="text-center mb-12"
         >
           <motion.div variants={item} className="inline-flex items-center gap-2 mb-4 justify-center">
-            <Sparkles className="w-6 h-6 text-purple-600" />
+            {/* Rotating Sparkles */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              className="w-6 h-6 text-purple-600"
+            >
+              <Sparkles className="w-full h-full" />
+            </motion.div>
+
             <h2 className="text-3xl font-bold text-purple-600">About Me</h2>
           </motion.div>
+
           <motion.p variants={item} className="max-w-2xl mx-auto text-gray-700">
-            I’m a data analyst turned developer with a passion for AI/ML. I turn
-            complex datasets into insights and build sleek, user-first interfaces
-            that scale across devices.
+            I’m a data analyst with experience in web development and AI/ML applications. I'm fascinated by the power of data and technology to solve real-world problems.
+            <br />
+            <br />
+            My key competencies are:
           </motion.p>
         </motion.div>
 
@@ -65,17 +76,24 @@ export default function About() {
           {skills.map((s, i) => {
             const Icon = s.icon;
             return (
-              <motion.div
+              <Tilt
                 key={i}
-                variants={item}
-                className="p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1"
+                tiltMaxAngleX={15}
+                tiltMaxAngleY={15}
+                glareEnable={false}
+                className="rounded-2xl"
               >
-                <div className={`w-12 h-12 mb-4 rounded-lg flex items-center justify-center text-white ${s.gradient}`}>
-                  <Icon className="w-6 h-6" />
-                </div>
-                <h3 className="font-semibold mb-2">{s.title}</h3>
-                <p className="text-gray-600 text-sm">{s.desc}</p>
-              </motion.div>
+                <motion.div
+                  variants={item}
+                  className="p-6 bg-white border rounded-2xl shadow-purple-600/25 shadow-md hover:shadow-lg hover:shadow-purple-600/30 transition-transform transform hover:-translate-y-1"
+                >
+                  <div className={`w-12 h-12 mb-4 rounded-lg flex items-center justify-center text-white ${s.gradient}`}>
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-semibold mb-2">{s.title}</h3>
+                  <p className="text-gray-600 text-sm">{s.desc}</p>
+                </motion.div>
+              </Tilt>
             );
           })}
         </motion.div>

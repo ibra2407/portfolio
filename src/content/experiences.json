@@ -1,0 +1,130 @@
+[
+  {
+    "role": "Hackathon Finalist",
+    "organisation": "NUS Maritime Hackathon",
+    "startDate": "Jan 2025",
+    "endDate": "",
+    "summary": "Secured 3rd place by applying ML to real-world maritime challenges.",
+    "bullets": [
+      "Tested multiple ML models on maritime datasets for anomaly detection",
+      "Presented insights and prototypes to a panel of industry judges"
+    ],
+    "details": [
+      "Achieved 2nd runner up among 30+ teams.",
+      "Collaborated with domain experts to refine solutions."
+    ],
+    "images": []
+  },
+  {
+    "role": "Capstone Developer",
+    "organisation": "Tan Tock Seng Hospital",
+    "startDate": "Sep 2024",
+    "endDate": "Dec 2024",
+    "summary": "Created an AI coaching simulator that won 2nd place at the Design Awards.",
+    "bullets": [
+      "Built AWS-backed AI microservices for real-time communication feedback",
+      "Optimized inference latency to under 200ms"
+    ],
+    "details": [
+      "Designed frontend in React; backend on AWS Lambdas.",
+      "Integrated real-time speech analysis and feedback loops."
+    ],
+    "images": []
+  },
+  {
+    "role": "Software Developer",
+    "organisation": "Land Transport Authority",
+    "startDate": "May 2024",
+    "endDate": "Aug 2024",
+    "summary": "Rolled out a React portal to 6,000+ users and automated CI/CD on AWS.",
+    "bullets": [
+      "Deployed a React app enterprise-wide as part of digitalization efforts",
+      "Built AWS CodePipeline/CodeDeploy, cutting deploy time by 70%"
+    ],
+    "details": [
+      "Authored CloudFormation scripts for infrastructure as code.",
+      "Worked with InfoSec to meet internal compliance requirements."
+    ],
+    "images": []
+  },
+  {
+    "role": "Data Analyst & Web Dev",
+    "organisation": "Sengkang General Hospital",
+    "startDate": "Sep 2023",
+    "endDate": "Dec 2023",
+    "summary": "Streamlined donor workflows and launched a React staff-engagement game.",
+    "bullets": [
+      "Revamped Excel/Python/R pipelines, halving report prep time",
+      "Designed & deployed React game for 4,000+ staff, boosting participation"
+    ],
+    "details": [
+      "Coordinated UAT with IT & Communications teams.",
+      "Automated weekly email summaries for stakeholders."
+    ],
+    "images": []
+  },
+  {
+    "role": "Junior Software Developer",
+    "organisation": "HelloHolo",
+    "startDate": "Jan 2023",
+    "endDate": "Apr 2023",
+    "summary": "Developed MR demos in UE5 and enhanced CV pipelines for enterprise clients.",
+    "bullets": [
+      "Built Metaverse-style web apps in Unreal Engine 5 for an MNC",
+      "Researched & optimized OpenCV workflows, improving accuracy by 15%"
+    ],
+    "details": [
+      "Integrated Azure Spatial Anchors for persistent MR experiences.",
+      "Ensured 60 FPS performance on HoloLens 2."
+    ],
+    "images": []
+  },
+  {
+    "role": "Data Analyst",
+    "organisation": "Yeo’s Pte Ltd",
+    "startDate": "Jan 2023",
+    "endDate": "Apr 2023",
+    "summary": "Optimized vending routes nationwide, saving 20% on logistics costs.",
+    "bullets": [
+      "Applied clustering & scheduling ML algorithms to route networks",
+      "Built interactive PowerBI+ArcGIS dashboards for executives"
+    ],
+    "details": [
+      "Ran weekly stakeholder workshops to refine models.",
+      "Reduced fleet idle time by 15% through data-driven scheduling."
+    ],
+    "images": []
+  },
+  {
+    "role": "Tutor (Python)",
+    "organisation": "Self-Employed",
+    "startDate": "Jan 2023",
+    "endDate": "",
+    "summary": "Delivered hands-on Python tutoring that boosted student grades by 25%.",
+    "bullets": [
+      "One-on-one sessions on data structures, pandas, and plotting",
+      "Created custom exercise sets to reinforce learning"
+    ],
+    "details": [
+      "Developed adaptive curriculum tailored to each student’s goals.",
+      "Integrated real-world mini-projects for practice."
+    ],
+    "images": []
+  },
+  {
+    "role": "Founder & Coach",
+    "organisation": "SUTD Fitness Club",
+    "startDate": "Nov 2022",
+    "endDate": "May 2025",
+    "summary": "Built and led a powerlifting community, boosting PRs by 30%.",
+    "bullets": [
+      "Designed Telegram bot for automated attendance (Cloudflare Workers)",
+      "Coached athletes to podium finishes at tertiary powerlifting meets"
+    ],
+    "details": [
+      "Organized technique & nutrition workshops.",
+      "Mentored 50+ members via custom performance dashboards."
+    ],
+    "images": []
+  }
+]

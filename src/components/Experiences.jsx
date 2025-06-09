@@ -44,12 +44,12 @@ export default function Experiences() {
           </motion.div>
           <motion.p
             variants={item}
-            className="mt-4 text-gray-700 max-w-2xl mx-auto"
+            className="mt-4 text-gray-700 max-w-4xl mx-auto"
           >
             A compilation of my key roles, from internships, industry projects and self-initiated ventures.
             <br />
             <br />
-            Click on any card to see more details.
+            Click on the cards to see more details.
           </motion.p>
         </motion.div>
 

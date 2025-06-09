@@ -143,7 +143,9 @@ export default function Hero() {
               <span className="font-semibold text-purple-600"> data analytics</span>,
               <span className="font-semibold text-pink-500"> artificial intelligence</span>, and
               <span className="font-semibold text-blue-600"> cloud technologies</span>.
-              (this site is an update of my previous portfolio. it’s still under construction! – 09.06.2025)
+              <br />
+              <br />
+              <strong>(this site is an update of my previous portfolio. it’s still under construction! – 10.06.2025)</strong>
             </motion.p>
 
             <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 mb-6 justify-center md:justify-start">

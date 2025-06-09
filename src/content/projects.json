@@ -117,5 +117,61 @@
     "images": [],
     "demo": "",
     "source": "https://github.com/ibra2407/sushi"
+  },
+    {
+    "title": "Fingerprint Inpainting",
+    "startDate": "Feb 2025",
+    "endDate": "Apr 2025",
+    "summary": "Developed a fingerprint inpainting model using U-Net-inpsired architecture.",
+    "bullets": [
+        "Trained on synthetic fingerprint datasets to restore missing ridge patterns",
+        "Implemented data augmentation techniques to improve model robustness"
+    ],
+    "details": [
+        "Focused on enhancing forensic analysis by accurately reconstructing partial prints.",
+        "Achieved state-of-the-art results on benchmark datasets."
+    ],
+    "images": [],
+    "demo": "",
+    "source": ""
+  },
+      {
+    "title": "EmpathIQ",
+    "startDate": "Sep 2024",
+    "endDate": "Apr 2025",
+    "summary": "Developed an empathetic AI communication coach to enhance medical students in patient interactions.",
+    "bullets": [
+        "Used Java, Kafka, and Spring Boot to build a real-time feedback system",
+        "Developed a simple avatar interface for immersive training sessions",
+        "Integrated NLP techniques to analyze and improve communication skills"
+
+    ],
+    "details": [
+        "Collaborated with TTSH to create a realistic training environment for medical students.",
+        "Won 2nd place at the SUTD Design Awards for innovation in medical education."
+
+    ],
+    "images": [],
+    "demo": "",
+    "source": "https://empathiq-sg.com/"
+  },
+        {
+    "title": "Digital App Gallery",
+    "startDate": "May 2024",
+    "endDate": "Aug 2024",
+    "summary": "Developed an app store for the Land Transport Authority to promote cross-department collaboration.",
+    "bullets": [
+        "Built a React portal to showcase internal apps and tools",
+        "Implemented CI/CD pipelines using AWS CodePipeline and CodeDeploy",
+        "Designed user-friendly interfaces and analytics for easy navigation and discovery"
+
+    ],
+    "details": [
+        "Deployed to over 6,000 users, enhancing internal digitalization efforts.",
+        "Automated deployment processes."
+    ],
+    "images": [],
+    "demo": "",
+    "source": ""
   }
 ]

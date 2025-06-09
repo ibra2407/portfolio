@@ -17,6 +17,19 @@ export default function Projects() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
+  // Sort by endDate desc (empty = use startDate), then startDate desc
+  const sorted = [...projects].sort((a, b) => {
+    const parse = str => {
+      // "May 2024" or "2024" both valid
+      return new Date(str);
+    };
+    const endA = a.endDate ? parse(a.endDate) : parse(a.startDate);
+    const endB = b.endDate ? parse(b.endDate) : parse(b.startDate);
+    if (endB - endA !== 0) return endB - endA;
+    // tie -> startDate desc
+    return parse(b.startDate) - parse(a.startDate);
+  });
+
   return (
     <section id="projects" className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,7 +59,7 @@ export default function Projects() {
             variants={item}
             className="mt-4 text-gray-700 max-w-4xl mx-auto"
           >
-            A showcase of my projects. Click any card for full details.
+            A showcase of projects I've worked on. Click on the cards to see more details.
           </motion.p>
         </motion.div>
 
@@ -57,68 +70,65 @@ export default function Projects() {
           animate="visible"
           className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
         >
-          {projects
-            .slice()
-            .sort((a, b) => new Date(b.startDate) - new Date(a.startDate))
-            .map((proj, idx) => (
-              <Tilt
-                key={idx}
-                tiltMaxAngleX={12}
-                tiltMaxAngleY={12}
-                glareEnable={false}
-                className="rounded-2xl"
+          {sorted.map((proj, idx) => (
+            <Tilt
+              key={idx}
+              tiltMaxAngleX={12}
+              tiltMaxAngleY={12}
+              glareEnable={false}
+              className="rounded-2xl"
+            >
+              <motion.div
+                variants={item}
+                onClick={() => setModalIdx(idx)}
+                className="
+                  relative p-6 bg-white border border-gray-200 rounded-2xl
+                  shadow-lg shadow-red-200/40
+                  transition-transform transform
+                  hover:-translate-y-1 hover:bg-red-50 hover:shadow-[0_20px_30px_rgba(239,68,68,0.3)]
+                  cursor-pointer
+                "
               >
+                {/* Pulsing “image” placeholder */}
                 <motion.div
-                  variants={item}
-                  onClick={() => setModalIdx(idx)}
-                  className="
-                    relative p-6 bg-white border border-gray-200 rounded-2xl
-                    shadow-lg shadow-red-200/40
-                    transition-transform transform
-                    hover:-translate-y-1 hover:bg-red-50 hover:shadow-[0_20px_30px_rgba(239,68,68,0.3)]
-                    cursor-pointer
-                  "
+                  className="h-40 bg-gray-100 rounded-lg mb-4 flex items-center justify-center text-gray-400"
+                  animate={{ opacity: [1.1, 0.6, 1.1] }}
+                  transition={{ duration: 2.5, repeat: Infinity }}
                 >
-                  {/* Pulsing “image” placeholder */}
-                  <motion.div
-                    className="h-40 bg-gray-100 rounded-lg mb-4 flex items-center justify-center text-gray-400"
-                    animate={{ opacity: [1.1, 0.6, 1.1] }}
-                    transition={{ duration: 2.5, repeat: Infinity }}
-                  >
-                    {proj.images.length > 0 ? (
-                      <img
-                        src={new URL(
-                          `../assets/projects/${proj.images[0]}`,
-                          import.meta.url
-                        ).href}
-                        alt={proj.title}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      "No Image"
-                    )}
-                  </motion.div>
-
-                  {/* Title & dates */}
-                  <h3 className="text-xl font-semibold text-red-600">
-                    {proj.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 italic mb-3">
-                    {proj.startDate}
-                    {proj.endDate ? ` – ${proj.endDate}` : ""}
-                  </p>
-
-                  {/* Two bullet highlights */}
-                  <ul className="list-disc list-outside pl-4 text-gray-700 space-y-1">
-                    {proj.bullets.slice(0, 2).map((b, i) => (
-                      <li key={i} className="text-sm">
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
+                  {proj.images.length > 0 ? (
+                    <img
+                      src={new URL(
+                        `../assets/projects/${proj.images[0]}`,
+                        import.meta.url
+                      ).href}
+                      alt={proj.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    "No Image"
+                  )}
                 </motion.div>
-              </Tilt>
-            ))}
+
+                {/* Title & dates */}
+                <h3 className="text-xl font-semibold text-red-600">
+                  {proj.title}
+                </h3>
+                <p className="text-sm text-gray-500 italic mb-3">
+                  {proj.startDate}
+                  {proj.endDate ? ` – ${proj.endDate}` : ""}
+                </p>
+
+                {/* Two bullet highlights */}
+                <ul className="list-disc list-outside pl-4 text-gray-700 space-y-1">
+                  {proj.bullets.slice(0, 2).map((b, i) => (
+                    <li key={i} className="text-sm">
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </Tilt>
+          ))}
         </motion.div>
       </div>
 
@@ -146,20 +156,18 @@ export default function Projects() {
 
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold text-red-600">
-                  {projects[modalIdx].title}
+                  {sorted[modalIdx].title}
                 </h3>
                 <p className="text-sm text-gray-400 italic">
-                  {projects[modalIdx].startDate}
-                  {projects[modalIdx].endDate
-                    ? ` – ${projects[modalIdx].endDate}`
+                  {sorted[modalIdx].startDate}
+                  {sorted[modalIdx].endDate
+                    ? ` – ${sorted[modalIdx].endDate}`
                     : ""}
                 </p>
-                <p className="text-gray-700">
-                  {projects[modalIdx].summary}
-                </p>
+                <p className="text-gray-700">{sorted[modalIdx].summary}</p>
 
                 <ul className="list-disc pl-5 text-gray-700 space-y-2">
-                  {projects[modalIdx].bullets.map((b, i) => (
+                  {sorted[modalIdx].bullets.map((b, i) => (
                     <li key={i} className="text-sm">
                       {b}
                     </li>
@@ -168,7 +176,7 @@ export default function Projects() {
 
                 {/* extended details */}
                 <div className="space-y-4">
-                  {projects[modalIdx].details.map((d, i) => (
+                  {sorted[modalIdx].details.map((d, i) => (
                     <p key={i} className="text-gray-700">
                       {d}
                     </p>
@@ -176,16 +184,16 @@ export default function Projects() {
                 </div>
 
                 {/* additional images */}
-                {projects[modalIdx].images.length > 1 && (
+                {sorted[modalIdx].images.length > 1 && (
                   <div className="flex flex-wrap gap-4">
-                    {projects[modalIdx].images.map((img, i) => (
+                    {sorted[modalIdx].images.map((img, i) => (
                       <img
                         key={i}
                         src={new URL(
                           `../assets/projects/${img}`,
                           import.meta.url
                         ).href}
-                        alt={`${projects[modalIdx].title}-${i}`}
+                        alt={`${sorted[modalIdx].title}-${i}`}
                         className="w-32 h-32 object-cover rounded-lg"
                       />
                     ))}
@@ -194,9 +202,9 @@ export default function Projects() {
 
                 {/* Links */}
                 <div className="flex flex-wrap gap-4 mt-6">
-                  {projects[modalIdx].demo && (
+                  {sorted[modalIdx].demo && (
                     <motion.a
-                      href={projects[modalIdx].demo}
+                      href={sorted[modalIdx].demo}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-6 py-2 bg-red-600 text-white rounded-full shadow"
@@ -206,9 +214,9 @@ export default function Projects() {
                       Live Demo
                     </motion.a>
                   )}
-                  {projects[modalIdx].source && (
+                  {sorted[modalIdx].source && (
                     <motion.a
-                      href={projects[modalIdx].source}
+                      href={sorted[modalIdx].source}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-6 py-2 bg-gray-600 text-white rounded-full shadow"

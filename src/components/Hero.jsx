@@ -1,3 +1,4 @@
+// src/components/Hero.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Tilt from "react-parallax-tilt";
@@ -10,7 +11,10 @@ import {
   Database,
   Cloud
 } from "lucide-react";
-import mePhoto from "../assets/hero/me.jpg";
+
+// Dynamically import all hero images from the hero folder
+const modules = import.meta.globEager("../assets/hero/*.{png,jpg,jpeg}");
+const photos = Object.values(modules).map((m) => m.default);
 
 export default function Hero() {
   const roles = [
@@ -20,35 +24,56 @@ export default function Hero() {
     "Problem Solver",
     "Tech Enthusiast"
   ];
-  const [current, setCurrent] = useState(0);
-
-  // Ref for the main photo container to get its size for dynamic orbit sizing
+  const [currentRole, setCurrentRole] = useState(0);
+  const [currentPhoto, setCurrentPhoto] = useState(0);
+  const resumeTimeout = useRef(null);
+  const autoInterval = useRef(null);
   const photoContainerRef = useRef(null);
-  const [orbitRadius, setOrbitRadius] = useState(128); // Default radius (half of initial w-64)
 
+  // cycle roles
   useEffect(() => {
-    const iv = setInterval(() => setCurrent(i => (i + 1) % roles.length), 2500);
+    const iv = setInterval(
+      () => setCurrentRole((i) => (i + 1) % roles.length),
+      2500
+    );
+    return () => clearInterval(iv);
+  }, [roles.length]);
 
-    // Function to update orbit radius based on the photo container's size
-    const updateOrbitRadius = () => {
+  // auto‐cycle photos every 3s
+  const startAuto = () => {
+    clearInterval(autoInterval.current);
+    autoInterval.current = setInterval(() => {
+      setCurrentPhoto((i) => (i + 1) % photos.length);
+    }, 3000);
+  };
+  useEffect(() => {
+    startAuto();
+    return () => {
+      clearInterval(autoInterval.current);
+      clearTimeout(resumeTimeout.current);
+    };
+  }, [photos.length]);
+
+  // on click, advance one and pause auto for 3s
+  const handlePhotoClick = () => {
+    setCurrentPhoto((i) => (i + 1) % photos.length);
+    clearInterval(autoInterval.current);
+    clearTimeout(resumeTimeout.current);
+    resumeTimeout.current = setTimeout(startAuto, 3000);
+  };
+
+  // update orbit radius on resize
+  useEffect(() => {
+    const updateRadius = () => {
       if (photoContainerRef.current) {
-        // We want the orbit to be just outside the image, so we take the width,
-        // divide by 2 for the radius, and add a little extra for padding.
-        const newRadius = photoContainerRef.current.offsetWidth / 2;
-        setOrbitRadius(newRadius);
+        const r = photoContainerRef.current.offsetWidth / 2;
+        photoContainerRef.current.style.setProperty("--orbit-r", `${r}px`);
       }
     };
-
-    // Update radius on mount and on window resize
-    updateOrbitRadius();
-    window.addEventListener("resize", updateOrbitRadius);
-
-    // Cleanup listeners on component unmount
-    return () => {
-      clearInterval(iv);
-      window.removeEventListener("resize", updateOrbitRadius);
-    };
-  }, [roles.length]);
+    updateRadius();
+    window.addEventListener("resize", updateRadius);
+    return () => window.removeEventListener("resize", updateRadius);
+  }, []);
 
   const container = {
     hidden: { opacity: 0 },
@@ -59,23 +84,10 @@ export default function Hero() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
   };
 
-  // Configuration for the three badges on a single orbit
   const orbitingIcons = [
-    {
-      icon: Code,
-      color: "from-purple-500 to-blue-500",
-      angle: 0 // Start at the top
-    },
-    {
-      icon: Database,
-      color: "from-green-500 to-blue-500",
-      angle: 120 // 120 degrees from the first
-    },
-    {
-      icon: Cloud,
-      color: "from-blue-500 to-cyan-500",
-      angle: 240 // 240 degrees from the first
-    }
+    { icon: Code,      color: "from-purple-500 to-blue-500",  angle: 0   },
+    { icon: Database,  color: "from-green-500 to-blue-500",   angle: 120 },
+    { icon: Cloud,     color: "from-blue-500 to-cyan-500",    angle: 240 }
   ];
 
   return (
@@ -96,25 +108,26 @@ export default function Hero() {
               </span>
               !
             </h1>
+
             <motion.div variants={item} className="inline-flex items-center gap-2 text-lg text-gray-700 mb-6">
               <Mail className="w-5 h-5 text-purple-600" />
               <span>I'm a&nbsp;</span>
               <div className="relative inline-block">
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.span
-                    key={current}
+                    key={currentRole}
                     initial={{ opacity: 0, rotateX: 90, y: -10 }}
                     animate={{ opacity: 1, rotateX: 0, y: 0 }}
                     exit={{ opacity: 0, rotateX: -90, y: 10 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                     className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500"
                   >
-                    {roles[current]}
+                    {roles[currentRole]}
                   </motion.span>
                 </AnimatePresence>
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.div
-                    key={current}
+                    key={currentRole}
                     initial={{ width: 0, opacity: 0 }}
                     animate={{ width: "100%", opacity: 1 }}
                     exit={{ width: 0, opacity: 0 }}
@@ -124,13 +137,15 @@ export default function Hero() {
                 </AnimatePresence>
               </div>
             </motion.div>
+
             <motion.p variants={item} className="text-gray-700 leading-relaxed mb-8 max-w-lg mx-auto md:mx-0">
               I want to make the world a better place through
               <span className="font-semibold text-purple-600"> data analytics</span>,
               <span className="font-semibold text-pink-500"> artificial intelligence</span>, and
               <span className="font-semibold text-blue-600"> cloud technologies</span>.
-              (this site is an update of my previous portfolio. its still under construction! -09.06.2025)
+              (this site is an update of my previous portfolio. it’s still under construction! – 09.06.2025)
             </motion.p>
+
             <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 mb-6 justify-center md:justify-start">
               <motion.a
                 href="mailto:mehloldex@gmail.com"
@@ -149,6 +164,7 @@ export default function Hero() {
                 <FileText className="w-4 h-4 mr-2" />Resume
               </motion.a>
             </motion.div>
+
             <motion.div variants={item} className="flex justify-center md:justify-start gap-4">
               <motion.a href="https://github.com/ibra2407/" className="p-2 bg-gray-100 rounded-full hover:scale-105 transition-transform" whileTap={{ scale: 0.9 }}>
                 <Github className="w-5 h-5 text-gray-800" />
@@ -170,32 +186,30 @@ export default function Hero() {
             <motion.div
               ref={photoContainerRef}
               variants={item}
-              className="relative w-64 h-64 sm:w-80 sm:h-80 flex justify-center items-center"
+              onClick={handlePhotoClick}
+              className="relative w-64 h-64 sm:w-80 sm:h-80 flex justify-center items-center cursor-pointer"
             >
-              {/* The Image - positioned behind the orbit */}
-              <img
-                src={mePhoto}
-                alt="Ibrahim"
-                className="relative z-10 w-full h-full object-cover rounded-full shadow-xl"
-              />
+              {/* cross‐fading photos */}
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentPhoto}
+                  src={photos[currentPhoto]}
+                  alt={`Ibrahim ${currentPhoto + 1}`}
+                  className="absolute inset-0 z-10 w-full h-full object-cover rounded-full shadow-xl"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "linear" }}
+                />
+              </AnimatePresence>
 
-              {/* Orbit container - this div will rotate */}
+              {/* Orbit path & badges */}
               <motion.div
-                className="absolute inset-0 z-20" // z-20 to be in front of the image (z-10)
+                className="absolute inset-0 z-20"
                 animate={{ rotate: 360 }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               >
-                {/* SVG for the colorful circular path */}
-                <svg
-                  width="100%"
-                  height="100%"
-                  viewBox="0 0 300 300" // Use a consistent viewBox for scaling
-                  className="absolute inset-0"
-                >
+                <svg width="100%" height="100%" viewBox="0 0 300 300" className="absolute inset-0">
                   <defs>
                     <linearGradient id="orbitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#a855f7" />
@@ -205,47 +219,36 @@ export default function Hero() {
                   <circle
                     cx="150"
                     cy="150"
-                    r="148" // Slightly smaller than viewBox to prevent clipping
+                    r="148"
                     fill="none"
                     stroke="url(#orbitGradient)"
                     strokeWidth="3"
-                    strokeDasharray="10 5" // Optional: make it dashed
+                    strokeDasharray="10 5"
                     opacity="0.9"
                   />
                 </svg>
 
-                {/* Map over the icons to place them */}
                 {orbitingIcons.map((cfg, i) => {
-                  const IconComponent = cfg.icon;
-                  // Calculate the position of each badge
-                  const x = 150 + 148 * Math.cos((cfg.angle * Math.PI) / 180);
-                  const y = 150 + 148 * Math.sin((cfg.angle * Math.PI) / 180);
-
+                  const IconComp = cfg.icon;
+                  const rad = (cfg.angle * Math.PI) / 180;
+                  const x = 150 + 148 * Math.cos(rad);
+                  const y = 150 + 148 * Math.sin(rad);
                   return (
-                    // This div holds the badge. It's positioned on the SVG canvas.
-                    // It will rotate with the parent, but we'll counter-rotate the inner content.
                     <motion.div
                       key={i}
                       className="absolute"
                       style={{
-                        // Position based on the SVG viewBox
                         left: `${(x / 300) * 100}%`,
                         top: `${(y / 300) * 100}%`,
-                        // Center the badge on its calculated position
                         transform: "translate(-50%, -50%)",
                       }}
                     >
-                      {/* This is the badge itself. We counter-rotate it so it stays upright. */}
                       <motion.div
                         className={`p-2 sm:p-3 bg-gradient-to-r ${cfg.color} rounded-full shadow-lg border border-white/20 backdrop-blur-sm`}
                         animate={{ rotate: -360 }}
-                        transition={{
-                          duration: 20,
-                          repeat: Infinity,
-                          ease: "linear",
-                        }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                       >
-                        <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                        <IconComp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                       </motion.div>
                     </motion.div>
                   );

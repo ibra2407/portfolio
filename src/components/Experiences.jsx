@@ -32,7 +32,7 @@ export default function Experiences() {
             className="inline-flex items-center justify-center gap-2 mb-4"
           >
             <motion.div
-              animate={{ y: [0, -5, 0] }}
+              animate={{ y: [2, -4, 2] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               className="text-blue-600"
             >
@@ -155,7 +155,7 @@ export default function Experiences() {
                   </div>
 
                   {/* Two impact bullet points */}
-                  <ul className="mt-4 list-disc list-inside text-gray-700 space-y-1">
+                  <ul className="mt-4 list-disc list-outside pl-4 text-gray-700 space-y-1">
                     {exp.bullets.slice(0, 2).map((b, i) => (
                       <li key={i} className="text-sm">
                         {b}

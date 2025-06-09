@@ -13,7 +13,7 @@
       "Achieved 2nd runner up among 30+ teams.",
       "Collaborated with domain experts to refine solutions."
     ],
-    "images": []
+    "images": ["hackathon.png"]
   },
   {
     "role": "Capstone Developer",
@@ -29,7 +29,7 @@
       "Designed frontend in React; backend on AWS Lambdas.",
       "Integrated real-time speech analysis and feedback loops."
     ],
-    "images": []
+    "images": ["ttsh.png"]
   },
   {
     "role": "Software Developer",
@@ -45,7 +45,7 @@
       "Authored CloudFormation scripts for infrastructure as code.",
       "Worked with InfoSec to meet internal compliance requirements."
     ],
-    "images": []
+    "images": ["lta.png"]
   },
   {
     "role": "Data Analyst & Web Dev",
@@ -61,7 +61,7 @@
       "Coordinated UAT with IT & Communications teams.",
       "Automated weekly email summaries for stakeholders."
     ],
-    "images": []
+    "images": ["skh.png"]
   },
   {
     "role": "Software Developer",
@@ -77,7 +77,7 @@
       "Integrated Azure Spatial Anchors for persistent MR experiences.",
       "Ensured 60 FPS performance on HoloLens 2."
     ],
-    "images": []
+    "images": ["helloholo.png"]
   },
   {
     "role": "Data Analyst",
@@ -93,7 +93,7 @@
       "Ran weekly stakeholder workshops to refine models.",
       "Reduced fleet idle time by 15% through data-driven scheduling."
     ],
-    "images": []
+    "images": ["yeos.png"]
   },
   {
     "role": "Tutor (Python)",
@@ -109,7 +109,7 @@
       "Developed adaptive curriculum tailored to each student’s goals.",
       "Integrated real-world mini-projects for practice."
     ],
-    "images": []
+    "images": ["tlc.png"]
   },
   {
     "role": "Founder & Coach",
@@ -125,6 +125,6 @@
       "Organized technique & nutrition workshops.",
       "Mentored 50+ members via custom performance dashboards."
     ],
-    "images": []
+    "images": ["sutdfitness.png"]
   }
 ]

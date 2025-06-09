@@ -32,8 +32,8 @@ export default function Projects() {
             className="inline-flex items-center justify-center gap-2 mb-4"
           >
             <motion.div
-              animate={{ rotate: [-10, 10, -10] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              animate={{ rotate: [-8, 8, -8] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
               className="text-red-600"
             >
               <Folder className="w-6 h-6" />
@@ -46,7 +46,7 @@ export default function Projects() {
             variants={item}
             className="mt-4 text-gray-700 max-w-4xl mx-auto"
           >
-            A showcase of select projects—click any card for full details.
+            A showcase of my projects. Click any card for full details.
           </motion.p>
         </motion.div>
 
@@ -82,8 +82,8 @@ export default function Projects() {
                   {/* Pulsing “image” placeholder */}
                   <motion.div
                     className="h-40 bg-gray-100 rounded-lg mb-4 flex items-center justify-center text-gray-400"
-                    animate={{ opacity: [1, 0.6, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
+                    animate={{ opacity: [1.1, 0.6, 1.1] }}
+                    transition={{ duration: 2.5, repeat: Infinity }}
                   >
                     {proj.images.length > 0 ? (
                       <img
@@ -109,7 +109,7 @@ export default function Projects() {
                   </p>
 
                   {/* Two bullet highlights */}
-                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                  <ul className="list-disc list-outside pl-4 text-gray-700 space-y-1">
                     {proj.bullets.slice(0, 2).map((b, i) => (
                       <li key={i} className="text-sm">
                         {b}

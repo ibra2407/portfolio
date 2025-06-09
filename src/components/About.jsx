@@ -183,13 +183,13 @@ export default function About() {
         <motion.div variants={container} initial="hidden" animate="visible" id="education">
           <div className="flex items-center justify-center mb-4">
             <motion.div
-              animate={{ y: [0, -5, 0] }}
+              animate={{ y: [2, -4, 2] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
               className="text-orange-500 mr-2"
             >
               <TrendingUp className="w-6 h-6" />
             </motion.div>
-            <h2 className="text-3xl font-bold text-orange-500">My Education & Specializations</h2>
+            <h2 className="text-3xl font-bold text-orange-500">Education & Specializations</h2>
           </div>
           <p className="text-center text-gray-700 max-w-4xl mx-auto mb-8">
             I graduated with <strong>Honours with Distinction</strong> from the <strong>Engineering Systems & Design</strong> (B.Eng.) pillar from the <strong>Singapore University of Technology and Design</strong> (SUTD), from Sep 2021 to May 2025.
@@ -229,15 +229,15 @@ export default function About() {
         <motion.div variants={container} initial="hidden" animate="visible" id="achievements">
           <div className="flex items-center justify-center mb-4">
             <motion.div
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              animate={{ scale: [0.95, 1.15, 0.95] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
               className="text-yellow-500 mr-2"
             >
               <Award className="w-6 h-6" />
             </motion.div>
-            <h2 className="text-3xl font-bold text-yellow-500">My Achievements</h2>
+            <h2 className="text-3xl font-bold text-yellow-500">Achievements</h2>
           </div>
-          <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8">
+          <p className="text-center text-gray-700 max-w-4xl mx-auto mb-8">
             A few highlights from experiences that I had the privilege of participating in.
           </p>
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">

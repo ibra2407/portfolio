@@ -9,7 +9,8 @@ import {
   Linkedin,
   Code,
   Database,
-  Cloud
+  Cloud,
+  Clock
 } from "lucide-react";
 
 // Dynamically import all hero images from the hero folder
@@ -29,29 +30,107 @@ export default function Hero() {
   const [currentPhoto, setCurrentPhoto] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState(new Set());
   const [firstImageLoaded, setFirstImageLoaded] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [estimatedTime, setEstimatedTime] = useState(null);
+  const [loadingStartTime, setLoadingStartTime] = useState(Date.now());
+  
   const resumeTimeout = useRef(null);
   const autoInterval = useRef(null);
   const photoContainerRef = useRef(null);
+  const loadingMetrics = useRef({
+    totalImages: photos.length,
+    loadedImages: 0,
+    startTime: Date.now(),
+    loadTimes: []
+  });
 
-  // Preload images
+  // Calculate estimated time remaining
+  const calculateEstimatedTime = (loadedCount, totalCount, startTime) => {
+    if (loadedCount === 0) return null;
+    
+    const elapsed = Date.now() - startTime;
+    const avgTimePerImage = elapsed / loadedCount;
+    const remaining = totalCount - loadedCount;
+    const estimatedMs = remaining * avgTimePerImage;
+    
+    return Math.ceil(estimatedMs / 1000); // Convert to seconds
+  };
+
+  // Format time display
+  const formatTime = (seconds) => {
+    if (seconds === null || seconds <= 0) return null;
+    if (seconds < 60) return `${seconds}s`;
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}m ${remainingSeconds}s`;
+  };
+
+  // Enhanced image preloading with progress tracking
   useEffect(() => {
     const preloadImages = async () => {
-      // Load first image immediately with high priority
-      const firstImg = new Image();
-      firstImg.src = photos[0];
-      firstImg.onload = () => {
-        setFirstImageLoaded(true);
-        setImagesLoaded(prev => new Set([...prev, 0]));
+      const startTime = Date.now();
+      setLoadingStartTime(startTime);
+      loadingMetrics.current.startTime = startTime;
+
+      // Load first image with high priority
+      const loadImage = (src, index, isFirst = false) => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          const imageStartTime = Date.now();
+          
+          img.onload = () => {
+            const loadTime = Date.now() - imageStartTime;
+            loadingMetrics.current.loadTimes.push(loadTime);
+            loadingMetrics.current.loadedImages++;
+            
+            const progress = (loadingMetrics.current.loadedImages / loadingMetrics.current.totalImages) * 100;
+            setLoadingProgress(progress);
+            
+            // Calculate estimated time
+            const estimated = calculateEstimatedTime(
+              loadingMetrics.current.loadedImages,
+              loadingMetrics.current.totalImages,
+              startTime
+            );
+            setEstimatedTime(estimated);
+            
+            if (isFirst) {
+              setFirstImageLoaded(true);
+            }
+            
+            setImagesLoaded(prev => new Set([...prev, index]));
+            resolve();
+          };
+          
+          img.onerror = () => {
+            loadingMetrics.current.loadedImages++;
+            const progress = (loadingMetrics.current.loadedImages / loadingMetrics.current.totalImages) * 100;
+            setLoadingProgress(progress);
+            resolve();
+          };
+          
+          img.src = src;
+        });
       };
 
-      // Preload remaining images in background
-      photos.slice(1).forEach((src, index) => {
-        const img = new Image();
-        img.src = src;
-        img.onload = () => {
-          setImagesLoaded(prev => new Set([...prev, index + 1]));
-        };
+      // Load first image immediately
+      await loadImage(photos[0], 0, true);
+      
+      // Load remaining images in parallel but with slight delays to prevent overwhelming
+      const loadPromises = photos.slice(1).map((src, index) => {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            loadImage(src, index + 1).then(resolve);
+          }, index * 100); // Stagger loads by 100ms
+        });
       });
+      
+      await Promise.all(loadPromises);
+      
+      // All images loaded
+      setTimeout(() => {
+        setEstimatedTime(0);
+      }, 500);
     };
 
     preloadImages();
@@ -229,12 +308,63 @@ export default function Hero() {
               onClick={handlePhotoClick}
               className="relative w-64 h-64 sm:w-80 sm:h-80 flex justify-center items-center cursor-pointer"
             >
-              {/* Loading placeholder */}
+              {/* Enhanced loading placeholder with progress and time estimation */}
               {!firstImageLoaded && (
                 <div className="absolute inset-0 z-5 w-full h-full bg-gradient-to-br from-purple-100 to-pink-100 rounded-full shadow-xl flex items-center justify-center">
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="w-8 h-8 border-4 border-purple-300 border-t-purple-600 rounded-full animate-spin"></div>
-                    <span className="text-sm text-gray-600 font-medium">Loading...</span>
+                  <div className="flex flex-col items-center gap-4 p-6">
+                    {/* Circular progress indicator */}
+                    <div className="relative w-16 h-16">
+                      <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 64 64">
+                        <circle
+                          cx="32"
+                          cy="32"
+                          r="28"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                          fill="none"
+                          className="text-purple-200"
+                        />
+                        <circle
+                          cx="32"
+                          cy="32"
+                          r="28"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                          fill="none"
+                          strokeDasharray={`${2 * Math.PI * 28}`}
+                          strokeDashoffset={`${2 * Math.PI * 28 * (1 - loadingProgress / 100)}`}
+                          className="text-purple-600 transition-all duration-300 ease-out"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-sm font-bold text-purple-600">
+                          {Math.round(loadingProgress)}%
+                        </span>
+                      </div>
+                    </div>
+                    
+                    {/* Loading text and time estimation */}
+                    <div className="text-center">
+                      <div className="text-sm text-gray-600 font-medium mb-1">
+                        Loading images...
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        {loadingMetrics.current.loadedImages} of {loadingMetrics.current.totalImages} loaded
+                      </div>
+                      
+                      {/* Time estimation */}
+                      {estimatedTime !== null && estimatedTime > 0 && (
+                        <motion.div 
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="flex items-center justify-center gap-1 mt-2 text-xs text-purple-600"
+                        >
+                          <Clock className="w-3 h-3" />
+                          <span>{formatTime(estimatedTime)} remaining</span>
+                        </motion.div>
+                      )}
+                    </div>
                   </div>
                 </div>
               )}
@@ -254,13 +384,16 @@ export default function Hero() {
                       src={photos[currentPhoto]}
                       alt={`Ibrahim ${currentPhoto + 1}`}
                       className="w-full h-full object-cover rounded-full shadow-xl"
-                      loading="eager" // Changed from lazy to eager for hero images
+                      loading="eager"
                     />
                     
                     {/* Loading indicator for images that haven't loaded yet */}
                     {!imagesLoaded.has(currentPhoto) && (
                       <div className="absolute inset-0 bg-gray-200 rounded-full flex items-center justify-center">
-                        <div className="w-6 h-6 border-2 border-gray-400 border-t-gray-600 rounded-full animate-spin"></div>
+                        <div className="flex flex-col items-center gap-2">
+                          <div className="w-6 h-6 border-2 border-gray-400 border-t-gray-600 rounded-full animate-spin"></div>
+                          <span className="text-xs text-gray-500">Loading...</span>
+                        </div>
                       </div>
                     )}
                   </motion.div>

@@ -97,6 +97,7 @@ export default function Experiences() {
                               `../assets/experiences/${exp.images[0]}`,
                               import.meta.url
                             ).href}
+                            loading="lazy"
                             alt={exp.role}
                             className="w-full h-full object-cover"
                           />
@@ -231,6 +232,7 @@ export default function Experiences() {
                           `../assets/experiences/${img}`,
                           import.meta.url
                         ).href}
+                        loading="lazy"
                         alt={`${experiences[modalIdx].role}-${i}`}
                         className="w-32 h-32 object-cover rounded-lg"
                       />

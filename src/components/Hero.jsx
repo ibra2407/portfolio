@@ -168,10 +168,18 @@ export default function Hero() {
             </motion.div>
 
             <motion.div variants={item} className="flex justify-center md:justify-start gap-4">
-              <motion.a href="https://github.com/ibra2407/" className="p-2 bg-gray-100 rounded-full hover:scale-105 transition-transform" whileTap={{ scale: 0.9 }}>
+              <motion.a
+                href="https://github.com/ibra2407/"
+                className="p-2 bg-gray-100 rounded-full hover:scale-105 transition-transform"
+                whileTap={{ scale: 0.9 }}
+              >
                 <Github className="w-5 h-5 text-gray-800" />
               </motion.a>
-              <motion.a href="https://www.linkedin.com/in/mdibrahim2407/" className="p-2 bg-gray-100 rounded-full hover:scale-105 transition-transform" whileTap={{ scale: 0.9 }}>
+              <motion.a
+                href="https://www.linkedin.com/in/mdibrahim2407/"
+                className="p-2 bg-gray-100 rounded-full hover:scale-105 transition-transform"
+                whileTap={{ scale: 0.9 }}
+              >
                 <Linkedin className="w-5 h-5 text-blue-700" />
               </motion.a>
             </motion.div>
@@ -191,12 +199,13 @@ export default function Hero() {
               onClick={handlePhotoClick}
               className="relative w-64 h-64 sm:w-80 sm:h-80 flex justify-center items-center cursor-pointer"
             >
-              {/* cross‐fading photos */}
+              {/* cross‐fading photos with lazy loading */}
               <AnimatePresence mode="wait">
                 <motion.img
                   key={currentPhoto}
                   src={photos[currentPhoto]}
                   alt={`Ibrahim ${currentPhoto + 1}`}
+                  loading="lazy"
                   className="absolute inset-0 z-10 w-full h-full object-cover rounded-full shadow-xl"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

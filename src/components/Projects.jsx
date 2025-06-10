@@ -101,6 +101,7 @@ export default function Projects() {
                         `../assets/projects/${proj.images[0]}`,
                         import.meta.url
                       ).href}
+                      loading="lazy"
                       alt={proj.title}
                       className="w-full h-full object-cover"
                     />
@@ -193,6 +194,7 @@ export default function Projects() {
                           `../assets/projects/${img}`,
                           import.meta.url
                         ).href}
+                        loading="lazy"
                         alt={`${sorted[modalIdx].title}-${i}`}
                         className="w-32 h-32 object-cover rounded-lg"
                       />

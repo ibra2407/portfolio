@@ -188,7 +188,7 @@ export default function Experiences() {
       <AnimatePresence>
         {modalIdx !== null && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 h-full w-full" // Added h-full w-full for certainty
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -196,7 +196,9 @@ export default function Experiences() {
           >
             <motion.div
               // Outer modal container. Handles overall size, rounding, and clips overflow.
-              className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] relative overflow-hidden flex flex-col"
+              // This is the main flex column parent.
+              // Added h-full here to ensure it uses the max-h-[90vh] limit effectively.
+              className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] relative overflow-hidden flex flex-col h-full"
               initial={{ scale: 0.3 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.3 }}
@@ -209,24 +211,36 @@ export default function Experiences() {
                 <X className="w-6 h-6" />
               </button>
 
-              {/* Modal Header - fixed position within the modal */}
-              <div className="p-8 pb-0">
-                <h3 className="text-2xl font-bold text-blue-600">
-                  {experiences[modalIdx].card.role} @{" "}
-                  {experiences[modalIdx].card.organisation}
-                </h3>
-                <p className="text-sm text-gray-400 italic mb-6">
-                  {experiences[modalIdx].card.startDate}
-                  {experiences[modalIdx].card.endDate
-                    ? ` – ${experiences[modalIdx].card.endDate}`
-                    : ""}
-                </p>
-              </div>
+              {/* Content Wrapper - This div provides uniform p-8 padding for all content inside the modal. */}
+              {/* It also acts as a flex column to stack the header and the scrollable body. */}
+              {/* flex-grow ensures it takes up the available height within the main modal container. */}
+              {/* Added h-full here for robust height propagation down the flex chain. */}
+              <div className="flex-grow p-8 flex flex-col h-full">
 
-              {/* Scrollable Body - takes remaining height, handles scrolling at the edge */}
-              <div className="flex-grow overflow-y-auto scrollbar-thin mr-2 mb-8">
-                <div className="px-8">
-                  {/* Dynamically render segments */}
+                {/* Modal Header - remains a fixed height area inside the padded wrapper */}
+                <div>
+                  <h3 className="text-2xl font-bold text-blue-600">
+                    {experiences[modalIdx].card.role} @{" "}
+                    {experiences[modalIdx].card.organisation}
+                  </h3>
+                  {/* mb-6 provides spacing between the header and the scrollable content below it */}
+                  <p className="text-sm text-gray-400 italic mb-6">
+                    {experiences[modalIdx].card.startDate}
+                    {experiences[modalIdx].card.endDate
+                      ? ` – ${experiences[modalIdx].card.endDate}`
+                      : ""}
+                  </p>
+                </div>
+
+                {/* Scrollable Body - This is the primary element that will scroll. */}
+                {/* flex-grow makes it take the remaining height within its flex parent (the content wrapper). */}
+                {/* min-h-0 is crucial for flex-grow items to allow shrinking and enable overflow scrolling. */}
+                {/* max-h-full explicitly ensures it's constrained within its parent's available height. */}
+                {/* overflow-y-scroll is used to force the scrollbar to always be visible (desktop and mobile). */}
+                {/* NEW: Added pr-4 to account for scrollbar width, preventing text from being covered. */}
+                <div className="flex-grow overflow-y-scroll scrollbar-thin min-h-0 max-h-full pr-4">
+                  {/* The content segments are placed directly inside here. */}
+                  {/* The overall p-8 from the parent 'Content Wrapper' provides the horizontal and vertical padding. */}
                   {experiences[modalIdx].modal.segments.map((segment, i) => (
                     <div key={i} className="mb-6">
                       {segment.text && (

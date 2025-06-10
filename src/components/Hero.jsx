@@ -10,7 +10,6 @@ import {
   Code,
   Database,
   Cloud,
-  // Clock is no longer needed since estimated time is removed
 } from "lucide-react";
 
 // Dynamically import all hero images from the hero folder
@@ -28,32 +27,35 @@ export default function Hero() {
   
   const [currentRole, setCurrentRole] = useState(0);
   const [currentPhoto, setCurrentPhoto] = useState(0);
-  // Removed imagesLoaded, loadingProgress, estimatedTime, loadingStartTime
+  // Reintroduced imagesLoaded to track individual photo loading status
+  const [imagesLoaded, setImagesLoaded] = useState(new Set());
   const [firstImageLoaded, setFirstImageLoaded] = useState(false);
   
   const resumeTimeout = useRef(null);
   const autoInterval = useRef(null);
   const photoContainerRef = useRef(null);
-  // Removed loadingMetrics ref as it's no longer used
-
-  // Removed calculateEstimatedTime and formatTime functions entirely
 
   // Simplified image preloading
   useEffect(() => {
     const preloadImages = async () => {
       // Helper function to load a single image
-      const loadImage = (src, isFirst = false) => {
+      const loadImage = (src, index, isFirst = false) => {
         return new Promise((resolve) => {
           const img = new Image();
           img.onload = () => {
+            // Add the index of the loaded image to the set
+            setImagesLoaded(prev => new Set(prev).add(index));
             if (isFirst) {
               setFirstImageLoaded(true); // Mark first image as loaded
             }
             resolve();
           };
           img.onerror = () => {
-            // Even if an image fails to load, resolve to not block the main flow
-            console.error(`Failed to load image: ${src}`);
+            // Even if an image fails to load, resolve and log error
+            console.error(`Failed to load image at index ${index}: ${src}`);
+            // Optionally, you might still want to mark it as "attempted to load"
+            // to prevent infinite loading state for broken images.
+            setImagesLoaded(prev => new Set(prev).add(index)); 
             resolve();
           };
           img.src = src;
@@ -62,13 +64,21 @@ export default function Hero() {
 
       // Load the first image and wait for it to load to show the content
       if (photos.length > 0) {
-        await loadImage(photos[0], true);
+        await loadImage(photos[0], 0, true); // Pass index 0 for the first image
       }
       
-      // Load the rest of the images in the background without waiting
+      // Load the rest of the images in parallel without waiting for them to block
       // This ensures subsequent photo changes are smooth after the first one is loaded
-      photos.slice(1).forEach((src) => {
-        loadImage(src);
+      const loadPromises = photos.slice(1).map((src, index) => {
+        // Adjust index for slice: original index will be index + 1
+        return loadImage(src, index + 1); 
+      });
+
+      // We don't need to await Promise.all here if we just want them to load in the background
+      // and rely on individual imageLoad events to update `imagesLoaded`.
+      // However, keeping it makes sure all promises are initiated.
+      Promise.all(loadPromises).then(() => {
+        console.log("All images load attempts initiated.");
       });
     };
 
@@ -247,7 +257,7 @@ export default function Hero() {
               onClick={handlePhotoClick}
               className="relative w-64 h-64 sm:w-80 sm:h-80 flex justify-center items-center cursor-pointer"
             >
-              {/* Simplified loading placeholder: Only display when firstImageLoaded is false */}
+              {/* This initial loading placeholder shows only if NO image has loaded yet */}
               {!firstImageLoaded && (
                 <div className="absolute inset-0 z-5 w-full h-full bg-gray-100 rounded-full shadow-xl flex items-center justify-center">
                   <div className="flex flex-col items-center gap-2 p-6">
@@ -259,9 +269,9 @@ export default function Hero() {
                 </div>
               )}
 
-              {/* Cross-fading photos: Only show when firstImageLoaded is true */}
+              {/* Cross-fading photos: Only show once the first image has loaded */}
               <AnimatePresence mode="wait">
-                {firstImageLoaded && (
+                {firstImageLoaded && ( // Ensure the main photo container is rendered only after first image loads
                   <motion.div
                     key={currentPhoto}
                     className="absolute inset-0 z-10 w-full h-full"
@@ -274,13 +284,19 @@ export default function Hero() {
                       src={photos[currentPhoto]}
                       alt={`Ibrahim ${currentPhoto + 1}`}
                       className="w-full h-full object-cover rounded-full shadow-xl"
-                      // Set loading to 'eager' for the first image to prioritize its load
-                      // and 'lazy' for subsequent ones if you have many and they are off-screen initially,
-                      // but 'eager' is fine here since they are preloaded.
-                      loading={currentPhoto === 0 ? "eager" : "lazy"} 
+                      // `loading="eager"` is fine as images are preloaded
+                      loading="eager" 
                     />
                     
-                    {/* Removed the per-photo loading indicator here */}
+                    {/* Per-photo loading indicator: Shows if the current photo is NOT yet loaded */}
+                    {!imagesLoaded.has(currentPhoto) && (
+                      <div className="absolute inset-0 bg-gray-200 rounded-full flex items-center justify-center">
+                        <div className="flex flex-col items-center gap-2">
+                          <div className="w-6 h-6 border-2 border-gray-400 border-t-gray-600 rounded-full animate-spin"></div>
+                          <span className="text-xs text-gray-500">Loading...</span>
+                        </div>
+                      </div>
+                    )}
                   </motion.div>
                 )}
               </AnimatePresence>

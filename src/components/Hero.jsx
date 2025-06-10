@@ -24,11 +24,38 @@ export default function Hero() {
     "Problem Solver",
     "Tech Enthusiast"
   ];
+  
   const [currentRole, setCurrentRole] = useState(0);
   const [currentPhoto, setCurrentPhoto] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(new Set());
+  const [firstImageLoaded, setFirstImageLoaded] = useState(false);
   const resumeTimeout = useRef(null);
   const autoInterval = useRef(null);
   const photoContainerRef = useRef(null);
+
+  // Preload images
+  useEffect(() => {
+    const preloadImages = async () => {
+      // Load first image immediately with high priority
+      const firstImg = new Image();
+      firstImg.src = photos[0];
+      firstImg.onload = () => {
+        setFirstImageLoaded(true);
+        setImagesLoaded(prev => new Set([...prev, 0]));
+      };
+
+      // Preload remaining images in background
+      photos.slice(1).forEach((src, index) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+          setImagesLoaded(prev => new Set([...prev, index + 1]));
+        };
+      });
+    };
+
+    preloadImages();
+  }, []);
 
   // cycle roles
   useEffect(() => {
@@ -39,20 +66,23 @@ export default function Hero() {
     return () => clearInterval(iv);
   }, [roles.length]);
 
-  // auto‐cycle photos every 3s
+  // auto‐cycle photos every 3s (only start after first image loads)
   const startAuto = () => {
     clearInterval(autoInterval.current);
     autoInterval.current = setInterval(() => {
       setCurrentPhoto((i) => (i + 1) % photos.length);
     }, 3000);
   };
+
   useEffect(() => {
-    startAuto();
+    if (firstImageLoaded) {
+      startAuto();
+    }
     return () => {
       clearInterval(autoInterval.current);
       clearTimeout(resumeTimeout.current);
     };
-  }, [photos.length]);
+  }, [firstImageLoaded, photos.length]);
 
   // on click, advance one and pause auto for 3s
   const handlePhotoClick = () => {
@@ -102,7 +132,7 @@ export default function Hero() {
           {/* ── TEXT ── */}
           <motion.div variants={item} className="w-full md:w-1/2 text-center md:text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
-              Hi, I’m{" "}
+              Hi, I'm{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500">
                 Ibrahim
               </span>
@@ -145,7 +175,7 @@ export default function Hero() {
               <span className="font-semibold text-blue-600"> cloud technologies</span>.
               <br />
               <br />
-              <strong>(this site is an update of my previous portfolio. it’s still under construction! – 10.06.2025)</strong>
+              <strong>(this site is an update of my previous portfolio. it's still under construction! – 10.06.2025)</strong>
             </motion.p>
 
             <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 mb-6 justify-center md:justify-start">
@@ -199,72 +229,97 @@ export default function Hero() {
               onClick={handlePhotoClick}
               className="relative w-64 h-64 sm:w-80 sm:h-80 flex justify-center items-center cursor-pointer"
             >
-              {/* cross‐fading photos with lazy loading */}
+              {/* Loading placeholder */}
+              {!firstImageLoaded && (
+                <div className="absolute inset-0 z-5 w-full h-full bg-gradient-to-br from-purple-100 to-pink-100 rounded-full shadow-xl flex items-center justify-center">
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="w-8 h-8 border-4 border-purple-300 border-t-purple-600 rounded-full animate-spin"></div>
+                    <span className="text-sm text-gray-600 font-medium">Loading...</span>
+                  </div>
+                </div>
+              )}
+
+              {/* Cross-fading photos */}
               <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentPhoto}
-                  src={photos[currentPhoto]}
-                  alt={`Ibrahim ${currentPhoto + 1}`}
-                  loading="lazy"
-                  className="absolute inset-0 z-10 w-full h-full object-cover rounded-full shadow-xl"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "linear" }}
-                />
+                {firstImageLoaded && (
+                  <motion.div
+                    key={currentPhoto}
+                    className="absolute inset-0 z-10 w-full h-full"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "linear" }}
+                  >
+                    <img
+                      src={photos[currentPhoto]}
+                      alt={`Ibrahim ${currentPhoto + 1}`}
+                      className="w-full h-full object-cover rounded-full shadow-xl"
+                      loading="eager" // Changed from lazy to eager for hero images
+                    />
+                    
+                    {/* Loading indicator for images that haven't loaded yet */}
+                    {!imagesLoaded.has(currentPhoto) && (
+                      <div className="absolute inset-0 bg-gray-200 rounded-full flex items-center justify-center">
+                        <div className="w-6 h-6 border-2 border-gray-400 border-t-gray-600 rounded-full animate-spin"></div>
+                      </div>
+                    )}
+                  </motion.div>
+                )}
               </AnimatePresence>
 
-              {/* Orbit path & badges */}
-              <motion.div
-                className="absolute inset-0 z-20"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              >
-                <svg width="100%" height="100%" viewBox="0 0 300 300" className="absolute inset-0">
-                  <defs>
-                    <linearGradient id="orbitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#a855f7" />
-                      <stop offset="100%" stopColor="#3b82f6" />
-                    </linearGradient>
-                  </defs>
-                  <circle
-                    cx="150"
-                    cy="150"
-                    r="148"
-                    fill="none"
-                    stroke="url(#orbitGradient)"
-                    strokeWidth="3"
-                    strokeDasharray="10 5"
-                    opacity="0.9"
-                  />
-                </svg>
+              {/* Orbit path & badges - only show after first image loads */}
+              {firstImageLoaded && (
+                <motion.div
+                  className="absolute inset-0 z-20"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                >
+                  <svg width="100%" height="100%" viewBox="0 0 300 300" className="absolute inset-0">
+                    <defs>
+                      <linearGradient id="orbitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#a855f7" />
+                        <stop offset="100%" stopColor="#3b82f6" />
+                      </linearGradient>
+                    </defs>
+                    <circle
+                      cx="150"
+                      cy="150"
+                      r="148"
+                      fill="none"
+                      stroke="url(#orbitGradient)"
+                      strokeWidth="3"
+                      strokeDasharray="10 5"
+                      opacity="0.9"
+                    />
+                  </svg>
 
-                {orbitingIcons.map((cfg, i) => {
-                  const IconComp = cfg.icon;
-                  const rad = (cfg.angle * Math.PI) / 180;
-                  const x = 150 + 148 * Math.cos(rad);
-                  const y = 150 + 148 * Math.sin(rad);
-                  return (
-                    <motion.div
-                      key={i}
-                      className="absolute"
-                      style={{
-                        left: `${(x / 300) * 100}%`,
-                        top: `${(y / 300) * 100}%`,
-                        transform: "translate(-50%, -50%)",
-                      }}
-                    >
+                  {orbitingIcons.map((cfg, i) => {
+                    const IconComp = cfg.icon;
+                    const rad = (cfg.angle * Math.PI) / 180;
+                    const x = 150 + 148 * Math.cos(rad);
+                    const y = 150 + 148 * Math.sin(rad);
+                    return (
                       <motion.div
-                        className={`p-2 sm:p-3 bg-gradient-to-r ${cfg.color} rounded-full shadow-lg border border-white/20 backdrop-blur-sm`}
-                        animate={{ rotate: -360 }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                        key={i}
+                        className="absolute"
+                        style={{
+                          left: `${(x / 300) * 100}%`,
+                          top: `${(y / 300) * 100}%`,
+                          transform: "translate(-50%, -50%)",
+                        }}
                       >
-                        <IconComp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                        <motion.div
+                          className={`p-2 sm:p-3 bg-gradient-to-r ${cfg.color} rounded-full shadow-lg border border-white/20 backdrop-blur-sm`}
+                          animate={{ rotate: -360 }}
+                          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                        >
+                          <IconComp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                        </motion.div>
                       </motion.div>
-                    </motion.div>
-                  );
-                })}
-              </motion.div>
+                    );
+                  })}
+                </motion.div>
+              )}
             </motion.div>
           </Tilt>
         </motion.div>

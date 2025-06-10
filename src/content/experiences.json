@@ -1,130 +1,233 @@
 [
   {
-    "role": "Hackathon Finalist",
-    "organisation": "NUS Maritime Hackathon",
-    "startDate": "Jan 2025",
-    "endDate": "",
-    "summary": "Secured 3rd place by applying ML to real-world maritime challenges.",
-    "bullets": [
-      "Tested multiple ML models on maritime datasets for anomaly detection",
-      "Presented insights and prototypes to a panel of industry judges"
-    ],
-    "details": [
-      "Achieved 2nd runner up among 30+ teams.",
-      "Collaborated with domain experts to refine solutions."
-    ],
-    "images": ["hackathon.png"]
+    "card": {
+      "role": "Software/AI Developer",
+      "organisation": "Tan Tock Seng Hospital",
+      "startDate": "Sep 2024",
+      "endDate": "Dec 2024",
+      "bullets": [
+        "Created an AI communications coach app for 6,000+ medical students",
+        "Awarded 2nd place at SUTD Design Awards, presented by President Tharman"
+      ],
+      "image": "ttsh.png",
+      "placeholder": null
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "During my time at Tan Tock Seng Hospital, I had the incredible opportunity to build an AI communications coaching simulator. This project was under the direct mentorship of Dr Minyang Chow, focusing on enhancing communication skills for over 6,000 medical students. It was a challenging yet rewarding experience, pushing the boundaries of what AI can do in medical education.",
+          "image": null
+        },
+        {
+          "text": "A core part of the application involved integrating real-time speech analysis microservices. I developed these services using AWS Lambda, ensuring high responsiveness and scalability. This allowed students to receive immediate feedback on their communication patterns, tone, and clarity, mimicking real-life patient interactions.",
+          "image": null
+        },
+        {
+          "text": "The project culminated in a presentation at the SUTD Design Awards, where it was honored with 2nd place. This recognition, presented by President Tharman, highlighted the innovative approach and the potential impact of the simulator on medical training. The low-latency feedback system was particularly lauded for its effectiveness.",
+          "image": null
+        },
+        {
+          "text": "Overall, this experience solidified my passion for developing practical AI solutions that address real-world problems, especially in the healthcare sector. It also showcased the importance of interdisciplinary collaboration in bringing complex projects to fruition."
+        },
+                {
+          "text": "During my time at Tan Tock Seng Hospital, I had the incredible opportunity to build an AI communications coaching simulator. This project was under the direct mentorship of Dr Minyang Chow, focusing on enhancing communication skills for over 6,000 medical students. It was a challenging yet rewarding experience, pushing the boundaries of what AI can do in medical education.",
+          "image": null
+        },
+        {
+          "text": "A core part of the application involved integrating real-time speech analysis microservices. I developed these services using AWS Lambda, ensuring high responsiveness and scalability. This allowed students to receive immediate feedback on their communication patterns, tone, and clarity, mimicking real-life patient interactions.",
+          "image": null
+        },
+        {
+          "text": "The project culminated in a presentation at the SUTD Design Awards, where it was honored with 2nd place. This recognition, presented by President Tharman, highlighted the innovative approach and the potential impact of the simulator on medical training. The low-latency feedback system was particularly lauded for its effectiveness.",
+          "image": null
+        },
+        {
+          "text": "Overall, this experience solidified my passion for developing practical AI solutions that address real-world problems, especially in the healthcare sector. It also showcased the importance of interdisciplinary collaboration in bringing complex projects to fruition."
+        }
+      ]
+    }
   },
   {
-    "role": "Capstone Developer",
-    "organisation": "Tan Tock Seng Hospital",
-    "startDate": "Sep 2024",
-    "endDate": "Dec 2024",
-    "summary": "Created an AI coaching simulator that won 2nd place at the Design Awards.",
-    "bullets": [
-      "Built AWS-backed AI microservices for real-time communication feedback",
-      "Optimized inference latency to under 200ms"
-    ],
-    "details": [
-      "Designed frontend in React; backend on AWS Lambdas.",
-      "Integrated real-time speech analysis and feedback loops."
-    ],
-    "images": ["ttsh.png"]
+    "card": {
+      "role": "Software Developer",
+      "organisation": "Land Transport Authority",
+      "startDate": "May 2024",
+      "endDate": "Aug 2024",
+      "bullets": [
+        "Rolled out a React portal used by 6,000+ staff",
+        "Built AWS CI/CD pipelines, cutting deployment time by 70%"
+      ],
+      "image": "lta.png",
+      "placeholder": null
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "At the Land Transport Authority (LTA), I was a key contributor to their digitalisation drive, specifically in deploying an enterprise-grade React application. This portal is now actively used by over 6,000 LTA staff, streamlining various internal processes and improving operational efficiency across the organization.",
+          "image": null
+        },
+        {
+          "text": "My primary responsibility included setting up robust CI/CD pipelines on AWS. I automated the build and hosting processes using AWS CodePipeline and CodeDeploy, which dramatically reduced our deployment time by approximately 70%. This acceleration allowed for faster iteration cycles and more frequent feature releases.",
+          "image": null
+        },
+        {
+          "text": "I was also tasked with authoring complex CloudFormation scripts to provision and manage our infrastructure as code. This ensured consistent and reproducible environments while adhering to LTA's stringent Information Security (InfoSec) requirements. The focus was on building secure, scalable, and maintainable solutions.",
+          "image": null
+        },
+        {
+          "text": "This internship provided invaluable experience in full-stack development within a large enterprise environment, emphasizing both technical execution and adherence to strict regulatory standards. It was a deep dive into modern DevOps practices and cloud infrastructure management."
+        }
+      ]
+    }
   },
   {
-    "role": "Software Developer",
-    "organisation": "Land Transport Authority",
-    "startDate": "May 2024",
-    "endDate": "Aug 2024",
-    "summary": "Rolled out a React portal to 6,000+ users and automated CI/CD on AWS.",
-    "bullets": [
-      "Deployed a React app enterprise-wide as part of digitalization efforts",
-      "Built AWS CodePipeline/CodeDeploy, cutting deploy time by 70%"
-    ],
-    "details": [
-      "Authored CloudFormation scripts for infrastructure as code.",
-      "Worked with InfoSec to meet internal compliance requirements."
-    ],
-    "images": ["lta.png"]
+    "card": {
+      "role": "Data Analyst & Web Dev",
+      "organisation": "Sengkang General Hospital",
+      "startDate": "Sep 2023",
+      "endDate": "Dec 2023",
+      "bullets": [
+        "Revamped data pipelines in Excel/Python/R, halving report prep time",
+        "Designed and deployed a React mini-game for 4,000+ staff"
+      ],
+      "image": "skh.png",
+      "placeholder": null
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "My role at Sengkang General Hospital involved significant data pipeline streamlining. I revamped existing donor data entry and reporting processes, transitioning them from manual Excel-based workflows to automated solutions using Python and R. This optimization successfully halved the report preparation time, freeing up valuable resources for other critical tasks.",
+          "image": null
+        },
+        {
+          "text": "Beyond data, I also designed and deployed a React mini-game aimed at boosting staff-giving participation. This interactive initiative reached over 4,000 staff members, creating an engaging way to encourage contributions to hospital causes.",
+          "image": null
+        },
+        {
+          "text": "Throughout the project, I coordinated closely with the IT and Communications teams to ensure smooth User Acceptance Testing (UAT) and deployment. I learned to navigate tight deadlines and integrate technical solutions with broader organizational goals, ensuring successful implementation and adoption.",
+          "image": null
+        }
+      ]
+    }
   },
   {
-    "role": "Data Analyst & Web Dev",
-    "organisation": "Sengkang General Hospital",
-    "startDate": "Sep 2023",
-    "endDate": "Dec 2023",
-    "summary": "Streamlined donor workflows and launched a React staff-engagement game.",
-    "bullets": [
-      "Revamped Excel/Python/R pipelines, halving report prep time",
-      "Designed & deployed React game for 4,000+ staff, boosting participation"
-    ],
-    "details": [
-      "Coordinated UAT with IT & Communications teams.",
-      "Automated weekly email summaries for stakeholders."
-    ],
-    "images": ["skh.png"]
+    "card": {
+      "role": "Junior Software Developer",
+      "organisation": "HelloHolo",
+      "startDate": "Jan 2023",
+      "endDate": "Apr 2023",
+      "bullets": [
+        "Built Metaverse-style demos in Unreal Engine 5 for an MNC",
+        "Optimized OpenCV pipelines, improving recognition accuracy by 15%"
+      ],
+      "image": "helloholo.png",
+      "placeholder": null
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "At HelloHolo, I actively collaborated on developing mixed reality (MR) web applications. My primary contribution involved building immersive Metaverse-style demos using Unreal Engine 5, integrating realistic character animations via Mixamo rigs. These demos were showcased to a major multinational corporation, demonstrating cutting-edge MR capabilities.",
+          "image": null
+        },
+        {
+          "text": "I also worked on optimizing computer vision applications, specifically enhancing OpenCV pipelines. Through meticulous fine-tuning and algorithm adjustments, I managed to improve facial recognition accuracy by 15%. This improvement directly contributed to more robust client solutions requiring precise visual processing.",
+          "image": null
+        },
+        {
+          "text": "This experience provided a deep dive into game engine development for enterprise applications and practical exposure to advanced computer vision techniques, both crucial for the evolving XR landscape.",
+          "image": null
+        }
+      ]
+    }
   },
   {
-    "role": "Software Developer",
-    "organisation": "HelloHolo",
-    "startDate": "Jan 2023",
-    "endDate": "Apr 2023",
-    "summary": "Developed MR demos in UE5 and enhanced CV pipelines for enterprise clients.",
-    "bullets": [
-      "Built Metaverse-style web apps in Unreal Engine 5 for an MNC",
-      "Researched & optimized OpenCV workflows, improving accuracy by 15%"
-    ],
-    "details": [
-      "Integrated Azure Spatial Anchors for persistent MR experiences.",
-      "Ensured 60 FPS performance on HoloLens 2."
-    ],
-    "images": ["helloholo.png"]
+    "card": {
+      "role": "Data Analyst",
+      "organisation": "Yeo’s Pte Ltd",
+      "startDate": "Jan 2023",
+      "endDate": "Apr 2023",
+      "bullets": [
+        "Applied ML clustering & scheduling to optimize nationwide routes",
+        "Built PowerBI+ArcGIS dashboards for live KPI tracking"
+      ],
+      "image": "yeos.png",
+      "placeholder": null
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "During my stint at Yeo’s Pte Ltd, I applied machine learning techniques, specifically clustering and scheduling algorithms, to optimize their nationwide vending machine routes. This initiative led to significant cost reductions, estimated at 20%, by making the delivery and replenishment processes more efficient and geographically intelligent.",
+          "image": null
+        },
+        {
+          "text": "I was also responsible for building interactive dashboards using PowerBI and ArcGIS. These dashboards provided live Key Performance Indicator (KPI) tracking, giving management real-time insights into sales, stock levels, and operational bottlenecks. This enabled proactive decision-making and better resource allocation.",
+          "image": null
+        },
+        {
+          "text": "A crucial part of my role involved close partnership with the operations team. I integrated real-time sales data into our analytical models and dashboards, ensuring that our optimizations were always based on the most current information. This collaborative approach was key to the successful implementation of the new strategies.",
+          "image": null
+        }
+      ]
+    }
   },
   {
-    "role": "Data Analyst",
-    "organisation": "Yeo’s Pte Ltd",
-    "startDate": "Jan 2023",
-    "endDate": "Apr 2023",
-    "summary": "Optimized vending routes nationwide, saving 20% on logistics costs.",
-    "bullets": [
-      "Applied clustering & scheduling ML algorithms to route networks",
-      "Built interactive PowerBI+ArcGIS dashboards for executives"
-    ],
-    "details": [
-      "Ran weekly stakeholder workshops to refine models.",
-      "Reduced fleet idle time by 15% through data-driven scheduling."
-    ],
-    "images": ["yeos.png"]
+    "card": {
+      "role": "Tutor (Python)",
+      "organisation": "Self-Employed",
+      "startDate": "Jan 2023",
+      "endDate": null,
+      "bullets": [
+        "Provided 1:1 Python coaching covering pandas, data structures",
+        "Created custom exercises to boost retention and interview readiness"
+      ],
+      "image": "tlc.png",
+      "placeholder": null
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "As a self-employed Python tutor, I provided personalized one-on-one coaching to students, covering fundamental to advanced Python concepts, including data structures, algorithms, and practical applications like data manipulation with pandas. My goal was to build a strong foundational understanding and foster problem-solving skills.",
+          "image": null
+        },
+        {
+          "text": "To enhance learning and retention, I developed custom exercises and coding challenges tailored to each student's needs. This hands-on approach proved highly effective, leading to an average improvement of 25% in students' grades and a significant boost in their confidence.",
+          "image": null
+        },
+        {
+          "text": "Beyond academic support, I actively supported over 20 students with coding interview preparation. This included mock interviews, whiteboard problem-solving, and guidance on how to articulate their thought process, helping them secure competitive internships and full-time roles.",
+          "image": null
+        }
+      ]
+    }
   },
   {
-    "role": "Tutor (Python)",
-    "organisation": "Self-Employed",
-    "startDate": "Jan 2023",
-    "endDate": "",
-    "summary": "Delivered hands-on Python tutoring that boosted student grades by 25%.",
-    "bullets": [
-      "One-on-one sessions on data structures, pandas, and plotting",
-      "Created custom exercise sets to reinforce learning"
-    ],
-    "details": [
-      "Developed adaptive curriculum tailored to each student’s goals.",
-      "Integrated real-world mini-projects for practice."
-    ],
-    "images": ["tlc.png"]
-  },
-  {
-    "role": "Founder & Coach",
-    "organisation": "SUTD Fitness Club",
-    "startDate": "Nov 2022",
-    "endDate": "May 2025",
-    "summary": "Built and led a powerlifting community, boosting PRs by 30%.",
-    "bullets": [
-      "Designed Telegram bot for automated attendance (Cloudflare Workers)",
-      "Coached athletes to podium finishes at tertiary powerlifting meets"
-    ],
-    "details": [
-      "Organized technique & nutrition workshops.",
-      "Mentored 50+ members via custom performance dashboards."
-    ],
-    "images": ["sutdfitness.png"]
+    "card": {
+      "role": "Founder & Coach",
+      "organisation": "SUTD Fitness Club",
+      "startDate": "Nov 2022",
+      "endDate": "May 2025",
+      "bullets": [
+        "Founded a powerlifting community, improving PRs by 30%",
+        "Built a Telegram bot for automated attendance (Cloudflare Workers)"
+      ],
+      "image": "sutdfitness.png",
+      "placeholder": null
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "I founded the SUTD Fitness Club, building a vibrant powerlifting community from the ground up. Through structured training programs and personalized coaching, I helped members significantly improve their personal records (PRs) by an average of 30%, fostering a culture of strength and continuous improvement.",
+          "image": null
+        },
+        {
+          "text": "To manage club operations efficiently, I developed a Telegram bot using Cloudflare Workers for automated attendance tracking and member management. This streamlined administrative tasks, allowing coaches to focus more on training and less on paperwork.",
+          "image": null
+        },
+        {
+          "text": "Beyond organizing the club, I personally mentored over 50 members in proper lifting technique, nutrition, and injury prevention. My coaching also led to several athletes achieving podium finishes at various tertiary powerlifting competitions, showcasing the effectiveness of our training methodologies.",
+          "image": null
+        }
+      ]
+    }
   }
 ]

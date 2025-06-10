@@ -162,7 +162,7 @@ export default function About() {
                   <motion.div
                     variants={item}
                     className={`
-                      p-6 bg-white border border-gray-200 rounded-2xl shadow-md
+                      p-6 bg-white border border-gray-200 rounded-2xl shadow-xl
                       transition-transform transform hover:-translate-y-1
                       ${c.shadow}
                     `}
@@ -208,7 +208,7 @@ export default function About() {
                   <motion.div
                     variants={item}
                     className={`
-                      p-6 bg-white border border-gray-200 rounded-2xl shadow-md
+                      p-6 bg-white border border-gray-200 rounded-2xl shadow-xl
                       transition-transform transform hover:-translate-y-1
                       ${e.shadow}
                     `}
@@ -254,7 +254,7 @@ export default function About() {
                   <motion.div
                     variants={item}
                     className={`
-                      p-6 bg-white border border-gray-200 rounded-2xl shadow-md
+                      p-6 bg-white border border-gray-200 rounded-2xl shadow-xl
                       transition-transform transform hover:-translate-y-1
                       ${a.shadow}
                     `}

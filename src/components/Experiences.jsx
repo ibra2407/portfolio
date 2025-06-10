@@ -1,5 +1,4 @@
-// src/components/Experiences.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 import { ClipboardList, X } from "lucide-react";
@@ -7,6 +6,19 @@ import experiences from "../content/experiences.json";
 
 export default function Experiences() {
   const [modalIdx, setModalIdx] = useState(null);
+
+  // Effect to prevent body scrolling when modal is open
+  useEffect(() => {
+    if (modalIdx !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    // Cleanup function
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [modalIdx]);
 
   const container = {
     hidden: { opacity: 0 },
@@ -46,7 +58,8 @@ export default function Experiences() {
             variants={item}
             className="mt-4 text-gray-700 max-w-4xl mx-auto"
           >
-            A compilation of roles I held throughout internships, industry projects and self-initiated ventures.
+            A compilation of roles I held throughout internships, industry
+            projects and self-initiated ventures.
             <br />
             <br />
             Click on the cards to see more details.
@@ -62,9 +75,7 @@ export default function Experiences() {
         >
           {experiences
             .slice()
-            .sort(
-              (a, b) => new Date(b.startDate) - new Date(a.startDate)
-            )
+            .sort((a, b) => new Date(b.card.startDate) - new Date(a.card.startDate)) // Sort by card start date
             .map((exp, idx) => (
               <Tilt
                 key={idx}
@@ -87,23 +98,27 @@ export default function Experiences() {
                   "
                 >
                   <div className="flex items-start">
-                    {/* placeholder + dashed border just outside */}
-                    <div className="relative flex-shrink-0" style={{ width: 64, height: 64 }}>
-                      {/* actual square */}
+                    {/* Image/Placeholder for card */}
+                    <div
+                      className="relative flex-shrink-0"
+                      style={{ width: 64, height: 64 }}
+                    >
                       <div className="w-full h-full bg-gray-100 rounded-xl overflow-hidden">
-                        {exp.images && exp.images.length > 0 ? (
+                        {exp.card.image ? (
                           <img
-                            src={new URL(
-                              `../assets/experiences/${exp.images[0]}`,
-                              import.meta.url
-                            ).href}
+                            src={
+                              new URL(
+                                `../assets/experiences/${exp.card.image}`,
+                                import.meta.url
+                              ).href
+                            }
                             loading="lazy"
-                            alt={exp.role}
+                            alt={exp.card.role}
                             className="w-full h-full object-cover"
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-blue-600 text-[10px]">
-                            {exp.placeholder || "No Image"}
+                            {exp.card.placeholder || "No Image"}
                           </div>
                         )}
                       </div>
@@ -135,7 +150,7 @@ export default function Experiences() {
                             duration: 2,
                             repeat: Infinity,
                             ease: "linear",
-                            repeatType: "loop"
+                            repeatType: "loop",
                           }}
                         />
                       </motion.svg>
@@ -143,21 +158,21 @@ export default function Experiences() {
 
                     <div className="ml-4 flex-1">
                       <h3 className="text-xl font-semibold text-blue-600">
-                        {exp.role}
+                        {exp.card.role}
                       </h3>
                       <p className="text-sm text-gray-500">
-                        {exp.organisation}
+                        {exp.card.organisation}
                       </p>
                       <p className="text-sm text-gray-400 italic mt-1">
-                        {exp.startDate}
-                        {exp.endDate ? ` – ${exp.endDate}` : ""}
+                        {exp.card.startDate}
+                        {exp.card.endDate ? ` – ${exp.card.endDate}` : ""}
                       </p>
                     </div>
                   </div>
 
-                  {/* Two impact bullet points */}
+                  {/* Two impact bullet points for card */}
                   <ul className="mt-4 list-disc list-outside pl-4 text-gray-700 space-y-1">
-                    {exp.bullets.slice(0, 2).map((b, i) => (
+                    {exp.card.bullets.slice(0, 2).map((b, i) => (
                       <li key={i} className="text-sm">
                         {b}
                       </li>
@@ -177,68 +192,64 @@ export default function Experiences() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={() => setModalIdx(null)}
           >
             <motion.div
-              className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-auto p-8 relative"
-              initial={{ scale: 0.8 }}
+              // Outer modal container. Handles overall size, rounding, and clips overflow.
+              className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] relative overflow-hidden flex flex-col"
+              initial={{ scale: 0.3 }}
               animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
+              exit={{ scale: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setModalIdx(null)}
-                className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 hover:scale-110 transition-transform z-10"
               >
                 <X className="w-6 h-6" />
               </button>
 
-              <div className="space-y-6">
+              {/* Modal Header - fixed position within the modal */}
+              <div className="p-8 pb-0">
                 <h3 className="text-2xl font-bold text-blue-600">
-                  {experiences[modalIdx].role} @{" "}
-                  {experiences[modalIdx].organisation}
+                  {experiences[modalIdx].card.role} @{" "}
+                  {experiences[modalIdx].card.organisation}
                 </h3>
-                <p className="text-sm text-gray-400 italic">
-                  {experiences[modalIdx].startDate}
-                  {experiences[modalIdx].endDate
-                    ? ` – ${experiences[modalIdx].endDate}`
+                <p className="text-sm text-gray-400 italic mb-6">
+                  {experiences[modalIdx].card.startDate}
+                  {experiences[modalIdx].card.endDate
+                    ? ` – ${experiences[modalIdx].card.endDate}`
                     : ""}
                 </p>
-                <p className="text-gray-700">
-                  {experiences[modalIdx].summary}
-                </p>
-                <ul className="list-disc pl-5 text-gray-700 space-y-2">
-                  {experiences[modalIdx].bullets.map((b, i) => (
-                    <li key={i} className="text-sm">
-                      {b}
-                    </li>
-                  ))}
-                </ul>
+              </div>
 
-                {/* extended details */}
-                <div className="space-y-4">
-                  {experiences[modalIdx].details?.map((d, i) => (
-                    <p key={i} className="text-gray-700">
-                      {d}
-                    </p>
+              {/* Scrollable Body - takes remaining height, handles scrolling at the edge */}
+              <div className="flex-grow overflow-y-auto scrollbar-thin mr-2 mb-8">
+                <div className="px-8">
+                  {/* Dynamically render segments */}
+                  {experiences[modalIdx].modal.segments.map((segment, i) => (
+                    <div key={i} className="mb-6">
+                      {segment.text && (
+                        <p className="text-gray-700 leading-relaxed mb-4">
+                          {segment.text}
+                        </p>
+                      )}
+                      {segment.image && (
+                        <img
+                          src={
+                            new URL(
+                              `../assets/experiences/${segment.image}`,
+                              import.meta.url
+                            ).href
+                          }
+                          loading="lazy"
+                          alt={`Image for ${experiences[modalIdx].card.role} segment ${i + 1}`}
+                          className="w-full h-auto object-cover rounded-lg shadow-md mt-2"
+                        />
+                      )}
+                    </div>
                   ))}
                 </div>
-
-                {/* extended images */}
-                {experiences[modalIdx].images?.length > 1 && (
-                  <div className="flex flex-wrap gap-4">
-                    {experiences[modalIdx].images.map((img, i) => (
-                      <img
-                        key={i}
-                        src={new URL(
-                          `../assets/experiences/${img}`,
-                          import.meta.url
-                        ).href}
-                        loading="lazy"
-                        alt={`${experiences[modalIdx].role}-${i}`}
-                        className="w-32 h-32 object-cover rounded-lg"
-                      />
-                    ))}
-                  </div>
-                )}
               </div>
             </motion.div>
           </motion.div>

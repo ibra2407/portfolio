@@ -1,177 +1,354 @@
 [
   {
-    "title": "Vending Machines x ML",
-    "startDate": "Jan 2023",
-    "endDate": "Apr 2023",
-    "summary": "Optimized nationwide vending machine operations for Yeo’s Pte Ltd with clustering and route-scheduling ML.",
-    "bullets": [
-      "Built clustering & scheduling algorithms to minimize delivery distance and idle time",
-      "Developed a PowerBI + ArcGIS dashboard for real-time KPI tracking"
-    ],
-    "details": [
-      "Collaborated with Yeo’s operations team to integrate live vending-sales data.",
-      "Achieved a 20% reduction in fuel costs and 15% faster delivery times."
-    ],
-    "images": ["yeos.png"],
-    "demo": "",
-    "source": "https://www.canva.com/design/DAGD35MUmcM/m6sKM0o2a9w8T5jNuybeag"
+    "card": {
+      "title": "Vending Machines x ML",
+      "startDate": "Jan 2023",
+      "endDate": "Apr 2023",
+      "image": "yeos.png",
+      "placeholder": "YEO'S",
+      "bullets": [
+        "Built clustering & scheduling algorithms to minimize delivery distance and idle time",
+        "Developed a PowerBI + ArcGIS dashboard for real-time KPI tracking"
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "This project addressed the challenge of optimizing logistics for Yeo's vending machine network in Singapore. The core problem was minimizing delivery distances and idle time while ensuring machines were always stocked based on demand. Our team developed a comprehensive solution to streamline their replenishment operations, aiming for significant reductions in fuel consumption and driver hours.",
+          "image": null
+        },
+                {
+          "text": "This project addressed the challenge of optimizing logistics for Yeo's vending machine network in Singapore. The core problem was minimizing delivery distances and idle time while ensuring machines were always stocked based on demand. Our team developed a comprehensive solution to streamline their replenishment operations, aiming for significant reductions in fuel consumption and driver hours.",
+          "image": null
+        },
+                {
+          "text": "This project addressed the challenge of optimizing logistics for Yeo's vending machine network in Singapore. The core problem was minimizing delivery distances and idle time while ensuring machines were always stocked based on demand. Our team developed a comprehensive solution to streamline their replenishment operations, aiming for significant reductions in fuel consumption and driver hours.",
+          "image": null
+        },
+                {
+          "text": "This project addressed the challenge of optimizing logistics for Yeo's vending machine network in Singapore. The core problem was minimizing delivery distances and idle time while ensuring machines were always stocked based on demand. Our team developed a comprehensive solution to streamline their replenishment operations, aiming for significant reductions in fuel consumption and driver hours.",
+          "image": null
+        },
+                {
+          "text": "This project addressed the challenge of optimizing logistics for Yeo's vending machine network in Singapore. The core problem was minimizing delivery distances and idle time while ensuring machines were always stocked based on demand. Our team developed a comprehensive solution to streamline their replenishment operations, aiming for significant reductions in fuel consumption and driver hours.",
+          "image": null
+        },
+                {
+          "text": "This project addressed the challenge of optimizing logistics for Yeo's vending machine network in Singapore. The core problem was minimizing delivery distances and idle time while ensuring machines were always stocked based on demand. Our team developed a comprehensive solution to streamline their replenishment operations, aiming for significant reductions in fuel consumption and driver hours.",
+          "image": null
+        },
+                {
+          "text": "This project addressed the challenge of optimizing logistics for Yeo's vending machine network in Singapore. The core problem was minimizing delivery distances and idle time while ensuring machines were always stocked based on demand. Our team developed a comprehensive solution to streamline their replenishment operations, aiming for significant reductions in fuel consumption and driver hours.",
+          "image": null
+        },
+                {
+          "text": "This project addressed the challenge of optimizing logistics for Yeo's vending machine network in Singapore. The core problem was minimizing delivery distances and idle time while ensuring machines were always stocked based on demand. Our team developed a comprehensive solution to streamline their replenishment operations, aiming for significant reductions in fuel consumption and driver hours.",
+          "image": null
+        },
+                {
+          "text": "This project addressed the challenge of optimizing logistics for Yeo's vending machine network in Singapore. The core problem was minimizing delivery distances and idle time while ensuring machines were always stocked based on demand. Our team developed a comprehensive solution to streamline their replenishment operations, aiming for significant reductions in fuel consumption and driver hours.",
+          "image": null
+        },
+        {
+          "text": null,
+          "image": "yeos.png"
+        },
+        {
+          "text": "Our approach involved leveraging real-time sales data and geographical information. We designed intelligent routing and scheduling algorithms that dynamically adapted to various factors such as traffic conditions, current stock levels, and historical machine performance. To provide actionable insights, we integrated a real-time tracking dashboard, empowering the operations team with a clear overview of key performance indicators and fleet movements.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "",
+            "source": "https://www.canva.com/design/DAGD35MUmcM/m6sKM0o2a9w8T5jNuybeag"
+          }
+        }
+      ]
+    }
   },
   {
-    "title": "React Game Site",
-    "startDate": "Sep 2023",
-    "endDate": "Dec 2023",
-    "summary": "Launched a React mini-game for Sengkang General Hospital’s staff-giving campaign (4,000+ users).",
-    "bullets": [
-      "Designed & deployed a browser game to boost staff engagement in internal network",
-      "Streamlined campaign tracking by integrating backend APIs with React"
-    ],
-    "details": [
-      "Coordinated UAT with communications & IT leads to meet tight campaign deadlines.",
-      "Drove a 30% increase in donation participation during the campaign period."
-    ],
-    "images": ["skhgame.png"],
-    "demo": "https://skhgh2024.vercel.app/?id=123",
-    "source": "https://github.com/ibra2407/claw"
+    "card": {
+      "title": "React Game Site",
+      "startDate": "Sep 2023",
+      "endDate": "Dec 2023",
+      "image": "skhgame.png",
+      "placeholder": "SKH",
+      "bullets": [
+        "Designed & deployed a browser game to boost staff engagement in internal network",
+        "Streamlined campaign tracking by integrating backend APIs with React"
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "In collaboration with a major Singaporean hospital (SKH), this project focused on enhancing internal staff engagement. The goal was to create an interactive and enjoyable experience that would encourage participation in various hospital campaigns and initiatives. A critical success factor was ensuring a smooth deployment within strict campaign timelines, requiring close coordination with the hospital's communications and IT departments for user acceptance testing.",
+          "image": null
+        },
+        {
+          "text": null,
+          "image": "skhgame.png"
+        },
+        {
+          "text": "The solution manifested as a responsive browser-based game built with React.js, designed for seamless accessibility across different devices. The game was integrated with existing backend systems, enabling robust user authentication, in-game progress tracking, and efficient data management for campaign-specific metrics. This initiative proved highly effective, contributing to a significant increase in staff participation in donation campaigns, demonstrating the power of gamification in organizational engagement.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "https://skhgh2024.vercel.app/?id=123",
+            "source": "https://github.com/ibra2407/claw"
+          }
+        }
+      ]
+    }
   },
   {
-    "title": "RAG LLM App",
-    "startDate": "May 2024",
-    "endDate": "Aug 2024",
-    "summary": "Built a local RAG agent on Ollama to query PDFs in natural language, fully offline.",
-    "bullets": [
-      "Implemented vector store and retrieval pipeline in Python",
-      "Integrated front-end with custom PDF uploader and query interface"
-    ],
-    "details": [
-      "Designed for privacy: no data leaves the user’s machine.",
-      "Supported multi-page documents and semantic search across sections."
-    ],
-    "images": [],
-    "demo": "",
-    "source": "https://github.com/ibra2407/rag-llm-ui"
+    "card": {
+      "title": "RAG LLM App",
+      "startDate": "May 2024",
+      "endDate": "Aug 2024",
+      "image": "",
+      "placeholder": "RAG",
+      "bullets": [
+        "Implemented vector store and retrieval pipeline in Python",
+        "Integrated front-end with custom PDF uploader and query interface"
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "This Retrieval-Augmented Generation (RAG) LLM application was developed with a paramount focus on data privacy and security. It enables users to interact with their documents using large language models while guaranteeing that all data processing occurs locally on their machine, without any information leaving the user's environment. This client-side processing architecture was a core design principle to address inherent privacy concerns associated with cloud-based LLM services.",
+          "image": null
+        },
+        {
+          "text": "The backend system included a robust vector store for efficient indexing and semantic search of document content. A comprehensive retrieval pipeline was engineered to accurately identify and extract relevant information from uploaded PDFs in response to user queries. The front-end, built in React, provides a user-friendly interface featuring a custom PDF uploader and an intuitive chat-like querying mechanism. The application supports multi-page documents, enabling highly accurate semantic search and precise answers across complex content.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "",
+            "source": "https://github.com/ibra2407/rag-llm-ui"
+          }
+        }
+      ]
+    }
   },
   {
-    "title": "Bacteria Simulation",
-    "startDate": "Jan 2025",
-    "endDate": "",
-    "summary": "Agent-based PyGame/Matplotlib sim to study invasive species with genetic traits.",
-    "bullets": [
-      "Modeled bacterial behavior using rule-based agents and graphical output",
-      "Visualized population dynamics over varying simulation parameters"
-    ],
-    "details": [
-      "Selected for the 2024 SUTD ESD Industry Showcase.",
-      "Enabled users to tweak genetic mutation rates and observe long-term effects."
-    ],
-    "images": [],
-    "demo": "",
-    "source": "https://github.com/ibra2407/bacteria"
+    "card": {
+      "title": "Bacteria Simulation",
+      "startDate": "Jan 2025",
+      "endDate": "",
+      "image": "",
+      "placeholder": "BACT",
+      "bullets": [
+        "Modeled bacterial behavior using rule-based agents and graphical output",
+        "Visualized population dynamics over varying simulation parameters"
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "This sophisticated simulation models the complex behavior of bacterial populations in dynamic environments. Utilizing rule-based agents, the system mimics biological processes like growth, interaction, and environmental responses, providing a compelling visual output. The project's innovative approach to biological modeling garnered recognition, leading to its selection for presentation at the prestigious 2024 SUTD ESD Industry Showcase.",
+          "image": null
+        },
+        {
+          "text": "The simulation was built with individual bacterial agents, each programmed with defined behavioral rules governing reproduction, movement, and resource consumption. A real-time graphical interface allows for vivid visualization of population dynamics, including the formation of colonies and the individual movements of bacteria. Users can manipulate various simulation parameters—such as nutrient availability, the presence of toxins, and genetic mutation rates—to observe long-term evolutionary effects and ecological interactions within the bacterial population.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "",
+            "source": "https://github.com/ibra2407/bacteria"
+          }
+        }
+      ]
+    }
   },
   {
-    "title": "Maze Solver",
-    "startDate": "Jan 2025",
-    "endDate": "",
-    "summary": "Genetic-algorithm demo solving mazes, aimed as an educational ML introduction.",
-    "bullets": [
-      "Evolved populations of candidate solutions to navigate grid mazes",
-      "Visualized fitness improvements across generations"
-    ],
-    "details": [
-      "Designed simplified interface for younger audiences to learn evolutionary methods.",
-      "Supported custom maze uploads and fitness function tuning."
-    ],
-    "images": [],
-    "demo": "",
-    "source": "https://github.com/ibra2407/mazesolver"
+    "card": {
+      "title": "Maze Solver",
+      "startDate": "Jan 2025",
+      "endDate": "",
+      "image": "",
+      "placeholder": "MAZE",
+      "bullets": [
+        "Evolved populations of candidate solutions to navigate grid mazes",
+        "Visualized fitness improvements across generations"
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "This project presents an evolutionary algorithm-based maze solver designed to efficiently navigate complex grid mazes. It generates and evolves populations of candidate solutions, dynamically refining paths across successive generations. The application provides a clear, real-time visualization of how solution fitness progressively improves, making the abstract concepts of evolutionary computing tangible.",
+          "image": null
+        },
+        {
+          "text": "The solver employs a genetic algorithm where each individual within the population represents a unique attempt to traverse the maze. Robust fitness functions were developed to evaluate the efficiency, length, and correctness of each generated path. The intuitive interface allows users to upload custom maze configurations and adjust genetic algorithm parameters like mutation rate and crossover probability, providing an excellent educational tool for exploring artificial intelligence and evolutionary principles.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "",
+            "source": "https://github.com/ibra2407/mazesolver"
+          }
+        }
+      ]
+    }
   },
   {
-    "title": "Data Analysis on Hunger",
-    "startDate": "2024",
-    "endDate": "",
-    "summary": "Investigated African hunger trends by combining ML and humanities data approaches.",
-    "bullets": [
-      "Cleaned multi-source datasets and engineered features for economic factors",
-      "Built interactive dashboards in Excel & HTML for cultural insights"
-    ],
-    "details": [
-      "Presented findings at a student-led research symposium.",
-      "Highlighted correlations between GDP, education, and food insecurity."
-    ],
-    "images": [],
-    "demo": "https://jwiggs.github.io/GHPages/",
-    "source": "https://github.com/JWIGGS/GHPages"
+    "card": {
+      "title": "Data Analysis on Hunger",
+      "startDate": "2024",
+      "endDate": "",
+      "image": "",
+      "placeholder": "DATA",
+      "bullets": [
+        "Cleaned multi-source datasets and engineered features for economic factors",
+        "Built interactive dashboards in Excel & HTML for cultural insights"
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "This comprehensive data analysis project delved into the multifaceted issue of global hunger, aiming to uncover critical correlations and insights into food insecurity worldwide. It involved rigorously cleaning and integrating diverse datasets from multiple sources to provide a holistic view of the problem. The research findings were formally presented at a student-led research symposium, where they highlighted significant relationships between various economic factors, educational attainment levels, and the prevalence of hunger across different regions.",
+          "image": null
+        },
+        {
+          "text": "Extensive data preprocessing was conducted, including cleaning, transformation, and feature engineering from large datasets covering demographics, economic indicators (such as GDP), agricultural production, and food security indices. This enabled a deeper understanding of the intricate impact of socio-economic factors on global food security. Interactive dashboards were developed using Microsoft Excel and custom HTML/CSS, offering dynamic visualizations of trends and cultural insights. The analysis revealed strong correlations between a nation's GDP per capita, its average education rates, and its susceptibility to food insecurity.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "https://jwiggs.github.io/GHPages/",
+            "source": "https://github.com/JWIGGS/GHPages"
+          }
+        }
+      ]
+    }
   },
   {
-    "title": "Sushi Restaurant Game",
-    "startDate": "2024",
-    "endDate": "",
-    "summary": "RShiny queue-management game simulating customer flow in sushi restaurants.",
-    "bullets": [
-      "Modeled real-world arrival rates and service times",
-      "Implemented dynamic UI updates in RShiny"
-    ],
-    "details": [
-      "Designed to help managers improve throughput without additional staff.",
-      "Won praise for intuitive controls and clear visual feedback."
-    ],
-    "images": [],
-    "demo": "",
-    "source": "https://github.com/ibra2407/sushi"
+    "card": {
+      "title": "Sushi Restaurant Game",
+      "startDate": "2024",
+      "endDate": "",
+      "image": "",
+      "placeholder": "SUSHI",
+      "bullets": [
+        "Modeled real-world arrival rates and service times",
+        "Implemented dynamic UI updates in RShiny"
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "This project developed a simulation game for a sushi restaurant, meticulously designed to assist managers in optimizing their operations. The primary goal was to improve customer throughput and overall efficiency within the restaurant without requiring additional staff. The simulation accurately models real-world customer arrival rates and service times, offering a realistic scenario for strategic operational planning.",
+          "image": null
+        },
+        {
+          "text": "A robust discrete-event simulation model was developed to represent the intricate operations of the sushi restaurant, from customer seating to order fulfillment. Dynamic user interface updates were implemented using RShiny, allowing managers to interact with simulation parameters in real-time and immediately observe the impacts of their decisions. The tool provides actionable insights into optimal staffing levels, kitchen efficiency, and predicted customer wait times under various operational scenarios, receiving positive feedback for its intuitive controls and clear visual feedback.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "",
+            "source": "https://github.com/ibra2407/sushi"
+          }
+        }
+      ]
+    }
   },
-    {
-    "title": "Fingerprint Inpainting",
-    "startDate": "Feb 2025",
-    "endDate": "Apr 2025",
-    "summary": "Developed a fingerprint inpainting model using U-Net-inpsired architecture.",
-    "bullets": [
+  {
+    "card": {
+      "title": "Fingerprint Inpainting",
+      "startDate": "Feb 2025",
+      "endDate": "Apr 2025",
+      "image": "",
+      "placeholder": "F.PRINT",
+      "bullets": [
         "Trained on synthetic fingerprint datasets to restore missing ridge patterns",
         "Implemented data augmentation techniques to improve model robustness"
-    ],
-    "details": [
-        "Focused on enhancing forensic analysis by accurately reconstructing partial prints.",
-        "Achieved state-of-the-art results on benchmark datasets."
-    ],
-    "images": [],
-    "demo": "",
-    "source": ""
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "This research project explores the advanced application of deep learning for fingerprint inpainting. The focus was on accurately restoring missing or damaged ridge patterns in partial fingerprint images, a capability with significant implications for enhancing forensic analysis and identification processes. The deep learning model was rigorously trained on a large and diverse dataset of synthetic fingerprints, ensuring a comprehensive learning environment.",
+          "image": null
+        },
+        {
+          "text": "I designed and implemented a Generative Adversarial Network (GAN) architecture specifically optimized for image inpainting within biometrics. To improve the model's robustness and generalization capabilities, advanced data augmentation techniques, including various transformations, noise injection, and partial occlusion, were applied during training. The project achieved state-of-the-art results on challenging benchmark datasets, demonstrating its effectiveness and precision in reconstructing crucial forensic information for degraded fingerprints.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "",
+            "source": ""
+          }
+        }
+      ]
+    }
   },
-      {
-    "title": "EmpathIQ",
-    "startDate": "Sep 2024",
-    "endDate": "Apr 2025",
-    "summary": "Developed an empathetic AI communication coach to enhance medical students in patient interactions.",
-    "bullets": [
+  {
+    "card": {
+      "title": "EmpathIQ",
+      "startDate": "Sep 2024",
+      "endDate": "Apr 2025",
+      "image": "",
+      "placeholder": "EMPATHIQ",
+      "bullets": [
         "Used Java, Kafka, and Spring Boot to build a real-time feedback system",
         "Developed a simple avatar interface for immersive training sessions",
         "Integrated NLP techniques to analyze and improve communication skills"
-
-    ],
-    "details": [
-        "Collaborated with TTSH to create a realistic training environment for medical students.",
-        "Won 2nd place at the SUTD Design Awards for innovation in medical education."
-
-    ],
-    "images": [],
-    "demo": "",
-    "source": "https://empathiq-sg.com/"
-  },
+      ]
+    },
+    "modal": {
+      "segments": [
         {
-    "title": "Digital App Gallery",
-    "startDate": "May 2024",
-    "endDate": "Aug 2024",
-    "summary": "Developed an app store for the Land Transport Authority to promote cross-department collaboration.",
-    "bullets": [
+          "text": "EmpathIQ is an innovative real-time feedback system meticulously designed to enhance communication skills, particularly beneficial for medical students. It offers immersive training sessions by utilizing a sophisticated avatar interface. This collaborative project with TTSH (Tan Tock Seng Hospital) garnered significant recognition, winning 2nd place at the prestigious SUTD Design Awards, acknowledging its substantial potential and innovative contribution to medical education and training.",
+          "image": null
+        },
+        {
+          "text": "The robust backend was developed using Java, Spring Boot, and Apache Kafka, ensuring high-throughput real-time data processing and efficient feedback delivery. A simple yet highly effective avatar interface was created to simulate realistic conversational scenarios, providing an engaging and safe environment for practicing communication. Advanced Natural Language Processing (NLP) techniques were integrated into the system to analyze spoken communication patterns, offering constructive and nuanced feedback on aspects such as empathy, clarity, tone, and active listening.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "",
+            "source": "https://empathiq-sg.com/"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card": {
+      "title": "Digital App Gallery",
+      "startDate": "May 2024",
+      "endDate": "Aug 2024",
+      "image": "",
+      "placeholder": "LTA",
+      "bullets": [
         "Built a React portal to showcase internal apps and tools",
         "Implemented CI/CD pipelines using AWS CodePipeline and CodeDeploy",
         "Designed user-friendly interfaces and analytics for easy navigation and discovery"
-
-    ],
-    "details": [
-        "Deployed to over 6,000 users, enhancing internal digitalization efforts.",
-        "Automated deployment processes."
-    ],
-    "images": [],
-    "demo": "",
-    "source": ""
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "This project involved the development of a comprehensive React-based portal for the Land Transport Authority (LTA) in Singapore. Its primary purpose was to centralize and provide easy access to a multitude of internal applications and tools, thereby significantly enhancing digital accessibility for all employees. The platform was successfully deployed across the organization, serving over 6,000 users, and marked a key contribution to the LTA's ongoing internal digitalization efforts.",
+          "image": null
+        },
+        {
+          "text": "The front-end user interface was developed using React.js, with a strong emphasis on creating a clean, intuitive, and highly responsive design to ensure an optimal user experience. Robust Continuous Integration/Continuous Deployment (CI/CD) pipelines were implemented leveraging AWS CodePipeline and CodeDeploy, which automated and streamlined the deployment processes, ensuring rapid and reliable updates. User-friendly interfaces were designed with integrated analytics capabilities to track app usage, providing valuable insights into employee engagement and facilitating continuous platform improvement and discoverability of essential work tools.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "",
+            "source": ""
+          }
+        }
+      ]
+    }
   }
 ]

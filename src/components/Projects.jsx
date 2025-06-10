@@ -1,5 +1,4 @@
-// src/components/Projects.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react"; // Import useRef
 import { motion, AnimatePresence } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 import { Folder, X } from "lucide-react";
@@ -7,6 +6,69 @@ import projects from "../content/projects.json";
 
 export default function Projects() {
   const [modalIdx, setModalIdx] = useState(null);
+
+  // --- START: New Scroll Indicator States and Ref ---
+  const [isAtTop, setIsAtTop] = useState(true); // Initially assume at top
+  const [isAtBottom, setIsAtBottom] = useState(false); // Assume content might be scrollable initially
+  const scrollRef = useRef(null); // Ref for the scrollable div
+  // --- END: New Scroll Indicator States and Ref ---
+
+  // Effect to prevent body scrolling when modal is open/closed
+  useEffect(() => {
+    if (modalIdx !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    // Cleanup function
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [modalIdx]);
+
+  // --- START: New Scroll Handling Logic ---
+  // Handle scroll event for the modal content
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
+      setIsAtTop(scrollTop < 10); // A small buffer for "at top"
+      // A small buffer for "at bottom"
+      setIsAtBottom(scrollHeight - scrollTop - clientHeight < 10);
+    }
+  };
+
+  // Effect to set initial scroll states and attach/detach listener
+  useEffect(() => {
+    const checkScrollPosition = () => {
+      if (scrollRef.current) {
+        const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
+        setIsAtTop(scrollTop < 10);
+        setIsAtBottom(scrollHeight - scrollTop - clientHeight < 10);
+
+        // If content is not scrollable at all, ensure both indicators are hidden
+        if (scrollHeight <= clientHeight) {
+          setIsAtTop(true);
+          setIsAtBottom(true);
+        }
+      }
+    };
+
+    const currentScrollRef = scrollRef.current;
+    if (currentScrollRef) {
+      currentScrollRef.addEventListener('scroll', handleScroll);
+      // Initial check after component mounts and when modal opens
+      checkScrollPosition();
+      // A small timeout to ensure content has rendered before checking scrollability
+      const initialCheckTimeout = setTimeout(checkScrollPosition, 50);
+
+      return () => {
+        currentScrollRef.removeEventListener('scroll', handleScroll);
+        clearTimeout(initialCheckTimeout);
+      };
+    }
+  }, [modalIdx]); // Dependency on modalIdx ensures re-check when a new modal opens
+  // --- END: New Scroll Handling Logic ---
+
 
   const container = {
     hidden: { opacity: 0 },
@@ -23,11 +85,11 @@ export default function Projects() {
       // "May 2024" or "2024" both valid
       return new Date(str);
     };
-    const endA = a.endDate ? parse(a.endDate) : parse(a.startDate);
-    const endB = b.endDate ? parse(b.endDate) : parse(b.startDate);
+    const endA = a.card.endDate ? parse(a.card.endDate) : parse(a.card.startDate);
+    const endB = b.card.endDate ? parse(b.card.endDate) : parse(b.card.startDate);
     if (endB - endA !== 0) return endB - endA;
     // tie -> startDate desc
-    return parse(b.startDate) - parse(a.startDate);
+    return parse(b.card.startDate) - parse(a.card.startDate);
   });
 
   return (
@@ -89,39 +151,45 @@ export default function Projects() {
                   cursor-pointer
                 "
               >
-                {/* Pulsing “image” placeholder */}
-                <motion.div
-                  className="h-40 bg-gray-100 rounded-lg mb-4 flex items-center justify-center text-gray-400"
-                  animate={{ opacity: [1.1, 0.6, 1.1] }}
-                  transition={{ duration: 2.5, repeat: Infinity }}
+                {/* Image/Placeholder for card */}
+                <div
+                  className="relative flex-shrink-0"
+                  style={{ width: '100%', height: 160 }}
                 >
-                  {proj.images.length > 0 ? (
-                    <img
-                      src={new URL(
-                        `../assets/projects/${proj.images[0]}`,
-                        import.meta.url
-                      ).href}
-                      loading="eager"
-                      alt={proj.title}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    "No Image"
-                  )}
-                </motion.div>
+                  <div className="w-full h-full bg-gray-100 rounded-lg overflow-hidden">
+                    {proj.card.image ? (
+                      <img
+                        src={
+                          new URL(
+                            `../assets/projects/${proj.card.image}`,
+                            import.meta.url
+                          ).href
+                        }
+                        loading="eager"
+                        alt={proj.card.title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-red-600 text-[10px]">
+                        {proj.card.placeholder || "No Image"}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
 
                 {/* Title & dates */}
-                <h3 className="text-xl font-semibold text-red-600">
-                  {proj.title}
+                <h3 className="text-xl font-semibold text-red-600 mt-4">
+                  {proj.card.title}
                 </h3>
                 <p className="text-sm text-gray-500 italic mb-3">
-                  {proj.startDate}
-                  {proj.endDate ? ` – ${proj.endDate}` : ""}
+                  {proj.card.startDate}
+                  {proj.card.endDate ? ` – ${proj.card.endDate}` : ""}
                 </p>
 
                 {/* Two bullet highlights */}
                 <ul className="list-disc list-outside pl-4 text-gray-700 space-y-1">
-                  {proj.bullets.slice(0, 2).map((b, i) => (
+                  {proj.card.bullets.slice(0, 2).map((b, i) => (
                     <li key={i} className="text-sm">
                       {b}
                     </li>
@@ -137,97 +205,123 @@ export default function Projects() {
       <AnimatePresence>
         {modalIdx !== null && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 h-full w-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={() => setModalIdx(null)}
           >
             <motion.div
-              className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-auto p-8 relative"
-              initial={{ scale: 0.8 }}
+              className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] relative overflow-hidden flex flex-col h-full"
+              initial={{ scale: 0.3 }}
               animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
+              exit={{ scale: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setModalIdx(null)}
-                className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+                className="absolute top-4 right-4 text-gray-500 hover:text-red-500 hover:scale-110 transition-transform z-10"
               >
                 <X className="w-6 h-6" />
               </button>
 
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-red-600">
-                  {sorted[modalIdx].title}
-                </h3>
-                <p className="text-sm text-gray-400 italic">
-                  {sorted[modalIdx].startDate}
-                  {sorted[modalIdx].endDate
-                    ? ` – ${sorted[modalIdx].endDate}`
-                    : ""}
-                </p>
-                <p className="text-gray-700">{sorted[modalIdx].summary}</p>
+              {/* Content Wrapper - Provides uniform p-8 padding for all content */}
+              <div className="flex-grow p-8 flex flex-col h-full">
 
-                <ul className="list-disc pl-5 text-gray-700 space-y-2">
-                  {sorted[modalIdx].bullets.map((b, i) => (
-                    <li key={i} className="text-sm">
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* extended details */}
-                <div className="space-y-4">
-                  {sorted[modalIdx].details.map((d, i) => (
-                    <p key={i} className="text-gray-700">
-                      {d}
-                    </p>
-                  ))}
+                {/* Modal Header (ONLY title and dates, NO card bullets) */}
+                <div>
+                  <h3 className="text-2xl font-bold text-red-600">
+                    {sorted[modalIdx].card.title}
+                  </h3>
+                  <p className="text-sm text-gray-400 italic mb-6">
+                    {sorted[modalIdx].card.startDate}
+                    {sorted[modalIdx].card.endDate
+                      ? ` – ${sorted[modalIdx].card.endDate}`
+                      : ""}
+                  </p>
                 </div>
 
-                {/* additional images */}
-                {sorted[modalIdx].images.length > 1 && (
-                  <div className="flex flex-wrap gap-4">
-                    {sorted[modalIdx].images.map((img, i) => (
-                      <img
-                        key={i}
-                        src={new URL(
-                          `../assets/projects/${img}`,
-                          import.meta.url
-                        ).href}
-                        loading="eager"
-                        alt={`${sorted[modalIdx].title}-${i}`}
-                        className="w-32 h-32 object-cover rounded-lg"
-                      />
+                {/* Scrollable Body Container - This div is relative to position the fades */}
+                <div className="relative flex-grow min-h-0">
+                  {/* Top Fade Indicator (changed back to subtle gradient) */}
+                  <motion.div
+                    className="absolute top-0 left-0 right-4 h-12 bg-gradient-to-b from-white via-white/80 to-transparent pointer-events-none z-10"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: isAtTop ? 0 : 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  {/* Bottom Fade Indicator (changed back to subtle gradient) */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-4 h-12 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-10"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: isAtBottom ? 0 : 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+
+                  {/* Actual Scrollable Content */}
+                  <div
+                    ref={scrollRef}
+                    className="h-full overflow-y-scroll scrollbar-thin pr-4"
+                    onScroll={handleScroll}
+                  >
+                    {/* Dynamically render segments based on key presence */}
+                    {sorted[modalIdx].modal.segments.map((segment, i) => (
+                      <div key={i} className="mb-6">
+                        {/* Render text and/or image if either is present in the segment, and it's not a linkGroup */}
+                        {("text" in segment || "image" in segment) && !("linkGroup" in segment) && (
+                          <>
+                            {segment.text && (
+                              <p className="text-gray-700 leading-relaxed">
+                                {segment.text}
+                              </p>
+                            )}
+                            {segment.image && (
+                              <img
+                                src={
+                                  new URL(
+                                    `../assets/projects/${segment.image}`,
+                                    import.meta.url
+                                  ).href
+                                }
+                                loading="eager"
+                                alt={`${sorted[modalIdx].card.title} - ${i}`}
+                                className="w-full h-auto object-cover rounded-lg shadow-md mt-2"
+                              />
+                            )}
+                          </>
+                        )}
+                        {/* Render linkGroup segments separately */}
+                        {"linkGroup" in segment && (
+                          <div className="flex flex-wrap gap-4 mt-4">
+                            {segment.linkGroup.demo && (
+                              <motion.a
+                                href={segment.linkGroup.demo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-6 py-2 bg-red-600 text-white rounded-full shadow"
+                                whileHover={{ backgroundColor: "#b91c1c" }} // red-700
+                                transition={{ duration: 0.2 }}
+                              >
+                                Live Demo
+                              </motion.a>
+                            )}
+                            {segment.linkGroup.source && (
+                              <motion.a
+                                href={segment.linkGroup.source}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-6 py-2 bg-gray-600 text-white rounded-full shadow"
+                                whileHover={{ backgroundColor: "#374151" }} // gray-700
+                                transition={{ duration: 0.2 }}
+                              >
+                                View Source
+                              </motion.a>
+                            )}
+                          </div>
+                        )}
+                      </div>
                     ))}
                   </div>
-                )}
-
-                {/* Links */}
-                <div className="flex flex-wrap gap-4 mt-6">
-                  {sorted[modalIdx].demo && (
-                    <motion.a
-                      href={sorted[modalIdx].demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-2 bg-red-600 text-white rounded-full shadow"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Live Demo
-                    </motion.a>
-                  )}
-                  {sorted[modalIdx].source && (
-                    <motion.a
-                      href={sorted[modalIdx].source}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-2 bg-gray-600 text-white rounded-full shadow"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      View Source
-                    </motion.a>
-                  )}
                 </div>
               </div>
             </motion.div>

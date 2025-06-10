@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react"; // Import useRef
 import { motion, AnimatePresence } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 import { ClipboardList, X } from "lucide-react";
@@ -6,6 +6,12 @@ import experiences from "../content/experiences.json";
 
 export default function Experiences() {
   const [modalIdx, setModalIdx] = useState(null);
+
+  // --- START: New Scroll Indicator States and Ref (Same as Projects.jsx) ---
+  const [isAtTop, setIsAtTop] = useState(true); // Initially assume at top
+  const [isAtBottom, setIsAtBottom] = useState(false); // Assume content might be scrollable initially
+  const scrollRef = useRef(null); // Ref for the scrollable div
+  // --- END: New Scroll Indicator States and Ref ---
 
   // Effect to prevent body scrolling when modal is open
   useEffect(() => {
@@ -19,6 +25,44 @@ export default function Experiences() {
       document.body.style.overflow = "unset";
     };
   }, [modalIdx]);
+
+  // --- START: New Scroll Handling Logic (Same as Projects.jsx) ---
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
+      setIsAtTop(scrollTop < 10); // A small buffer for "at top"
+      setIsAtBottom(scrollHeight - scrollTop - clientHeight < 10); // A small buffer for "at bottom"
+    }
+  };
+
+  useEffect(() => {
+    const checkScrollPosition = () => {
+      if (scrollRef.current) {
+        const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
+        setIsAtTop(scrollTop < 10);
+        setIsAtBottom(scrollHeight - scrollTop - clientHeight < 10);
+
+        // If content is not scrollable at all, ensure both indicators are hidden
+        if (scrollHeight <= clientHeight) {
+          setIsAtTop(true);
+          setIsAtBottom(true);
+        }
+      }
+    };
+
+    const currentScrollRef = scrollRef.current;
+    if (currentScrollRef) {
+      currentScrollRef.addEventListener('scroll', handleScroll);
+      checkScrollPosition(); // Initial check
+      const initialCheckTimeout = setTimeout(checkScrollPosition, 50); // Small delay to ensure content renders
+
+      return () => {
+        currentScrollRef.removeEventListener('scroll', handleScroll);
+        clearTimeout(initialCheckTimeout);
+      };
+    }
+  }, [modalIdx]); // Dependency on modalIdx ensures re-check when a new modal opens
+  // --- END: New Scroll Handling Logic ---
 
   const container = {
     hidden: { opacity: 0 },
@@ -112,7 +156,7 @@ export default function Experiences() {
                                 import.meta.url
                               ).href
                             }
-                            loading="lazy"
+                            loading="eager"
                             alt={exp.card.role}
                             className="w-full h-full object-cover"
                           />
@@ -188,16 +232,13 @@ export default function Experiences() {
       <AnimatePresence>
         {modalIdx !== null && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 h-full w-full" // Added h-full w-full for certainty
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 h-full w-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setModalIdx(null)}
           >
             <motion.div
-              // Outer modal container. Handles overall size, rounding, and clips overflow.
-              // This is the main flex column parent.
-              // Added h-full here to ensure it uses the max-h-[90vh] limit effectively.
               className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] relative overflow-hidden flex flex-col h-full"
               initial={{ scale: 0.3 }}
               animate={{ scale: 1 }}
@@ -206,24 +247,20 @@ export default function Experiences() {
             >
               <button
                 onClick={() => setModalIdx(null)}
-                className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 hover:scale-110 transition-transform z-10"
+                className="absolute top-4 right-4 text-gray-500 hover:text-blue-600 hover:scale-110 transition-transform z-10"
               >
                 <X className="w-6 h-6" />
               </button>
 
-              {/* Content Wrapper - This div provides uniform p-8 padding for all content inside the modal. */}
-              {/* It also acts as a flex column to stack the header and the scrollable body. */}
-              {/* flex-grow ensures it takes up the available height within the main modal container. */}
-              {/* Added h-full here for robust height propagation down the flex chain. */}
+              {/* Content Wrapper - Provides uniform p-8 padding for all content */}
               <div className="flex-grow p-8 flex flex-col h-full">
 
-                {/* Modal Header - remains a fixed height area inside the padded wrapper */}
+                {/* Modal Header */}
                 <div>
                   <h3 className="text-2xl font-bold text-blue-600">
                     {experiences[modalIdx].card.role} @{" "}
                     {experiences[modalIdx].card.organisation}
                   </h3>
-                  {/* mb-6 provides spacing between the header and the scrollable content below it */}
                   <p className="text-sm text-gray-400 italic mb-6">
                     {experiences[modalIdx].card.startDate}
                     {experiences[modalIdx].card.endDate
@@ -232,38 +269,54 @@ export default function Experiences() {
                   </p>
                 </div>
 
-                {/* Scrollable Body - This is the primary element that will scroll. */}
-                {/* flex-grow makes it take the remaining height within its flex parent (the content wrapper). */}
-                {/* min-h-0 is crucial for flex-grow items to allow shrinking and enable overflow scrolling. */}
-                {/* max-h-full explicitly ensures it's constrained within its parent's available height. */}
-                {/* overflow-y-scroll is used to force the scrollbar to always be visible (desktop and mobile). */}
-                {/* NEW: Added pr-4 to account for scrollbar width, preventing text from being covered. */}
-                <div className="flex-grow overflow-y-scroll scrollbar-thin min-h-0 max-h-full pr-4">
-                  {/* The content segments are placed directly inside here. */}
-                  {/* The overall p-8 from the parent 'Content Wrapper' provides the horizontal and vertical padding. */}
-                  {experiences[modalIdx].modal.segments.map((segment, i) => (
-                    <div key={i} className="mb-6">
-                      {segment.text && (
-                        <p className="text-gray-700 leading-relaxed mb-4">
-                          {segment.text}
-                        </p>
-                      )}
-                      {segment.image && (
-                        <img
-                          src={
-                            new URL(
-                              `../assets/experiences/${segment.image}`,
-                              import.meta.url
-                            ).href
-                          }
-                          loading="lazy"
-                          alt={`Image for ${experiences[modalIdx].card.role} segment ${i + 1}`}
-                          className="w-full h-auto object-cover rounded-lg shadow-md mt-2"
-                        />
-                      )}
-                    </div>
-                  ))}
+                {/* --- START: Modified Scrollable Body Container (Same as Projects.jsx) --- */}
+                <div className="relative flex-grow min-h-0"> {/* This div is now relative to position the fades */}
+                  {/* Top Fade Indicator */}
+                  <motion.div
+                    className="absolute top-0 left-0 right-4 h-12 bg-gradient-to-b from-white via-white/80 to-transparent pointer-events-none z-10"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: isAtTop ? 0 : 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  {/* Bottom Fade Indicator */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-4 h-12 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-10"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: isAtBottom ? 0 : 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+
+                  {/* Actual Scrollable Content */}
+                  <div
+                    ref={scrollRef} // Attach ref here
+                    className="h-full overflow-y-scroll scrollbar-thin pr-4"
+                    onScroll={handleScroll} // Attach onScroll handler here
+                  >
+                    {experiences[modalIdx].modal.segments.map((segment, i) => (
+                      <div key={i} className="mb-6">
+                        {segment.text && (
+                          <p className="text-gray-700 leading-relaxed mb-4">
+                            {segment.text}
+                          </p>
+                        )}
+                        {segment.image && (
+                          <img
+                            src={
+                              new URL(
+                                `../assets/experiences/${segment.image}`,
+                                import.meta.url
+                              ).href
+                            }
+                            loading="eager"
+                            alt={`Image for ${experiences[modalIdx].card.role} segment ${i + 1}`}
+                            className="w-full h-auto object-cover rounded-lg shadow-md mt-2"
+                          />
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
+                {/* --- END: Modified Scrollable Body Container --- */}
               </div>
             </motion.div>
           </motion.div>

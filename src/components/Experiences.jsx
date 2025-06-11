@@ -1,82 +1,65 @@
-import React, { useState, useEffect, useRef } from "react"; // Import useRef
-import { motion, AnimatePresence } from "framer-motion";
-import Tilt from "react-parallax-tilt";
-import { ClipboardList, X } from "lucide-react";
-import experiences from "../content/experiences.json";
+// src/components/Experiences.jsx
+import React, { useState, useEffect, useRef } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import Tilt                       from "react-parallax-tilt"
+import { ClipboardList, X }       from "lucide-react"
+import experiences                from "../content/experiences.json"
 
 export default function Experiences() {
-  const [modalIdx, setModalIdx] = useState(null);
+  const [modalIdx, setModalIdx] = useState(null)
+  const [isAtTop, setIsAtTop]   = useState(true)
+  const [isAtBottom, setIsAtBottom] = useState(false)
+  const scrollRef = useRef(null)
 
-  // --- START: New Scroll Indicator States and Ref (Same as Projects.jsx) ---
-  const [isAtTop, setIsAtTop] = useState(true); // Initially assume at top
-  const [isAtBottom, setIsAtBottom] = useState(false); // Assume content might be scrollable initially
-  const scrollRef = useRef(null); // Ref for the scrollable div
-  // --- END: New Scroll Indicator States and Ref ---
-
-  // Effect to prevent body scrolling when modal is open
   useEffect(() => {
-    if (modalIdx !== null) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    // Cleanup function
+    document.body.style.overflow = modalIdx !== null ? "hidden" : "unset"
     return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [modalIdx]);
-
-  // --- START: New Scroll Handling Logic (Same as Projects.jsx) ---
-  const handleScroll = () => {
-    if (scrollRef.current) {
-      const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
-      setIsAtTop(scrollTop < 10); // A small buffer for "at top"
-      setIsAtBottom(scrollHeight - scrollTop - clientHeight < 10); // A small buffer for "at bottom"
+      document.body.style.overflow = "unset"
     }
-  };
+  }, [modalIdx])
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return
+    const { scrollTop, scrollHeight, clientHeight } = scrollRef.current
+    setIsAtTop(scrollTop < 10)
+    setIsAtBottom(scrollHeight - scrollTop - clientHeight < 10)
+  }
 
   useEffect(() => {
-    const checkScrollPosition = () => {
-      if (scrollRef.current) {
-        const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
-        setIsAtTop(scrollTop < 10);
-        setIsAtBottom(scrollHeight - scrollTop - clientHeight < 10);
-
-        // If content is not scrollable at all, ensure both indicators are hidden
-        if (scrollHeight <= clientHeight) {
-          setIsAtTop(true);
-          setIsAtBottom(true);
-        }
+    const check = () => {
+      if (!scrollRef.current) return
+      const { scrollTop, scrollHeight, clientHeight } = scrollRef.current
+      setIsAtTop(scrollTop < 10)
+      setIsAtBottom(scrollHeight - scrollTop - clientHeight < 10)
+      if (scrollHeight <= clientHeight) {
+        setIsAtTop(true)
+        setIsAtBottom(true)
       }
-    };
-
-    const currentScrollRef = scrollRef.current;
-    if (currentScrollRef) {
-      currentScrollRef.addEventListener('scroll', handleScroll);
-      checkScrollPosition(); // Initial check
-      const initialCheckTimeout = setTimeout(checkScrollPosition, 50); // Small delay to ensure content renders
-
-      return () => {
-        currentScrollRef.removeEventListener('scroll', handleScroll);
-        clearTimeout(initialCheckTimeout);
-      };
     }
-  }, [modalIdx]); // Dependency on modalIdx ensures re-check when a new modal opens
-  // --- END: New Scroll Handling Logic ---
+    const cur = scrollRef.current
+    if (cur) {
+      cur.addEventListener("scroll", handleScroll)
+      check()
+      const to = setTimeout(check, 50)
+      return () => {
+        cur.removeEventListener("scroll", handleScroll)
+        clearTimeout(to)
+      }
+    }
+  }, [modalIdx])
 
   const container = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
-  };
+  }
   const item = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
+  }
 
   return (
-    <section id="experiences" className="py-16 bg-white">
+    <section id="experiences" className="py-16 bg-white dark:bg-gray-900 transition-colors">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -100,7 +83,7 @@ export default function Experiences() {
           </motion.div>
           <motion.p
             variants={item}
-            className="mt-4 text-gray-700 max-w-4xl mx-auto"
+            className="mt-4 text-gray-700 dark:text-gray-300 max-w-4xl mx-auto"
           >
             A compilation of roles I held throughout internships, industry
             projects and self-initiated ventures.
@@ -110,7 +93,6 @@ export default function Experiences() {
           </motion.p>
         </motion.div>
 
-        {/* Cards */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -119,7 +101,10 @@ export default function Experiences() {
         >
           {experiences
             .slice()
-            .sort((a, b) => new Date(b.card.startDate) - new Date(a.card.startDate)) // Sort by card start date
+            .sort(
+              (a, b) =>
+                new Date(b.card.startDate) - new Date(a.card.startDate)
+            )
             .map((exp, idx) => (
               <Tilt
                 key={idx}
@@ -132,22 +117,21 @@ export default function Experiences() {
                   variants={item}
                   onClick={() => setModalIdx(idx)}
                   className="
-                    relative px-6 pb-6 pt-6 bg-white
-                    border border-gray-200 rounded-2xl
-                    shadow-lg shadow-blue-200/40
+                    relative px-6 pb-6 pt-6 bg-white dark:bg-gray-800
+                    border border-gray-200 dark:border-gray-700
+                    rounded-2xl shadow-lg shadow-blue-200/40
                     transition-transform transform
-                    hover:-translate-y-1 hover:bg-blue-50
+                    hover:-translate-y-1 hover:bg-blue-50 dark:hover:bg-blue-900
                     hover:shadow-[0_20px_30px_rgba(59,130,246,0.3)]
                     cursor-pointer
                   "
                 >
                   <div className="flex items-start">
-                    {/* Image/Placeholder for card */}
                     <div
                       className="relative flex-shrink-0"
                       style={{ width: 64, height: 64 }}
                     >
-                      <div className="w-full h-full bg-gray-100 rounded-xl overflow-hidden">
+                      <div className="w-full h-full bg-gray-100 dark:bg-gray-700 rounded-xl overflow-hidden">
                         {exp.card.image ? (
                           <img
                             src={
@@ -166,7 +150,6 @@ export default function Experiences() {
                           </div>
                         )}
                       </div>
-                      {/* marching-dashes around it */}
                       <motion.svg
                         viewBox="0 0 100 100"
                         className="absolute"
@@ -204,18 +187,17 @@ export default function Experiences() {
                       <h3 className="text-xl font-semibold text-blue-600">
                         {exp.card.role}
                       </h3>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
                         {exp.card.organisation}
                       </p>
-                      <p className="text-sm text-gray-400 italic mt-1">
+                      <p className="text-sm italic mt-1 text-gray-400 dark:text-gray-500">
                         {exp.card.startDate}
                         {exp.card.endDate ? ` – ${exp.card.endDate}` : ""}
                       </p>
                     </div>
                   </div>
 
-                  {/* Two impact bullet points for card */}
-                  <ul className="mt-4 list-disc list-outside pl-4 text-gray-700 space-y-1">
+                  <ul className="mt-4 list-disc list-outside pl-4 text-gray-700 dark:text-gray-300 space-y-1">
                     {exp.card.bullets.slice(0, 2).map((b, i) => (
                       <li key={i} className="text-sm">
                         {b}
@@ -228,7 +210,6 @@ export default function Experiences() {
         </motion.div>
       </div>
 
-      {/* Modal */}
       <AnimatePresence>
         {modalIdx !== null && (
           <motion.div
@@ -239,7 +220,7 @@ export default function Experiences() {
             onClick={() => setModalIdx(null)}
           >
             <motion.div
-              className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] relative overflow-hidden flex flex-col h-full"
+              className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-4xl max-h-[90vh] relative overflow-hidden flex flex-col h-full transition-colors"
               initial={{ scale: 0.3 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.3 }}
@@ -247,21 +228,18 @@ export default function Experiences() {
             >
               <button
                 onClick={() => setModalIdx(null)}
-                className="absolute top-4 right-4 text-gray-500 hover:text-blue-600 hover:scale-110 transition-transform z-10"
+                className="absolute top-4 right-4 text-gray-500 dark:text-gray-400 hover:text-blue-600 hover:scale-110 transition-transform z-10"
               >
                 <X className="w-6 h-6" />
               </button>
 
-              {/* Content Wrapper - Provides uniform p-8 padding for all content */}
               <div className="flex-grow p-8 flex flex-col h-full">
-
-                {/* Modal Header */}
                 <div>
-                  <h3 className="text-2xl font-bold text-blue-600">
+                  <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-300">
                     {experiences[modalIdx].card.role} @{" "}
                     {experiences[modalIdx].card.organisation}
                   </h3>
-                  <p className="text-sm text-gray-400 italic mb-6">
+                  <p className="text-sm italic mb-6 text-gray-400 dark:text-gray-500">
                     {experiences[modalIdx].card.startDate}
                     {experiences[modalIdx].card.endDate
                       ? ` – ${experiences[modalIdx].card.endDate}`
@@ -269,41 +247,37 @@ export default function Experiences() {
                   </p>
                 </div>
 
-                {/* --- START: Modified Scrollable Body Container (Same as Projects.jsx) --- */}
-                <div className="relative flex-grow min-h-0"> {/* This div is now relative to position the fades */}
-                  {/* Top Fade Indicator */}
+                <div className="relative flex-grow min-h-0">
                   <motion.div
-                    className="absolute top-0 left-0 right-4 h-12 bg-gradient-to-b from-white via-white/80 to-transparent pointer-events-none z-10"
+                    className="absolute top-0 left-0 right-4 h-12 bg-gradient-to-b from-white dark:from-gray-800 via-white/80 dark:via-gray-800 to-transparent pointer-events-none z-10"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: isAtTop ? 0 : 1 }}
                     transition={{ duration: 0.3 }}
                   />
-                  {/* Bottom Fade Indicator */}
                   <motion.div
-                    className="absolute bottom-0 left-0 right-4 h-12 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-10"
+                    className="absolute bottom-0 left-0 right-4 h-12 bg-gradient-to-t from-white dark:from-gray-800 via-white/80 dark:via-gray-800 to-transparent pointer-events-none z-10"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: isAtBottom ? 0 : 1 }}
                     transition={{ duration: 0.3 }}
                   />
 
-                  {/* Actual Scrollable Content */}
                   <div
-                    ref={scrollRef} // Attach ref here
+                    ref={scrollRef}
                     className="h-full overflow-y-scroll scrollbar-thin pr-4"
-                    onScroll={handleScroll} // Attach onScroll handler here
+                    onScroll={handleScroll}
                   >
-                    {experiences[modalIdx].modal.segments.map((segment, i) => (
+                    {experiences[modalIdx].modal.segments.map((seg, i) => (
                       <div key={i} className="mb-6">
-                        {segment.text && (
-                          <p className="text-gray-700 leading-relaxed mb-4">
-                            {segment.text}
+                        {seg.text && (
+                          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                            {seg.text}
                           </p>
                         )}
-                        {segment.image && (
+                        {seg.image && (
                           <img
                             src={
                               new URL(
-                                `../assets/experiences/${segment.image}`,
+                                `../assets/experiences/${seg.image}`,
                                 import.meta.url
                               ).href
                             }
@@ -316,12 +290,11 @@ export default function Experiences() {
                     ))}
                   </div>
                 </div>
-                {/* --- END: Modified Scrollable Body Container --- */}
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </section>
-  );
+  )
 }

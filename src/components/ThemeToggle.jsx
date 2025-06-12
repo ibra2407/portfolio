@@ -23,27 +23,20 @@ export default function ThemeToggle() {
       onClick={toggle}
       aria-label="Toggle dark mode"
       className="
-        flex flex-col sm:flex-row items-center
-        p-2 pr-4 rounded-full
+        flex items-center justify-center
+        p-2 rounded-full
         bg-gray-200 dark:bg-gray-700
         text-gray-800 dark:text-gray-200
-        transition-colors
+        transition-all duration-200
+        hover:scale-105
+        group
       "
     >
       {theme === 'dark' ? (
-        <Sun className="w-5 h-5" />
+        <Sun className="w-5 h-5 transition-colors duration-200 group-hover:text-yellow-400" />
       ) : (
-        <Moon className="w-5 h-5" />
+        <Moon className="w-5 h-5 transition-colors duration-200 group-hover:text-purple-700" />
       )}
-      <span
-        className="
-          mt-1 sm:mt-0 sm:ml-2
-          text-xs uppercase
-          opacity-50
-        "
-      >
-        {theme === 'dark' ? 'Dark' : 'Light'}
-      </span>
     </button>
   )
 }

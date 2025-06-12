@@ -122,7 +122,14 @@ export default function Hero() {
   ]
 
   return (
-    <section id="hero" className="py-16 bg-white dark:bg-gray-900 transition-colors">
+    <section id="hero" className="relative py-16 bg-white dark:bg-gray-900 transition-colors">
+      {/* Theme Toggle - Top Right */}
+      <div className="absolute top-4 right-4 z-30">
+        <div className="bg-gray-100 dark:bg-gray-700 transition-colors rounded-full">
+          <ThemeToggle />
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={container}
@@ -192,47 +199,40 @@ export default function Hero() {
 
             <motion.div
               variants={item}
-              className="flex flex-col sm:flex-row gap-4 mb-6 justify-center md:justify-start"
+              className="flex items-center justify-center md:justify-start gap-3 sm:gap-4"
             >
               <motion.a
                 href="mailto:mehloldex@gmail.com"
-                className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-full shadow-lg hover:scale-105 transition-transform"
+                className="inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-full shadow-lg hover:scale-105 transition-transform text-xs sm:text-sm font-medium"
                 whileTap={{ scale: 0.9 }}
               >
-                <Mail className="w-4 h-4 mr-2" />Contact
+                <Mail className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                Contact
               </motion.a>
               <motion.a
                 href="https://docs.google.com/document/d/1t9ZvH4xpYiK55fCqSmDwELYqckL5Gn1m/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full shadow hover:bg-gray-200 dark:hover:bg-gray-600 hover:scale-105 transition-transform"
+                className="inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-full shadow-lg hover:scale-105 transition-transform text-xs sm:text-sm font-medium"
                 whileTap={{ scale: 0.9 }}
               >
-                <FileText className="w-4 h-4 mr-2" />Resume
+                <FileText className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                Resume
               </motion.a>
-            </motion.div>
-
-            <motion.div
-              variants={item}
-              className="flex justify-center md:justify-start gap-4"
-            >
               <motion.a
                 href="https://github.com/ibra2407/"
-                className="p-2 bg-gray-100 dark:bg-gray-700 rounded-full hover:scale-105 transition-transform"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-100 dark:bg-gray-700 rounded-full hover:scale-105 transition-transform flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200"
                 whileTap={{ scale: 0.9 }}
               >
-                <Github className="w-5 h-5 text-gray-800 dark:text-gray-200" />
+                <Github className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.a>
               <motion.a
                 href="https://www.linkedin.com/in/mdibrahim2407/"
-                className="p-2 bg-gray-100 dark:bg-gray-700 rounded-full hover:scale-105 transition-transform"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-100 dark:bg-gray-700 rounded-full hover:scale-105 transition-transform flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 text-blue-700 dark:text-blue-300"
                 whileTap={{ scale: 0.9 }}
               >
-                <Linkedin className="w-5 h-5 text-blue-700 dark:text-blue-300" />
+                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.a>
-              <div className="bg-gray-100 dark:bg-gray-700 transition-colors rounded-full">
-                <ThemeToggle />
-              </div>
             </motion.div>
           </motion.div>
 

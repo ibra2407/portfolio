@@ -27,7 +27,7 @@ export default function About() {
     },
     {
       icon: Code,
-      title: "Web Development",
+      title: "Web/Cloud Development",
       desc: "Building scalable, user-first applications.",
       gradient: "bg-gradient-to-r from-purple-500 to-pink-500",
       shadow: "hover:shadow-purple-400/40",
@@ -130,7 +130,7 @@ export default function About() {
           animate="visible"
           id="competencies"
         >
-          <div className="flex items-center justify-center mb-4">
+          <div className="flex items-center justify-center gap-3 mb-4">
             <motion.div
               animate={{ rotate: [0, 360] }}
               transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
@@ -141,7 +141,7 @@ export default function About() {
             <h2 className="text-3xl font-bold text-purple-600">My Key Competencies</h2>
           </div>
           <p className="text-center text-gray-700 dark:text-gray-300 max-w-4xl mx-auto mb-8">
-            I’m a data analyst with experience in web development and AI/ML applications. I'm fascinated by the power of data and technology to solve real-world problems.
+            I'm a data analyst with experience in web/cloud development and AI/ML applications. I'm fascinated by the power of data and technology to solve real-world problems.
           </p>
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {competencies.map((c, i) => {
@@ -180,7 +180,7 @@ export default function About() {
           animate="visible"
           id="education"
         >
-          <div className="flex items-center justify-center mb-4">
+          <div className="flex items-center justify-center gap-3 mb-4">
             <motion.div
               animate={{ y: [2, -4, 2] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
@@ -230,7 +230,7 @@ export default function About() {
           animate="visible"
           id="achievements"
         >
-          <div className="flex items-center justify-center mb-4">
+          <div className="flex items-center justify-center gap-3 mb-4">
             <motion.div
               animate={{ scale: [0.95, 1.15, 0.95] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}

@@ -78,7 +78,7 @@ export default function About() {
             rel="noopener noreferrer"
             className="text-blue-600 underline dark:text-blue-300"
           >
-            Dr Minyang Chow
+            Dr Minyang
           </a>
           ; awarded by{" "}
           <a
@@ -138,7 +138,7 @@ export default function About() {
             >
               <Sparkles className="w-6 h-6" />
             </motion.div>
-            <h2 className="text-3xl font-bold text-purple-600">My Key Competencies</h2>
+            <h2 className="text-3xl font-bold text-purple-600">Core Skills</h2>
           </div>
           <p className="text-center text-gray-700 dark:text-gray-300 max-w-4xl mx-auto mb-8">
             I'm a data analyst with experience in web/cloud development and AI/ML applications. I'm fascinated by the power of data and technology to solve real-world problems.
@@ -188,7 +188,7 @@ export default function About() {
             >
               <TrendingUp className="w-6 h-6" />
             </motion.div>
-            <h2 className="text-3xl font-bold text-orange-500">Education & Specializations</h2>
+            <h2 className="text-3xl font-bold text-orange-500">Education</h2>
           </div>
           <p className="text-center text-gray-700 dark:text-gray-300 max-w-4xl mx-auto mb-8">
             I graduated with <strong>Honours with Distinction</strong> from the <strong>Engineering Systems & Design</strong> (B.Eng.) pillar from the <strong>Singapore University of Technology and Design</strong> (SUTD), from Sep 2021 to May 2025.

@@ -6,8 +6,8 @@
       "startDate": "Sep 2024",
       "endDate": "Dec 2024",
       "bullets": [
-        "Created an AI communications coach app for 6,000+ medical students",
-        "Awarded 2nd place at SUTD Design Awards, presented by President Tharman"
+        "Prototyped an AI communications coach app for 150+ medical students",
+        "2nd place at SUTD Design Awards, presented by President Tharman"
       ],
       "image": "ttsh.png",
       "placeholder": null
@@ -15,34 +15,23 @@
     "modal": {
       "segments": [
         {
-          "text": "During my time at Tan Tock Seng Hospital, I had the incredible opportunity to build an AI communications coaching simulator. This project was under the direct mentorship of Dr Minyang Chow, focusing on enhancing communication skills for over 6,000 medical students. It was a challenging yet rewarding experience, pushing the boundaries of what AI can do in medical education.",
-          "image": null
+          "text": "For my final year project (SUTD Capstone), my team and I built an AI communications coaching simulator under the mentorship of Dr Minyang Chow at Tan Tock Seng Hospital. This project aimed to enhance communication skills for a yearly batch of 150+ medical students from NTU LKC Medicine, addressing a critical gap in medical training - that the current communication training methods, while undoubtedly effective, lacked the consistency and availability (due to resource constraints) of quality practice.",
+          "image": "ttsh-group-minyang.JPG"
         },
         {
-          "text": "A core part of the application involved integrating real-time speech analysis microservices. I developed these services using AWS Lambda, ensuring high responsiveness and scalability. This allowed students to receive immediate feedback on their communication patterns, tone, and clarity, mimicking real-life patient interactions.",
-          "image": null
-        },
-        {
-          "text": "The project culminated in a presentation at the SUTD Design Awards, where it was honored with 2nd place. This recognition, presented by President Tharman, highlighted the innovative approach and the potential impact of the simulator on medical training. The low-latency feedback system was particularly lauded for its effectiveness.",
-          "image": null
-        },
-        {
-          "text": "Overall, this experience solidified my passion for developing practical AI solutions that address real-world problems, especially in the healthcare sector. It also showcased the importance of interdisciplinary collaboration in bringing complex projects to fruition."
+          "text": "The project culminated in a presentation at the SUTD Design Awards, where it was honored with 2nd place. This recognition, presented by President Tharman, highlighted the innovative approach and the potential impact of the simulator on medical training. The low-latency feedback system was particularly lauded for its effectiveness, making the simulation immersive and engaging.",
+          "image": "ttsh-prize.jpg"
         },
                 {
-          "text": "During my time at Tan Tock Seng Hospital, I had the incredible opportunity to build an AI communications coaching simulator. This project was under the direct mentorship of Dr Minyang Chow, focusing on enhancing communication skills for over 6,000 medical students. It was a challenging yet rewarding experience, pushing the boundaries of what AI can do in medical education.",
+          "text": "Our goal was to create an equivalent alternative to the current training methods, which involved role-playing with trained actors. We designed an AI-powered web application that simulated patient interactions, allowing students to practice and receive real-time feedback on their communication patterns, tone and most importantly, empathy. This was achieved through the integration of real-time speech analysis microservices, ensuring high responsiveness and scalability. Our architecture was designed to handle multiple concurrent users, providing a seamless experience for all students.",
           "image": null
         },
         {
-          "text": "A core part of the application involved integrating real-time speech analysis microservices. I developed these services using AWS Lambda, ensuring high responsiveness and scalability. This allowed students to receive immediate feedback on their communication patterns, tone, and clarity, mimicking real-life patient interactions.",
-          "image": null
+          "text": "My team had talented software engineers, who I greatly admired and had the privilege of working with. They covered areas that I was less familiar with, such as cybersecurity and backend performance. I'm grateful for their support (both moral and technical) and expertise, and could not have asked for a better team. My key contributions included the integration of Hume AI's speech analysis microservices, which provided real-time feedback on communication patterns, and the development of the 3D avatar interface. I also led the development of the AI review agent, which utilized a chained series of prompts and responses to analyze long student responses and provide constructive feedback. This agent was crucial in ensuring that students received personalized insights into their communication skills, thus enhancing the learning experience. Looking back, I am proud of the collaborative effort that went into this project, as it combined our diverse skill sets to create a comprehensive and effective training tool that was more than just an academic exercise.",
+          "image": "ttsh-demo-video.png"
         },
         {
-          "text": "The project culminated in a presentation at the SUTD Design Awards, where it was honored with 2nd place. This recognition, presented by President Tharman, highlighted the innovative approach and the potential impact of the simulator on medical training. The low-latency feedback system was particularly lauded for its effectiveness.",
-          "image": null
-        },
-        {
-          "text": "Overall, this experience solidified my passion for developing practical AI solutions that address real-world problems, especially in the healthcare sector. It also showcased the importance of interdisciplinary collaboration in bringing complex projects to fruition."
+          "text": "This project taught me the importance of interdisciplinary collaboration, as we worked closely with various healthcare professionals from various departments to ensure the simulator met educational needs. It also reinforced my belief in the potential of AI to transform traditional training methods, making them more accessible and effective for future generations of healthcare professionals."
         }
       ]
     }
@@ -54,8 +43,8 @@
       "startDate": "May 2024",
       "endDate": "Aug 2024",
       "bullets": [
-        "Rolled out a React portal used by 6,000+ staff",
-        "Built AWS CI/CD pipelines, cutting deployment time by 70%"
+        "Developed a React portal for over 6,000 staff members",
+        "Contributed to various software projects, including AR/MR/VR applications"
       ],
       "image": "lta.png",
       "placeholder": null
@@ -63,31 +52,65 @@
     "modal": {
       "segments": [
         {
-          "text": "At the Land Transport Authority (LTA), I was a key contributor to their digitalisation drive, specifically in deploying an enterprise-grade React application. This portal is now actively used by over 6,000 LTA staff, streamlining various internal processes and improving operational efficiency across the organization.",
+          "text": "At my internship with LTA, I contributed to various software projects under the supervision of Senior Manager Mr. Ryan Wee and alongside various senior developers and interns. My primary focus was on continuing the development of a React-based portal that would serve over 6,000 staff members, called Digital App Gallery (DAG). This portal was designed to serve as a central hub for accessing various digital applications and resources, streamlining inter-departmental workflows and improving overall efficiency within the organization.",
+          "image": "lta-group.JPG"
+        },
+        {
+          "text": "Myself and fellow intern Ong Wen Pin were responsible for making the past prototypes production-ready, which began with deploying the portal to LTA's internal AWS environment. We worked closely with a senior developer, Mr Manickam Nachiappan, to ensure that the development pipeline was successful. He taught us a great deal about managing cloud infrastructure and implementing CI/CD pipelines. We also added basic analytics capabilities to the portal, which allowed us to track app usage and provide valuable insights into employee engagement. This experience not only honed my React development skills but also taught me the importance of adhering to best practices in software development, especially in a large enterprise environment. Furthermore, I learned to navigate past work done by previous developers, which was a valuable lesson in improving existing codebases.",
+          "image": "lta-me-owp.png"
+        },
+        {
+          "text": "I also contributed to the development of best practices for the department's software development processes in GitHub, developing AR/MR/VR applications and participated in software engineering sharings, which were invaluable for my professional growth. These experiences allowed me to gain insights into the latest trends in software development and how they can be applied in a real-world context.",
           "image": null
         },
         {
-          "text": "My primary responsibility included setting up robust CI/CD pipelines on AWS. I automated the build and hosting processes using AWS CodePipeline and CodeDeploy, which dramatically reduced our deployment time by approximately 70%. This acceleration allowed for faster iteration cycles and more frequent feature releases.",
-          "image": null
-        },
-        {
-          "text": "I was also tasked with authoring complex CloudFormation scripts to provision and manage our infrastructure as code. This ensured consistent and reproducible environments while adhering to LTA's stringent Information Security (InfoSec) requirements. The focus was on building secure, scalable, and maintainable solutions.",
-          "image": null
-        },
-        {
-          "text": "This internship provided invaluable experience in full-stack development within a large enterprise environment, emphasizing both technical execution and adherence to strict regulatory standards. It was a deep dive into modern DevOps practices and cloud infrastructure management."
+          "text": "This internship provided invaluable experience in full-stack development of various kinds of applications within a large enterprise environment, emphasizing both technical execution and adherence to strict regulatory standards. It was a great opportunity to apply my skills in a real-world setting, and I am grateful for the mentorship and support I received from my colleagues at LTA. The experience has further solidified my passion for software development and my desire to contribute to impactful projects in the future."
         }
       ]
     }
   },
   {
     "card": {
-      "role": "Data Analyst & Web Dev",
+      "role": "Part-Time Python Tutor",
+      "organisation": "The Logic Coders",
+      "startDate": "May 2024",
+      "endDate": "Present",
+      "bullets": [
+        "Teach children and young adults in Python fundamentals",
+        "Aided in various academic preparations, including DSA interviews"
+      ],
+      "image": "tlc.png",
+      "placeholder": null
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "At TLC, I teach Python on the weekends to children and young adults, ranging from primary school to secondary school. My role involves not only teaching the fundamentals of Python programming but also instilling a love for coding and problem-solving in my students. I have been fortunate to work with a diverse group of learners, each with their own unique challenges and learning styles. My students frequently take part in coding competitions and invention competitions, which further motivates them to explore the field of technology. (They also love taking photos of me while I'm teaching...)",
+          "image": "tlc-me.png"
+        },
+        {
+          "text": "I have also been involved in preparing students for various academic challenges, including Direct School Admission (DSA) interviews (for coding; to enter into top schools of their choice) and innovation competitions. This has allowed me to share my knowledge and experience in a way that helps them excel in their studies and future careers. One of my most memorable experiences was when one of them was featured on Minister Heng Swee Kiat's Instagram story for her invention, which was a proud moment for both of us.",
+          "image": "tlc-heng.png"
+        },
+        {
+          "text": "Beyond academic support, I actively support students with crafting portfolios for their school applications and showcase their projects and work over the years. I also provide guidance on how to effectively present their work and experiences during interviews, helping them stand out as candidates. Furthermore, I maintain and update the curriculum to ensure it remains relevant and engaging for students.",
+          "image": null
+        },
+        {
+          "text": "While exceedingly rewarding, this role has also been challenging at times. I have had to adapt my teaching methods to cater to different learning styles and paces, ensuring that each student receives the support they need to succeed. This has taught me the importance of patience and empathy in teaching, as well as the value of continuous learning and improvement in my own skills as an educator. I plan to stay with TLC for the foreseeable future, until I settle into a full-time role. I am grateful for the opportunity to make a positive impact on the lives of my students and to contribute to their growth and development.",
+          "image": null
+        }
+      ]
+    }
+  },
+  {
+    "card": {
+      "role": "Data Analyst/Web Dev",
       "organisation": "Sengkang General Hospital",
       "startDate": "Sep 2023",
       "endDate": "Dec 2023",
       "bullets": [
-        "Revamped data pipelines in Excel/Python/R, halving report prep time",
+        "Revamped data pipelines in Excel/Python/R, reducing report prep time",
         "Designed and deployed a React mini-game for 4,000+ staff"
       ],
       "image": "skh.png",
@@ -96,29 +119,37 @@
     "modal": {
       "segments": [
         {
-          "text": "My role at Sengkang General Hospital involved significant data pipeline streamlining. I revamped existing donor data entry and reporting processes, transitioning them from manual Excel-based workflows to automated solutions using Python and R. This optimization successfully halved the report preparation time, freeing up valuable resources for other critical tasks.",
-          "image": null
+          "text": "My internship at SKH (under the Development Office, which handles donor relations and fundraising) was primarily focused on revamping the department's internal donor profiles and financial datasets. I cleaned, transformed, and visualized data using Excel, Python, and R, as well as developing Excel-based automations via VBA and Power Query. This work significantly reduced the time required to prepare reports, allowing the team to focus more on strategic decision-making rather than data wrangling. (Due to the sensitive nature of the data which contains private personal information pertaining to high-profile figures, I am unable to share specific details or screenshots.)", 
+          "image": "skh-data.png"
         },
         {
-          "text": "Beyond data, I also designed and deployed a React mini-game aimed at boosting staff-giving participation. This interactive initiative reached over 4,000 staff members, creating an engaging way to encourage contributions to hospital causes.",
-          "image": null
+          "text": "Beyond data, I also designed and deployed a React mini-game aimed at boosting staff-giving participation in an upcoming internal campaign. It was my first time ever developing a site from scratch. Even though I was deeply unsatisfied with the level of polish due to the short time frame, my supervisors were happy with the result and decided to deploy it. This interactive initiative reached over 4,000 staff members, creating an engaging way to encourage contributions to hospital causes for patients in need. I worked closely with the Lead Analyst of their IT Team, Mr Shahul, to ensure the game was deployed onto their intranet portal, making it easily accessible to all employees. This project not only enhanced my web development skills but also taught me the importance of user engagement in campaigns.",
+          "image": "skh-game.png"
         },
         {
-          "text": "Throughout the project, I coordinated closely with the IT and Communications teams to ensure smooth User Acceptance Testing (UAT) and deployment. I learned to navigate tight deadlines and integrate technical solutions with broader organizational goals, ensuring successful implementation and adoption.",
-          "image": null
+          "text": "On the side, I attended donor meetings and helped out with the logistics of their fundraising efforts, including drafting up letters, managing the inventory of gifts and packing. This experience provided me with a unique perspective on the intersection of data analysis and donor relations, highlighting the importance of data-driven decision-making, even in the nonprofit sector.",
+          "image": "skh-donor.png"
+        },
+        {
+          "text": "I made great friends with my colleagues, who were all very supportive and welcoming, and I'm grateful for the opportunity to work with them. In particular, I would like to thank my co-supervisor, Ms. Rachel Chia, for her guidance and support throughout my internship. Her mentorship was invaluable in helping me navigate the challenges of my role and develop my skills further.",
+          "image": "skh-rachel-gift.png"
+        },
+        {
+          "text": null,
+          "image": "skh-rachel-letter.png"
         }
       ]
     }
   },
   {
     "card": {
-      "role": "Junior Software Developer",
+      "role": "Junior Developer",
       "organisation": "HelloHolo",
       "startDate": "Jan 2023",
       "endDate": "Apr 2023",
       "bullets": [
-        "Built Metaverse-style demos in Unreal Engine 5 for an MNC",
-        "Optimized OpenCV pipelines, improving recognition accuracy by 15%"
+        "Built Metaverse-style demos in Unreal Engine 5 for an MNC client",
+        "Researched OpenCV pipelines for an AR/MR application in Unity"
       ],
       "image": "helloholo.png",
       "placeholder": null
@@ -126,15 +157,15 @@
     "modal": {
       "segments": [
         {
-          "text": "At HelloHolo, I actively collaborated on developing mixed reality (MR) web applications. My primary contribution involved building immersive Metaverse-style demos using Unreal Engine 5, integrating realistic character animations via Mixamo rigs. These demos were showcased to a major multinational corporation, demonstrating cutting-edge MR capabilities.",
+          "text": "At HelloHolo, I actively collaborated on developing mixed reality (MR) web applications. My primary contribution involved building immersive Metaverse-style demos using Unreal Engine 5, integrating realistic character animations via ReadyPlayerMe avatars and Mixamo rigs. Admittedly, this was my first professional experience with a company. I had no prior experience in game development, thus it was a steep learning curve for me. Despite having never worked with Unreal Engine before, my experience in 3D modelling from Rhino and Blender helped me get started. I'm grateful to my friends Ying Xiang and Chin Song who roped me into this opportunity, and to my colleagues at HelloHolo (particularly the CEO at the time, Cheng Heng) for their patience and support.",
+          "image": "helloholo-demo.png"
+        },
+        {
+          "text": "I also worked on finding ways to improve their computer vision pipelines for an AR/MR application in Unity. This involved researching and understanding OpenCV libraries to enhance object recognition and tracking capabilities, which are crucial for creating immersive augmented reality experiences.",
           "image": null
         },
         {
-          "text": "I also worked on optimizing computer vision applications, specifically enhancing OpenCV pipelines. Through meticulous fine-tuning and algorithm adjustments, I managed to improve facial recognition accuracy by 15%. This improvement directly contributed to more robust client solutions requiring precise visual processing.",
-          "image": null
-        },
-        {
-          "text": "This experience provided a deep dive into game engine development for enterprise applications and practical exposure to advanced computer vision techniques, both crucial for the evolving XR landscape.",
+          "text": "This experience was deeply enriching, humbling and eye-opening for me. It provided a deep dive into software development for enterprise applications and practical exposure to advanced computer vision techniques, both crucial for the evolving XR landscape. On a personal level, it was a huge risk for me to take on a role that was leagues beyond my skill level at the time, and I was unsure if I was able to be of any value to the organisation. However, my colleagues were supportive and encouraging, and I am grateful for the opportunity to learn and grow in such a dynamic environment. I learned a lot about the importance of teamwork and communication in software development, as well as the need to be adaptable and open to new challenges.",
           "image": null
         }
       ]
@@ -147,8 +178,8 @@
       "startDate": "Jan 2023",
       "endDate": "Apr 2023",
       "bullets": [
-        "Applied ML clustering & scheduling to optimize nationwide routes",
-        "Built PowerBI+ArcGIS dashboards for live KPI tracking"
+        "Integrated ML (clustering & scheduling) to optimize nationwide truck routes",
+        "Built an integrated PowerBI+ArcGIS dashboard for live KPI tracking"
       ],
       "image": "yeos.png",
       "placeholder": null
@@ -156,45 +187,23 @@
     "modal": {
       "segments": [
         {
-          "text": "During my stint at Yeo’s Pte Ltd, I applied machine learning techniques, specifically clustering and scheduling algorithms, to optimize their nationwide vending machine routes. This initiative led to significant cost reductions, estimated at 20%, by making the delivery and replenishment processes more efficient and geographically intelligent.",
+          "text": "During my industrial attachment at Yeo’s Pte Ltd, my team was tasked to prototype an automated analytics solution for their daily logistics operations. I led my team of 5 students as the project lead, delegating tasks and overseeing the progress and well-being of my team members. For my own part, I developed a clustering algorithm based on K-means clustering to cluster different delivery sites better to optimize their routes, saving the company (especially the truck drivers) a lot of time and effort. This was my first experience with machine learning and leading a team formally while doing client-facing work. Our supervisor, Ms. Alicia, was very supportive and provided us with valuable feedback throughout the project, and even organized a tag-along session with one of their seasoned truck drivers to understand the challenges they face on the ground. This was a great learning experience for me, as I learned how to communicate effectively with clients and understand their needs better.",
+          "image": "yeos-group.jpg"
+        },
+        {
+          "text": null,
+          "image": "yeos-group-2.jpg"
+        },
+        {
+          "text": "I was also responsible for retrieving the geographical data and integrating it into our dashboard using PowerBI and ArcGIS. These dashboards provided live Key Performance Indicator (KPI) tracking, giving management real-time insights into sales, stock levels, and operational times. This enabled proactive decision-making and better resource allocation, which is crucial for optimizing logistics operations.",
           "image": null
         },
         {
-          "text": "I was also responsible for building interactive dashboards using PowerBI and ArcGIS. These dashboards provided live Key Performance Indicator (KPI) tracking, giving management real-time insights into sales, stock levels, and operational bottlenecks. This enabled proactive decision-making and better resource allocation.",
+          "text": "This industrial attachment happened rather early in our academic journey, and we were doubtful as to whether our skills were up to the task. Through hard work and many late nights, we managed to deliver a prototype that met the client's needs - while most other teams delivered proof-of-concepts, our solution (particularly the optimized clustered routes) was of immediate use to the company. My team and I are grateful for the opportunity to work with Yeo's Pte Ltd, and we learned a lot about the importance of data analytics in logistics operations. This experience has further solidified my interest in pursuing a career in data analytics and machine learning, and I am excited to apply the skills I have learned in future projects.",
           "image": null
         },
-        {
-          "text": "A crucial part of my role involved close partnership with the operations team. I integrated real-time sales data into our analytical models and dashboards, ensuring that our optimizations were always based on the most current information. This collaborative approach was key to the successful implementation of the new strategies.",
-          "image": null
-        }
-      ]
-    }
-  },
-  {
-    "card": {
-      "role": "Tutor (Python)",
-      "organisation": "Self-Employed",
-      "startDate": "Jan 2023",
-      "endDate": null,
-      "bullets": [
-        "Provided 1:1 Python coaching covering pandas, data structures",
-        "Created custom exercises to boost retention and interview readiness"
-      ],
-      "image": "tlc.png",
-      "placeholder": null
-    },
-    "modal": {
-      "segments": [
-        {
-          "text": "As a self-employed Python tutor, I provided personalized one-on-one coaching to students, covering fundamental to advanced Python concepts, including data structures, algorithms, and practical applications like data manipulation with pandas. My goal was to build a strong foundational understanding and foster problem-solving skills.",
-          "image": null
-        },
-        {
-          "text": "To enhance learning and retention, I developed custom exercises and coding challenges tailored to each student's needs. This hands-on approach proved highly effective, leading to an average improvement of 25% in students' grades and a significant boost in their confidence.",
-          "image": null
-        },
-        {
-          "text": "Beyond academic support, I actively supported over 20 students with coding interview preparation. This included mock interviews, whiteboard problem-solving, and guidance on how to articulate their thought process, helping them secure competitive internships and full-time roles.",
+    {
+          "text": "More details about the project can be found in the Projects section.",
           "image": null
         }
       ]
@@ -207,8 +216,8 @@
       "startDate": "Nov 2022",
       "endDate": "May 2025",
       "bullets": [
-        "Founded a powerlifting community, improving PRs by 30%",
-        "Built a Telegram bot for automated attendance (Cloudflare Workers)"
+        "Founded a lifting club at SUTD to promote strength training",
+        "Mentored over 60 members, improving their personal fitness journeys"
       ],
       "image": "sutdfitness.png",
       "placeholder": null
@@ -216,15 +225,27 @@
     "modal": {
       "segments": [
         {
-          "text": "I founded the SUTD Fitness Club, building a vibrant powerlifting community from the ground up. Through structured training programs and personalized coaching, I helped members significantly improve their personal records (PRs) by an average of 30%, fostering a culture of strength and continuous improvement.",
-          "image": null
+          "text": "Myself and my roommate at the time, Sufi, founded the SUTD Fitness Club, building a vibrant lifting community from the ground up. The biggest hurdle was getting the club approved by the school administration, which took several months of back-and-forth discussions and meetings. We had to convince them that lifting was a legitimate sport and that we had the necessary safety measures in place. After many meetings and presentations, we finally got the green light to start the club. We organized various events, including introductory workshops, training sessions, and helped members prepare for lifting-related competitions, to promote strength training and lifting within the SUTD community. These events not only helped to raise awareness about the benefits of strength training but also fostered a sense of camaraderie among club members.",
+          "image": "sutdfitness-group.png"
         },
         {
-          "text": "To manage club operations efficiently, I developed a Telegram bot using Cloudflare Workers for automated attendance tracking and member management. This streamlined administrative tasks, allowing coaches to focus more on training and less on paperwork.",
-          "image": null
+          "text": null,
+          "image": "sutdfitness-group-2.jpg"
         },
         {
-          "text": "Beyond organizing the club, I personally mentored over 50 members in proper lifting technique, nutrition, and injury prevention. My coaching also led to several athletes achieving podium finishes at various tertiary powerlifting competitions, showcasing the effectiveness of our training methodologies.",
+          "text": "To manage club operations efficiently, Sufi and I had an idea to develop a Telegram bot using Cloudflare for automated attendance tracking and member management. This streamlined administrative tasks, allowing coaches to focus more on training and less on administrative matters.",
+          "image": "sutdfitness-bot.png"
+        },
+        {
+          "text": "Beyond organizing the club, I personally coached multiple members, helping them improve their lifting techniques and achieve their personal fitness goals. I also helped them prepare for the yearly Tertiary Nationals, a local powerlifting competition affiliated with Singapore Powerlifting.",
+          "image": "sutdfitness-coaching.jpg"
+        },
+        {
+          "text": null,
+          "image": "sutdfitness-coaching-2.jpg"
+        },
+        {
+          "text": "This experience has been incredibly rewarding, as I have seen many members grow stronger and more confident in their abilities. Many were afflicted with body image issues, which I was able to help with (although of course, it was mainly their courage to confront these issues that made the difference). It has also taught me valuable lessons in leadership, teamwork, and the importance of community in achieving personal fitness goals. I am proud of what we have built and look forward to continuing to support the fitness journeys of our members even after I have graduated.",
           "image": null
         }
       ]

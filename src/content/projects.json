@@ -84,12 +84,8 @@
     "modal": {
       "segments": [
         {
-          "text": "This Retrieval-Augmented Generation (RAG) LLM application was developed with a paramount focus on data privacy and security. It enables users to interact with their documents using large language models while guaranteeing that all data processing occurs locally on their machine, without any information leaving the user's environment. This client-side processing architecture was a core design principle to address inherent privacy concerns associated with cloud-based LLM services.",
-          "image": null
-        },
-        {
-          "text": "The backend system included a robust vector store for efficient indexing and semantic search of document content. A comprehensive retrieval pipeline was engineered to accurately identify and extract relevant information from uploaded PDFs in response to user queries. The front-end, built in React, provides a user-friendly interface featuring a custom PDF uploader and an intuitive chat-like querying mechanism. The application supports multi-page documents, enabling highly accurate semantic search and precise answers across complex content.",
-          "image": null
+          "text": "I was inspired by apps that provided access to a variety of models seamlessly such as Faune. My goal was to create a UI that allowed users to upload PDFs and query them with natural language. The app would then return the most relevant information from the PDF, making it easy for users to find answers to their questions. I used Ollama's local embedding model to generate embeddings and store them in a ChromaDB vector database, and then used Mistral via Ollama to generate responses.",
+          "image": "ollama2.png"
         },
         {
           "linkGroup": {
@@ -324,18 +320,17 @@
       "placeholder": "LTA",
       "bullets": [
         "Built a React portal to showcase internal apps and tools",
-        "Implemented CI/CD pipelines using AWS CodePipeline and CodeDeploy",
-        "Designed user-friendly interfaces and analytics for easy navigation and discovery"
+        "Implemented CI/CD pipelines using AWS CodePipeline"
       ]
     },
     "modal": {
       "segments": [
         {
-          "text": "This project involved the development of a comprehensive React-based portal for the Land Transport Authority (LTA) in Singapore. Its primary purpose was to centralize and provide easy access to a multitude of internal applications and tools, thereby significantly enhancing digital accessibility for all employees. The platform was successfully deployed across the organization, serving over 6,000 users, and marked a key contribution to the LTA's ongoing internal digitalization efforts.",
-          "image": null
+          "text": "This project involved the development of a comprehensive React-based portal for the Land Transport Authority (LTA) in Singapore. Its primary purpose was to centralize and provide easy access to a multitude of internal applications and tools, thereby significantly enhancing digital accessibility for all employees. The platform is intended to serve over 6,000 users, and marked a key contribution to the LTA's ongoing internal digitalization efforts.",
+          "image": "dag2.png"
         },
         {
-          "text": "The front-end user interface was developed using React.js, with a strong emphasis on creating a clean, intuitive, and highly responsive design to ensure an optimal user experience. Robust Continuous Integration/Continuous Deployment (CI/CD) pipelines were implemented leveraging AWS CodePipeline and CodeDeploy, which automated and streamlined the deployment processes, ensuring rapid and reliable updates. User-friendly interfaces were designed with integrated analytics capabilities to track app usage, providing valuable insights into employee engagement and facilitating continuous platform improvement and discoverability of essential work tools.",
+          "text": "The front-end user interface was developed using React.js, with a strong emphasis on creating a clean, intuitive, and highly responsive design to ensure an optimal user experience. Robust Continuous Integration/Continuous Deployment (CI/CD) pipelines were implemented leveraging AWS CodePipeline and CodeDeploy, which automated and streamlined the deployment processes, ensuring rapid and reliable updates. User-friendly interfaces were designed with integrated analytics capabilities to track app usage, providing valuable insights into employee engagement and facilitating continuous platform improvement and discoverability of essential work tools. Testing with Cypress, JMeter and Postman was also implemented to ensure the robustness and security of the platform.",
           "image": null
         },
         {

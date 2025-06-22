@@ -1,231 +1,6 @@
 [
   {
     "card": {
-      "title": "Project with Yeo's",
-      "startDate": "Jan 2023",
-      "endDate": "Apr 2023",
-      "image": "yeos.png",
-      "placeholder": "YEO'S",
-      "bullets": [
-        "Built clustering & scheduling algorithms to minimize delivery distance and idle time",
-        "Developed a PowerBI + ArcGIS dashboard for real-time KPI tracking"
-      ]
-    },
-    "modal": {
-      "segments": [
-        {
-          "text": "This project addressed the challenge of optimizing logistics for Yeo's vending machine network in Singapore. The primary goal wasn't just greater efficiency, but improving the truck drivers' quality of life by reducing the number of trips they had to make. The project involved the development of clustering and scheduling algorithms that minimized delivery distances and wasted time (e.g., finding the exact entry point for a customer, waiting around for a customer's pickup time), significantly enhancing operational efficiency. The algorithms were designed to intelligently group vending machines based on their locations and product demand patterns, allowing for more efficient route planning and resource allocation.",
-          "image": "yeos.png"
-        },
-        {
-          "text": null,
-          "image": "yeos1.png"
-        },
-        {
-          "text": "In addition to the algorithms, a comprehensive dashboard was developed using PowerBI and ArcGIS. This dashboard provided real-time tracking of key performance indicators (KPIs), offering valuable insights into the operational efficiency of the vending machine network. It enabled stakeholders to monitor performance metrics, such as delivery times, product availability, and customer interactions, facilitating data-driven decision-making and continuous improvement.",
-          "image": "yeos2.png"
-        },
-        {
-          "text": "In line with the project agreement, we are not allowed to share the code or any sensitive business data. However, our presentation slides, including screenshots of the dashboard and other features were approved to be presented, and can be found in the link below.",
-          "image": null
-        },
-        {
-          "linkGroup": {
-            "demo": "",
-            "source": "https://www.canva.com/design/DAGD35MUmcM/m6sKM0o2a9w8T5jNuybeag/edit"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "card": {
-      "title": "SKH React Game",
-      "startDate": "Sep 2023",
-      "endDate": "Dec 2023",
-      "image": "skhgame.png",
-      "placeholder": "SKH",
-      "bullets": [
-        "Designed & deployed a browser game to boost staff engagement in internal network",
-        "Successfully increased participation in donation campaigns"
-      ]
-    },
-    "modal": {
-      "segments": [
-        {
-          "text": "For SKH, I developed a browser-based game in React to enhance staff engagement and participation in internal donation campaigns. The project was initiated to address the challenge of low participation rates in internal donation drives, which were crucial for supporting various charitable initiatives. The game was designed to be engaging and visually appealing, providing a fun way for employees to give back while also fostering a sense of community within the organization.",
-          "image": "skhgame.png"
-        },
-        {
-          "text": "Being my first React project, I had to learn web fundamentals and React concepts. I proposed the idea of a gatcha game, where the pulled character was randomized. Each pull requires a donation. The idea is that staff members would continue to play (and thus keep donating) until they got the one they wanted. The game is complemented by actual physical hero figurines that staff donors would receive. I faced many IT challenges pertaining to the deployment of the game on their intranet, so the tracking of staff participation was done manually, logging them into an internal Excel sheet that was then used to track the donations. Personally, I felt that the website left a lot to be desired; my implementation was far from optimal, but it was a good first step into the world of web development.",
-          "image": null
-        },
-        {
-          "linkGroup": {
-            "demo": "https://skhgh2024.vercel.app/?id=123",
-            "source": "https://github.com/ibra2407/claw"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "card": {
-      "title": "RAG LLM App",
-      "startDate": "May 2024",
-      "endDate": "Aug 2024",
-      "image": "ollama.png",
-      "placeholder": "RAG",
-      "bullets": [
-        "Implemented vector store and retrieval pipeline in Python",
-        "Integrated front-end with custom PDF uploader and query interface"
-      ]
-    },
-    "modal": {
-      "segments": [
-        {
-          "text": "I was inspired by apps that provided access to a variety of models seamlessly such as Faune. My goal was to create a UI that allowed users to upload PDFs and query them with natural language. The app would then return the most relevant information from the PDF, making it easy for users to find answers to their questions. I used Ollama's local embedding model to generate embeddings and store them in a ChromaDB vector database, and then used Mistral via Ollama to generate responses.",
-          "image": "ollama2.png"
-        },
-        {
-          "linkGroup": {
-            "demo": "",
-            "source": "https://github.com/ibra2407/rag-llm-ui"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "card": {
-      "title": "Bacteria Simulation",
-      "startDate": "Jan 2025",
-      "endDate": "",
-      "image": "bacteria.png",
-      "placeholder": "BACT",
-      "bullets": [
-        "Modeled bacteria behavior using rule-based agents in Python",
-        "Visualized population dynamics over varying simulation parameters"
-      ]
-    },
-    "modal": {
-      "segments": [
-        {
-          "text": "This simulation models the complex behavior of fictional bacteria populations in a dynamic environment. Utilizing rule-based agents, the system mimics biological processes like growth, interaction, and environmental responses, providing a compelling visual output. Bacterias can move, reproduce, and interact with other bacteria, simulating the intricate interactions that occur within a biological system. A suite of graphs visualize the population dynamics over varying simulation parameters, including initial population, growth rate, and environmental conditions. The project's innovative approach to biological modeling garnered recognition, leading to its selection for presentation at the prestigious 2024 SUTD ESD Industry Showcase.",
-          "image": "bacteria.png"
-        },
-        {
-          "text": "Personally, this was an extremely fun project to work on. I had a lot of fun designing the bacteria and their behaviors, and I learned a lot about how to use Python to create simulations. The project was also a great opportunity to learn about how to use rule-based agents to model complex systems. The simulation is highly customizable, allowing users to adjust parameters such as initial population size, growth rate, and environmental conditions, providing a rich platform for exploring biological dynamics.",
-          "image": null
-        },
-                {
-          "text": "More details, including screenshots and a demo, can be found in the link below.",
-          "image": null
-        },
-        {
-          "linkGroup": {
-            "demo": "",
-            "source": "https://github.com/ibra2407/bacteria"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "card": {
-      "title": "Maze Solver",
-      "startDate": "Jan 2025",
-      "endDate": "",
-      "image": "maze.png",
-      "placeholder": "MAZE",
-      "bullets": [
-        "Evolved populations of candidate solutions to navigate grid mazes",
-        "Animated the progressive improvement of solution fitness"
-      ]
-    },
-    "modal": {
-      "segments": [
-        {
-          "text": "This project presents an evolutionary algorithm-based maze solver designed to efficiently navigate complex grid mazes. It generates and evolves populations of candidate solutions, dynamically refining paths across successive generations. The application provides a clear, real-time visualization of how solution fitness progressively improves, making the abstract concepts of evolutionary computing tangible.",
-          "image": "maze.png"
-        },
-        {
-          "text": "More details, including a demo, can be found in the link below.",
-          "image": null
-        },
-        {
-          "linkGroup": {
-            "demo": "",
-            "source": "https://github.com/ibra2407/mazesolver"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "card": {
-      "title": "Data Analysis on Hunger",
-      "startDate": "2024",
-      "endDate": "",
-      "image": "analytics.png",
-      "placeholder": "DATA",
-      "bullets": [
-        "Analyzed various datasets about developing countries",
-        "Built an interactive dashboard for visual insights"
-      ]
-    },
-    "modal": {
-      "segments": [
-        {
-          "text": "This comprehensive data analysis project delved into the multifaceted issue of global hunger, aiming to uncover critical correlations and insights into food insecurity worldwide. It involved rigorously cleaning and integrating diverse datasets from multiple sources to provide a holistic view of the problem. The analysis focused on the interplay between socio-economic factors, such as GDP per capita and education levels, and their impact on food security. The project was driven by the goal of identifying actionable insights that could inform policy decisions and humanitarian efforts.",
-          "image": "analytics.png"
-        },
-        {
-          "text": "More details, including a demo, can be found in the link below.",
-          "image": null
-        },
-        {
-          "linkGroup": {
-            "demo": "https://jwiggs.github.io/GHPages/visualisation.html",
-            "source": "https://github.com/JWIGGS/GHPages"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "card": {
-      "title": "Sushi Restaurant Game",
-      "startDate": "2024",
-      "endDate": "",
-      "image": "sushi.png",
-      "placeholder": "SUSHI",
-      "bullets": [
-        "Modeled real-world arrival rates and service times",
-        "Implemented dynamic UI updates in RShiny"
-      ]
-    },
-    "modal": {
-      "segments": [
-        {
-          "text": "This project developed a simulation game for a sushi restaurant, meticulously designed to assist managers in optimizing their operations. The primary goal was to improve customer throughput and overall efficiency within the restaurant without requiring additional staff. The simulation accurately models real-world customer arrival rates and service times, offering a realistic scenario for strategic operational planning.",
-          "image": null
-        },
-        {
-          "text": "A robust discrete-event simulation model was developed to represent the intricate operations of the sushi restaurant, from customer seating to order fulfillment. Dynamic user interface updates were implemented using RShiny, allowing managers to interact with simulation parameters in real-time and immediately observe the impacts of their decisions. The tool provides actionable insights into optimal staffing levels, kitchen efficiency, and predicted customer wait times under various operational scenarios, receiving positive feedback for its intuitive controls and clear visual feedback.",
-          "image": null
-        },
-        {
-          "linkGroup": {
-            "demo": "",
-            "source": "https://github.com/ibra2407/sushi"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "card": {
       "title": "Fingerprint Inpainting",
       "startDate": "Feb 2025",
       "endDate": "Apr 2025",
@@ -313,6 +88,33 @@
   },
   {
     "card": {
+      "title": "RAG LLM App",
+      "startDate": "Aug 2024",
+      "endDate": "",
+      "image": "ollama.png",
+      "placeholder": "RAG",
+      "bullets": [
+        "Implemented vector store and retrieval pipeline in Python",
+        "Integrated front-end with custom PDF uploader and query interface"
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "I was inspired by LTA's efforts at creating a company-wide RAG app. As such, in my own exploration, my goal was to create a UI that allowed users to upload PDFs and query them with natural language. The app would then return the most relevant information from the PDF, making it easy for users to find answers to their questions. I used Ollama's local embedding model to generate embeddings and store them in a ChromaDB vector database, and then used Mistral via Ollama to generate responses.",
+          "image": "ollama2.png"
+        },
+        {
+          "linkGroup": {
+            "demo": "",
+            "source": "https://github.com/ibra2407/rag-llm-ui"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card": {
       "title": "Digital App Gallery",
       "startDate": "May 2024",
       "endDate": "Aug 2024",
@@ -337,6 +139,204 @@
           "linkGroup": {
             "demo": "",
             "source": ""
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card": {
+      "title": "Bacteria Simulation",
+      "startDate": "Jan 2024",
+      "endDate": "",
+      "image": "bacteria.png",
+      "placeholder": "BACT",
+      "bullets": [
+        "Modeled bacteria behavior using rule-based agents in Python",
+        "Visualized population dynamics over varying simulation parameters"
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "This simulation models the complex behavior of fictional bacteria populations in a dynamic environment. Utilizing rule-based agents, the system mimics biological processes like growth, interaction, and environmental responses, providing a compelling visual output. Bacterias can move, reproduce, and interact with other bacteria, simulating the intricate interactions that occur within a biological system. A suite of graphs visualize the population dynamics over varying simulation parameters, including initial population, growth rate, and environmental conditions. The project's innovative approach to biological modeling garnered recognition, leading to its selection for presentation at the prestigious 2024 SUTD ESD Industry Showcase.",
+          "image": "bacteria.png"
+        },
+        {
+          "text": "Personally, this was an extremely fun project to work on. I had a lot of fun designing the bacteria and their behaviors, and I learned a lot about how to use Python to create simulations. The project was also a great opportunity to learn about how to use rule-based agents to model complex systems. The simulation is highly customizable, allowing users to adjust parameters such as initial population size, growth rate, and environmental conditions, providing a rich platform for exploring biological dynamics.",
+          "image": null
+        },
+                {
+          "text": "More details, including screenshots and a demo, can be found in the link below.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "",
+            "source": "https://github.com/ibra2407/bacteria"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card": {
+      "title": "Maze Solver",
+      "startDate": "Jan 2024",
+      "endDate": "",
+      "image": "maze.png",
+      "placeholder": "MAZE",
+      "bullets": [
+        "Evolved populations of candidate solutions to navigate grid mazes",
+        "Animated the progressive improvement of solution fitness"
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "This project presents an evolutionary algorithm-based maze solver designed to efficiently navigate complex grid mazes. It generates and evolves populations of candidate solutions, dynamically refining paths across successive generations. The application provides a clear, real-time visualization of how solution fitness progressively improves, making the abstract concepts of evolutionary computing tangible.",
+          "image": "maze.png"
+        },
+        {
+          "text": "More details, including a demo, can be found in the link below.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "",
+            "source": "https://github.com/ibra2407/mazesolver"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card": {
+      "title": "SKH React Game",
+      "startDate": "Sep 2023",
+      "endDate": "Dec 2023",
+      "image": "skhgame.png",
+      "placeholder": "SKH",
+      "bullets": [
+        "Designed & deployed a browser game to boost staff engagement in internal network",
+        "Successfully increased participation in donation campaigns"
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "For SKH, I developed a browser-based game in React to enhance staff engagement and participation in internal donation campaigns. The project was initiated to address the challenge of low participation rates in internal donation drives, which were crucial for supporting various charitable initiatives. The game was designed to be engaging and visually appealing, providing a fun way for employees to give back while also fostering a sense of community within the organization.",
+          "image": "skhgame.png"
+        },
+        {
+          "text": "Being my first React project, I had to learn web fundamentals and React concepts. I proposed the idea of a gatcha game, where the pulled character was randomized. Each pull requires a donation. The idea is that staff members would continue to play (and thus keep donating) until they got the one they wanted. The game is complemented by actual physical hero figurines that staff donors would receive. I faced many IT challenges pertaining to the deployment of the game on their intranet, so the tracking of staff participation was done manually, logging them into an internal Excel sheet that was then used to track the donations. Personally, I felt that the website left a lot to be desired; my implementation was far from optimal, but it was a good first step into the world of web development.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "https://skhgh2024.vercel.app/?id=123",
+            "source": "https://github.com/ibra2407/claw"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card": {
+      "title": "Sushi Restaurant Game",
+      "startDate": "2023",
+      "endDate": "",
+      "image": "sushi.png",
+      "placeholder": "SUSHI",
+      "bullets": [
+        "Modeled real-world arrival rates and service times",
+        "Implemented dynamic UI updates in RShiny"
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "This project developed a simulation game for a sushi restaurant, meticulously designed to assist managers in optimizing their operations. The primary goal was to improve customer throughput and overall efficiency within the restaurant without requiring additional staff. The simulation accurately models real-world customer arrival rates and service times, offering a realistic scenario for strategic operational planning.",
+          "image": null
+        },
+        {
+          "text": "A robust discrete-event simulation model was developed to represent the intricate operations of the sushi restaurant, from customer seating to order fulfillment. Dynamic user interface updates were implemented using RShiny, allowing managers to interact with simulation parameters in real-time and immediately observe the impacts of their decisions. The tool provides actionable insights into optimal staffing levels, kitchen efficiency, and predicted customer wait times under various operational scenarios, receiving positive feedback for its intuitive controls and clear visual feedback.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "",
+            "source": "https://github.com/ibra2407/sushi"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card": {
+      "title": "Project with Yeo's",
+      "startDate": "Jan 2023",
+      "endDate": "Apr 2023",
+      "image": "yeos.png",
+      "placeholder": "YEO'S",
+      "bullets": [
+        "Built clustering & scheduling algorithms to minimize delivery distance and idle time",
+        "Developed a PowerBI + ArcGIS dashboard for real-time KPI tracking"
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "This project addressed the challenge of optimizing logistics for Yeo's vending machine network in Singapore. The primary goal wasn't just greater efficiency, but improving the truck drivers' quality of life by reducing the number of trips they had to make. The project involved the development of clustering and scheduling algorithms that minimized delivery distances and wasted time (e.g., finding the exact entry point for a customer, waiting around for a customer's pickup time), significantly enhancing operational efficiency. The algorithms were designed to intelligently group vending machines based on their locations and product demand patterns, allowing for more efficient route planning and resource allocation.",
+          "image": "yeos.png"
+        },
+        {
+          "text": null,
+          "image": "yeos1.png"
+        },
+        {
+          "text": "In addition to the algorithms, a comprehensive dashboard was developed using PowerBI and ArcGIS. This dashboard provided real-time tracking of key performance indicators (KPIs), offering valuable insights into the operational efficiency of the vending machine network. It enabled stakeholders to monitor performance metrics, such as delivery times, product availability, and customer interactions, facilitating data-driven decision-making and continuous improvement.",
+          "image": "yeos2.png"
+        },
+        {
+          "text": "In line with the project agreement, we are not allowed to share the code or any sensitive business data. However, our presentation slides, including screenshots of the dashboard and other features were approved to be presented, and can be found in the link below.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "",
+            "source": "https://www.canva.com/design/DAGD35MUmcM/m6sKM0o2a9w8T5jNuybeag/edit"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card": {
+      "title": "Data Analysis on Hunger",
+      "startDate": "2022",
+      "endDate": "",
+      "image": "analytics.png",
+      "placeholder": "DATA",
+      "bullets": [
+        "Analyzed various datasets about developing countries",
+        "Built an interactive dashboard for visual insights"
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "This comprehensive data analysis project delved into the multifaceted issue of global hunger, aiming to uncover critical correlations and insights into food insecurity worldwide. It involved rigorously cleaning and integrating diverse datasets from multiple sources to provide a holistic view of the problem. The analysis focused on the interplay between socio-economic factors, such as GDP per capita and education levels, and their impact on food security. The project was driven by the goal of identifying actionable insights that could inform policy decisions and humanitarian efforts.",
+          "image": "analytics.png"
+        },
+        {
+          "text": "More details, including a demo, can be found in the link below.",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "https://jwiggs.github.io/GHPages/visualisation.html",
+            "source": "https://github.com/JWIGGS/GHPages"
           }
         }
       ]

@@ -193,7 +193,7 @@ export default function Hero() {
               <br />
               <br />
               <strong className="text-gray-800 dark:text-gray-200">
-                (this site is an update of my previous portfolio. it's still under construction! – 10.06.2025)
+                (This site is an update of my previous portfolio. It's still under construction!)
               </strong>
             </motion.p>
 

@@ -58,12 +58,13 @@ export default function Projects() {
   }
 
   const sorted = [...projects].sort((a, b) => {
-    const parse = (s) => new Date(s)
-    const endA = a.card.endDate ? parse(a.card.endDate) : parse(a.card.startDate)
-    const endB = b.card.endDate ? parse(b.card.endDate) : parse(b.card.startDate)
-    if (endB - endA !== 0) return endB - endA
-    return parse(b.card.startDate) - parse(a.card.startDate)
-  })
+    // This will sort by the most recent date, prioritizing endDate if available,
+    // otherwise falling back to startDate.
+    const dateA = a.card.endDate ? new Date(a.card.endDate) : new Date(a.card.startDate);
+    const dateB = b.card.endDate ? new Date(b.card.endDate) : new Date(b.card.startDate);
+    
+    return dateB - dateA; // Sort in descending order (most recent first)
+  });
 
   return (
     <section id="projects" className="py-16 bg-white dark:bg-gray-900 transition-colors">

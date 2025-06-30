@@ -311,6 +311,37 @@
       ]
     }
   },
+    {
+    "card": {
+      "title": "Mycelium Architecture",
+      "startDate": "2022",
+      "endDate": "",
+      "image": "mycelia1.png",
+      "placeholder": "MYCELIA",
+      "bullets": [
+        "Using Rhino3D and Unreal Engine 5, designed and created a mycelium (fungus) inspired architecture",
+        "Incorporated sustainable design principles and biomimicry, with a focus on natural materials, energy efficiency and human comfort"
+      ]
+    },
+    "modal": {
+      "segments": [
+        {
+          "text": "Inspired by a variety of fungi, this project explores the intersection of architecture and nature, focusing on the principles of biomimicry and sustainable design. The design process involved extensive research into the structural and aesthetic properties of mycelium, such as its growth patterns, textures and material properties, leading to the creation of a unique architectural form that mimics the organic patterns of fungi. The project emphasizes the use of natural materials, energy efficiency, and human comfort, aiming to create a built environment that harmonizes with its natural surroundings. The use of natural, organic curves, coupled with the structural integrity of mycelium, results in a design that is not only visually striking but also environmentally sustainable.",
+          "image": "mycelia2.png"
+        },
+        {
+          "text": "Watch the demo video below!",
+          "image": null
+        },
+        {
+          "linkGroup": {
+            "demo": "https://www.youtube.com/watch?v=7-whLaySxo8",
+            "source": ""
+          }
+        }
+      ]
+    }
+  },
   {
     "card": {
       "title": "Data Analysis on Hunger",
